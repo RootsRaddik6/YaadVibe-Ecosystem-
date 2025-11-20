@@ -1,9 +1,12 @@
 "use client";
 
-export default function TipButton() {
+export default function TipButton({ onTip }: { onTip: () => void }) {
   return (
-    <button className="text-3xl bg-black/60 rounded-full px-4 py-2 backdrop-blur border border-white/40 fixed bottom-6 right-6 z-50 shadow-xl">
-      🔥
+    <button
+      onClick={onTip}
+      className="fixed bottom-6 right-6 z-50 bg-yellow-400 text-black px-5 py-3 text-lg font-bold rounded-full shadow-xl"
+    >
+      🔥 Tip
     </button>
   );
 }
