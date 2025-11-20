@@ -1,12 +1,16 @@
-import Link from "next/link";
+"use client";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function BackButton() {
+  const router = useRouter();
+
   return (
-    <Link
-      href="/"
-      className="text-xl font-bold bg-black/60 px-4 py-2 rounded-full backdrop-blur border border-white/30 fixed top-4 right-4 z-50"
+    <button
+      onClick={() => router.back()}
+      className="fixed top-4 right-4 z-50 bg-black/60 px-4 py-2 rounded-xl border border-white/30 backdrop-blur-md"
     >
-      ← Back
-    </Link>
+      ⬅ Back
+    </button>
   );
 }
