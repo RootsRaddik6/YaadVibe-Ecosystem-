@@ -14,22 +14,15 @@ export async function POST(req: Request) {
       guests,
     } = body;
 
-    // Transport fee
     const baseTransport = transport === "knutsford" ? 4200 : 0;
-
-    // Hotel fee example
-    const hotelRate = 28000; // per night
-
-    // Excursion fee example
+    const hotelRate = 28000;
     const excursionRate = 4500;
 
-    // Cost calculation
     const cost =
       baseTransport * guests +
       hotelRate * nights +
       (excursions?.length ?? 0) * excursionRate;
 
-    // 2% platform fee
     const platformFee = +(cost * 0.02).toFixed(2);
 
     return NextResponse.json({
@@ -38,7 +31,7 @@ export async function POST(req: Request) {
       platformFee,
       total: cost + platformFee,
     });
-  } catch (err) {
+  } catch {
     return NextResponse.json(
       { error: "Invalid booking request" },
       { status: 400 }
