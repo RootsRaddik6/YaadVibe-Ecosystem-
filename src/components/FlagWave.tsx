@@ -1,10 +1,18 @@
+// components/FlagWave.tsx
+"use client";
 import Image from "next/image";
-import Flag from "@/public/ui/flag.png";
+import { getUiPath } from "@/lib/imageFallback";
 
 export default function FlagWave() {
   return (
     <div className="fixed top-4 left-4 z-50 animate-flagwave">
-      <Image src={Flag} alt="Flag" width={55} height={55} />
+      <Image
+        src={getUiPath("flag")}
+        alt="Flag"
+        width={56}
+        height={36}
+        priority
+      />
       <style jsx>{`
         @keyframes flagwave {
           0% { transform: rotate(0deg); }
