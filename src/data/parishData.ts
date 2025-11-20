@@ -2,71 +2,102 @@
 
 export const parishes = [
   {
-    parish: "Kingston",
-    towns: ["Kingston", "New Kingston", "Cross Roads", "Downtown"],
+    name: "Kingston",
+    towns: ["Kingston", "New Kingston", "Downtown"],
+    airport: "KIN",
+    attractions: ["Bob Marley Museum", "Devon House", "Port Royal"],
+    hotels: ["Courtleigh", "AC Marriott", "Pegasus"],
   },
+
   {
-    parish: "St. Andrew",
-    towns: [
-      "Half Way Tree",
-      "Constant Spring",
-      "Papine",
-      "Liguanea",
-      "Manor Park",
-    ],
+    name: "St. Andrew",
+    towns: ["Half Way Tree", "Constant Spring", "Norbrook"],
+    airport: "KIN",
+    attractions: ["Hope Gardens", "Blue Mountain Peak"],
+    hotels: ["Spanish Court", "R Hotel"],
   },
+
   {
-    parish: "St. Catherine",
-    towns: [
-      "Spanish Town",
-      "Portmore",
-      "Old Harbour",
-      "Linstead",
-      "Ewarton",
-    ],
+    name: "St. Thomas",
+    towns: ["Morant Bay", "Yallahs", "Bath"],
+    attractions: ["Reggae Falls", "Bath Fountain"],
+    hotels: ["Golden Shore"],
   },
+
   {
-    parish: "Clarendon",
-    towns: ["May Pen", "Milk River", "Lionel Town", "Race Course"],
+    name: "Portland",
+    towns: ["Port Antonio", "Buff Bay", "Hope Bay"],
+    attractions: ["Blue Lagoon", "Frenchman's Cove"],
+    hotels: ["Geejam", "Trident"],
   },
+
   {
-    parish: "Manchester",
-    towns: ["Mandeville", "Christiana", "Kendal"],
+    name: "St. Mary",
+    towns: ["Annotto Bay", "Port Maria"],
+    attractions: ["James Bond Beach"],
+    hotels: ["Couples Tower Isle"],
   },
+
   {
-    parish: "St. Elizabeth",
-    towns: ["Santa Cruz", "Black River", "Lacovia"],
+    name: "St. Ann",
+    towns: ["Ocho Rios", "Runaway Bay"],
+    attractions: ["Dunn's River Falls", "Mystic Mountain"],
+    hotels: ["Moon Palace", "RIU Ocho Rios"],
   },
+
   {
-    parish: "Westmoreland",
-    towns: ["Savanna-la-Mar", "Negril", "Little London"],
+    name: "Trelawny",
+    towns: ["Falmouth", "Duncans"],
+    attractions: ["Luminous Lagoon"],
+    hotels: ["Royalton", "Melia Braco"],
   },
+
   {
-    parish: "Hanover",
-    towns: ["Lucea", "Hopewell", "Green Island"],
+    name: "St. James",
+    towns: ["Montego Bay", "Ironshore"],
+    attractions: ["Doctor's Cave Beach"],
+    hotels: ["Secrets", "Hyatt Ziva"],
   },
+
   {
-    parish: "St. James",
-    towns: ["Montego Bay", "Ironshore", "Rose Hall"],
+    name: "Hanover",
+    towns: ["Lucea", "Hopewell"],
+    attractions: ["Dolphin Cove"],
+    hotels: ["Grand Palladium"],
   },
+
   {
-    parish: "Trelawny",
-    towns: ["Falmouth", "Duncans", "Clarks Town"],
+    name: "Westmoreland",
+    towns: ["Negril", "Savanna-la-mar"],
+    attractions: ["Seven Mile Beach", "Rick’s Cafe"],
+    hotels: ["Royalton Negril", "Sandals Negril"],
   },
+
   {
-    parish: "St. Ann",
-    towns: ["Ocho Rios", "Runaway Bay", "St. Ann's Bay"],
+    name: "St. Elizabeth",
+    towns: ["Black River", "Treasure Beach"],
+    attractions: ["YS Falls", "Appleton Estate"],
+    hotels: ["Jake’s Hotel"],
   },
+
   {
-    parish: "St. Mary",
-    towns: ["Port Maria", "Oracabessa", "Annotto Bay"],
+    name: "Manchester",
+    towns: ["Mandeville", "Christiana"],
+    attractions: ["Mandeville Square"],
+    hotels: ["Golf View Hotel"],
   },
+
   {
-    parish: "Portland",
-    towns: ["Port Antonio", "Buff Bay", "Manchioneal"],
+    name: "Clarendon",
+    towns: ["May Pen", "Chapelton"],
+    attractions: ["Milk River Spa"],
+    hotels: ["Ginger Ridge Lodge"],
   },
+
   {
-    parish: "St. Thomas",
-    towns: ["Morant Bay", "Yallahs", "Port Morant"],
+    name: "St. Catherine",
+    towns: ["Spanish Town", "Portmore", "Linstead"],
+    attractions: ["Hellshire Beach"],
+    hotels: ["Portmore Villas"],
   },
 ];
