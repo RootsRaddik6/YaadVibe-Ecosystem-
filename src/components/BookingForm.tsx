@@ -1,142 +1,52 @@
+// src/app/components/BookingForm.tsx
 "use client";
+import React, { useEffect, useState } from "react";
 
-import { useState } from "react";
+type ParishSummary = { name: string; code: string; description?: string; image?: string; mainAirport?: string | null; };
+type Meta = any;
 
-import {
-  PARISHES,
-  TOWNS,
-  HOTELS,
-  TOURS,
-  TRANSPORT_OPTIONS,
-  FLIGHTS,
-  ATTRACTIONS
-} from "@/app/parishData";
+export default function BookingForm() {
+  const [parish, setParish] = useState<string>("");
+  const [parishMeta, setParishMeta] = useState<Meta | null>(null);
+  const [fullData, setFullData] = useState<any | null>(null);
+  const [town, setTown] = useState<string>("");
 
-const BookingForm = () => {
-  const [selectedParish, setSelectedParish] = useState<string>("");
-  const [selectedTown, setSelectedTown] = useState<string>("");
+  useEffect(() => {
+    if (!parish) return;
+    // fast meta (summary)
+    fetch(`/api/parishes/${parish}/summary`, { headers: { "x-api-key": "" } })
+      .then(r => r.json())
+      .then(js => { if (js.status === "ok") setParishMeta(js.payload.meta); else setParishMeta(null); })
+      .catch(() => setParishMeta(null));
 
-  const towns = TOWNS.find(t => t.parishCode === selectedParish)?.towns || [];
-
-  const hotels = HOTELS.filter(h => h.parishCode === selectedParish);
-  const tours = TOURS.filter(t => t.parishCode === selectedParish);
-  const transport = TRANSPORT_OPTIONS.filter(t => t.parishCode === selectedParish);
-  const attractions = ATTRACTIONS.filter(a => a.parishCode === selectedParish);
-  const airports = FLIGHTS.filter(f => f.parishHint === selectedParish);
+    // full data later (optional)
+    fetch(`/api/parishes/${parish}`)
+      .then(r => r.json())
+      .then(js => { if (js.status === "ok") setFullData(js.payload); })
+      .catch(() => setFullData(null));
+  }, [parish]);
 
   return (
-    <div className="booking-form p-4 space-y-6">
-      {/* SELECT PARISH */}
-      <div>
-        <label className="font-semibold block mb-1">Select Parish</label>
-        <select
-          className="border p-2 rounded w-full"
-          value={selectedParish}
-          onChange={(e) => {
-            setSelectedParish(e.target.value);
-            setSelectedTown("");
-          }}
-        >
-          <option value="">Choose parish...</option>
-          {PARISHES.map(p => (
-            <option key={p.code} value={p.code}>{p.name}</option>
-          ))}
-        </select>
-      </div>
-
-      {/* SELECT TOWN */}
-      {selectedParish && (
-        <div>
-          <label className="font-semibold block mb-1">Select Town</label>
-          <select
-            className="border p-2 rounded w-full"
-            value={selectedTown}
-            onChange={(e) => setSelectedTown(e.target.value)}
-          >
-            <option value="">Choose town...</option>
-            {towns.map(t => (
-              <option key={t} value={t}>{t}</option>
-            ))}
+    <div className="p-4">
+      <label>Parish</label>
+      <input value={parish} onChange={e => setParish(e.target.value)} placeholder="e.g. st-james" />
+      {parishMeta && (
+        <div className="mt-3 p-2 border rounded">
+          <strong>Summary</strong>
+          <div>Hotels: {parishMeta.hotels.count}</div>
+          <div>Tours: {parishMeta.tours.count}</div>
+          <div>Attractions: {parishMeta.attractions.count}</div>
+        </div>
+      )}
+      {fullData && (
+        <div className="mt-3">
+          <strong>Town Picker</strong>
+          <select value={town} onChange={e => setTown(e.target.value)}>
+            <option value="">Choose town</option>
+            {fullData.towns.map((t: string) => <option key={t} value={t}>{t}</option>)}
           </select>
-        </div>
-      )}
-
-      {/* HOTELS */}
-      {selectedParish && (
-        <div>
-          <h3 className="text-lg font-bold">Hotels in this area</h3>
-          <ul className="list-disc ml-5">
-            {hotels.length === 0 && <li>No listed hotels yet.</li>}
-            {hotels.map(h => (
-              <li key={h.name}>
-                {h.name} {h.rating ? `(${h.rating}★)` : ""}  
-                {h.url && <a className="text-blue-500 ml-2" href={h.url} target="_blank">Visit</a>}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {/* TOURS */}
-      {selectedParish && (
-        <div>
-          <h3 className="text-lg font-bold">Available Tours</h3>
-          <ul className="list-disc ml-5">
-            {tours.length === 0 && <li>No tours listed.</li>}
-            {tours.map(t => (
-              <li key={t.name}>
-                {t.name} — {t.durationMins ? `${t.durationMins} mins` : "Duration varies"}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {/* TRANSPORT */}
-      {selectedParish && (
-        <div>
-          <h3 className="text-lg font-bold">Transport Options</h3>
-          <ul className="list-disc ml-5">
-            {transport.length === 0 && <li>No transport options.</li>}
-            {transport.map(t => (
-              <li key={t.name}>
-                {t.name} ({t.type}) {t.notes ? `— ${t.notes}` : ""}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {/* ATTRACTIONS */}
-      {selectedParish && (
-        <div>
-          <h3 className="text-lg font-bold">Attractions</h3>
-          <ul className="list-disc ml-5">
-            {attractions.length === 0 && <li>No attractions.</li>}
-            {attractions.map(a => (
-              <li key={a.name}>
-                {a.name} — {a.type}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {/* FLIGHTS */}
-      {selectedParish && airports.length > 0 && (
-        <div>
-          <h3 className="text-lg font-bold">Closest Airports</h3>
-          <ul className="list-disc ml-5">
-            {airports.map(a => (
-              <li key={a.airportCode}>
-                {a.name} ({a.airportCode})
-              </li>
-            ))}
-          </ul>
         </div>
       )}
     </div>
   );
-};
-
-export default BookingForm;
+}
