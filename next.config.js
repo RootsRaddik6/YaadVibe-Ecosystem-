@@ -21,6 +21,7 @@ const nextConfig = {
       { protocol: "https", hostname: "**.googleusercontent.com" },
       { protocol: "https", hostname: "**.visitjamaica.com" },
       { protocol: "https", hostname: "**.ytimg.com" },
+      { protocol: "https", hostname: "**.unsplash.com" },
     ],
   },
 
