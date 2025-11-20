@@ -2,12 +2,13 @@ import { SITE } from "@/config/siteConfig";
 import ParishRollerDex from "@/components/ParishRollerDex";
 import IconRow from "@/components/IconRow";
 
-export default function HomePage() {
+export default function Home() {
   return (
-    <section style={{ padding: 24 }}>
-      <h1>YaadVibe Ecosystem</h1>
-      <p>Base: {SITE.BASE_URL}</p>
-
+    <div className="text-white p-8">
+      <h1>YaadVibe Ecosystem Loaded</h1>
+    </div>
+  );
+}
       <div style={{ marginTop: 24 }}>
         <div style={{ maxWidth: 980, margin: "0 auto" }}>
           <div style={{ borderRadius: 12, overflow: "hidden", position: "relative" }}>
