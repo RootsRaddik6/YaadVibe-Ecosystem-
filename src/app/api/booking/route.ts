@@ -14,15 +14,22 @@ export async function POST(req: Request) {
       guests,
     } = body;
 
+    // Transport fee
     const baseTransport = transport === "knutsford" ? 4200 : 0;
+
+    // Hotel fee example
     const hotelRate = 28000; // per night
+
+    // Excursion fee example
     const excursionRate = 4500;
 
+    // Cost calculation
     const cost =
       baseTransport * guests +
       hotelRate * nights +
-      excursionRate * excursions.length;
+      (excursions?.length ?? 0) * excursionRate;
 
+    // 2% platform fee
     const platformFee = +(cost * 0.02).toFixed(2);
 
     return NextResponse.json({
