@@ -1,44 +1,22 @@
 // src/lib/ton.ts
-import { TonClient, WalletContractV4, internal, beginCell } from "@ton/ton";
-import { mnemonicToPrivateKey } from "@ton/crypto";
+// This is a minimal TON wrapper — adapt to the exact SDK you prefer.
+// The example below uses a generic HTTP client approach.
 
-export const tonClient = new TonClient({
-  endpoint: "https://testnet.toncenter.com/api/v2/jsonRPC",
-  apiKey: process.env.TONCENTER_API_KEY,
-});
+export const TON_ENDPOINT = process.env.TON_ENDPOINT || "https://testnet.toncenter.com";
+export const TON_API_KEY = process.env.TONCENTER_API_KEY || "";
 
-// Initialize wallet from mnemonic
-export async function getTonWallet() {
-  const mnemonic = process.env.TON_MNEMONIC?.split(" ");
-  if (!mnemonic) throw new Error("Missing TON_MNEMONIC");
-
-  const keyPair = await mnemonicToPrivateKey(mnemonic);
-
-  const wallet = WalletContractV4.create({
-    publicKey: keyPair.publicKey,
-    workchain: 0,
+export async function sendTon(to: string, amountNano: number) {
+  // This function sketches sending TON via your chosen SDK or provider.
+  // Replace with Ton SDK (e.g. ton-client-js) implementation you prefer.
+  // Example: call your TON node or TONCenter API to submit transfer.
+  const res = await fetch(`${TON_ENDPOINT}/v2/transfer`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Api-Key": TON_API_KEY,
+    },
+    body: JSON.stringify({ to, amount: amountNano }),
   });
-
-  return { wallet, keyPair };
-}
-
-// Send TON payment
-export async function sendTon(to: string, amountTon: number) {
-  const { wallet, keyPair } = await getTonWallet();
-  const walletContract = tonClient.open(wallet);
-
-  const seqno = await walletContract.getSeqno();
-
-  await walletContract.sendTransfer({
-    secretKey: keyPair.secretKey,
-    seqno,
-    messages: [
-      internal({
-        to,
-        value: amountTon * 1e9, // TON => nanoTON
-      }),
-    ],
-  });
-
-  return { success: true };
+  if (!res.ok) throw new Error(`TON send failed: ${res.status}`);
+  return res.json();
 }
