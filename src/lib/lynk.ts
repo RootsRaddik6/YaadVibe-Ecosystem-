@@ -1,15 +1,19 @@
-export async function sendLynkPayment(amount: number, orderId: string) {
-  const apiKey = process.env.LYNK_API_KEY;
-  const merchantId = process.env.LYNK_MERCHANT_ID;
+// src/lib/lynk.ts
+export async function createLynkPayment(amount: number, currency: string = "USD") {
+  const res = await fetch("https://api.lynk.global/payments", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.LYNK_API_KEY}`,
+    },
+    body: JSON.stringify({
+      amount,
+      currency,
+      metadata: { service: "YaadVibe Booking" },
+    }),
+  });
 
-  if (!apiKey || !merchantId)
-    throw new Error("Missing LYNK credentials");
+  if (!res.ok) throw new Error("Failed to create Lynk payment");
 
-  // Mock Lynk response for now
-  return {
-    status: "success",
-    amount,
-    orderId,
-    reference: "LYNK-" + Math.floor(Math.random() * 999999),
-  };
+  return await res.json();
 }
