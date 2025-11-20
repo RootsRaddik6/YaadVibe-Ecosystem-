@@ -1,7 +1,10 @@
-import { parishData } from '@/data/parishData';
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
+import { parishes } from "@/data/parishData";
 
 export async function GET() {
-  const parishes = parishData.map(p => p.parish);
-  return NextResponse.json(parishes);
+  try {
+    return NextResponse.json({ ok: true, parishes });
+  } catch (err) {
+    return NextResponse.json({ ok: false, error: "Failed to load parishes" }, { status: 500 });
+  }
 }
