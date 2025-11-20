@@ -1,204 +1,188 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
+import { parishes } from "@/app/parishData";
+import Modal from "@/components/Modal";
 
-interface BookingFormProps {
-  parish?: string;
-  town?: string;
-  category?: "accommodation" | "flights" | "tours" | "transportation" | "all";
-  metadata?: any; // from parishData.ts, scraped data, API results, etc.
-}
-
-export default function BookingForm({
-  parish,
-  town,
-  category = "all",
-  metadata = {}
-}: BookingFormProps) {
+export default function BookingForm() {
+  const [open, setOpen] = useState(false);
 
   const [form, setForm] = useState({
-    type: category !== "all" ? category : "",
-    name: "",
-    email: "",
-    dates: { from: "", to: "" },
-    guests: 1,
-    flightFrom: "",
-    flightTo: parish || "",
+    parish: "",
+    town: "",
+    hotel: "",
     tour: "",
-    transportType: "",
+    transport: "",
+    dates: { start: "", end: "" },
   });
 
-  function handleChange(e: any) {
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const selectedParish = useMemo(
+    () => parishes.find((p) => p.name === form.parish),
+    [form.parish]
+  );
+
+  const towns = selectedParish?.towns ?? [];
+  const hotels = selectedParish?.hotels ?? [];
+  const tours = selectedParish?.tours ?? [];
+  const transport = selectedParish?.transport ?? [];
+
+  function update<K extends keyof typeof form>(key: K, value: any) {
+    setForm((f) => ({
+      ...f,
+      [key]: value,
+      ...(key === "parish"
+        ? { town: "", hotel: "", tour: "", transport: "" }
+        : {}),
+    }));
   }
 
-  function handleDate(e: any) {
-    setForm({
-      ...form,
-      dates: { ...form.dates, [e.target.name]: e.target.value }
+  async function handleSubmit() {
+    const res = await fetch("/api/booking", {
+      method: "POST",
+      body: JSON.stringify(form),
+      headers: { "Content-Type": "application/json" },
     });
-  }
 
-  function submit() {
-    console.log("Submitting Booking ➜", form);
-
-    // You can replace this with:
-    // /api/booking , /api/payments/ton , stripe , lynk etc.
-    alert("Booking submitted successfully!");
+    const data = await res.json();
+    alert("Booking response:\n" + JSON.stringify(data, null, 2));
   }
 
   return (
-    <div className="w-full max-w-xl mx-auto p-6 rounded-xl border bg-black/20 backdrop-blur text-white">
-
-      <h2 className="text-xl font-semibold mb-4">
-        Booking Request {parish ? `for ${parish}` : ""}
-      </h2>
-
-      {/* Booking Type */}
-      <div className="mb-4">
-        <label className="block text-sm mb-1">Booking Type</label>
-        <select
-          name="type"
-          className="w-full p-2 rounded bg-black/40 border"
-          value={form.type}
-          onChange={handleChange}
-        >
-          <option value="">Select Type</option>
-          <option value="accommodation">Accommodation</option>
-          <option value="flights">Flights</option>
-          <option value="tours">Tours</option>
-          <option value="transportation">Transportation</option>
-          <option value="all">All Options</option>
-        </select>
-      </div>
-
-      {/* Name */}
-      <div className="mb-4">
-        <label className="block text-sm mb-1">Full Name</label>
-        <input
-          name="name"
-          className="w-full p-2 rounded bg-black/40 border"
-          value={form.name}
-          onChange={handleChange}
-        />
-      </div>
-
-      {/* Email */}
-      <div className="mb-4">
-        <label className="block text-sm mb-1">Email</label>
-        <input
-          name="email"
-          type="email"
-          className="w-full p-2 rounded bg-black/40 border"
-          value={form.email}
-          onChange={handleChange}
-        />
-      </div>
-
-      {/* Dates */}
-      <div className="grid grid-cols-2 gap-4 mb-4">
-        <div>
-          <label className="block text-sm mb-1">Check-In / From</label>
-          <input
-            type="date"
-            name="from"
-            className="w-full p-2 rounded bg-black/40 border"
-            value={form.dates.from}
-            onChange={handleDate}
-          />
-        </div>
-        <div>
-          <label className="block text-sm mb-1">Check-Out / To</label>
-          <input
-            type="date"
-            name="to"
-            className="w-full p-2 rounded bg-black/40 border"
-            value={form.dates.to}
-            onChange={handleDate}
-          />
-        </div>
-      </div>
-
-      {/* Guests */}
-      <div className="mb-4">
-        <label className="block text-sm mb-1">Guests</label>
-        <input
-          type="number"
-          name="guests"
-          className="w-full p-2 rounded bg-black/40 border"
-          min={1}
-          value={form.guests}
-          onChange={handleChange}
-        />
-      </div>
-
-      {/* Flights */}
-      {form.type === "flights" && (
-        <>
-          <div className="mb-4">
-            <label className="block text-sm mb-1">Flying From</label>
-            <input
-              name="flightFrom"
-              className="w-full p-2 rounded bg-black/40 border"
-              value={form.flightFrom}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-sm mb-1">Flying To (Destination)</label>
-            <input
-              name="flightTo"
-              className="w-full p-2 rounded bg-black/40 border"
-              value={form.flightTo}
-              onChange={handleChange}
-            />
-          </div>
-        </>
-      )}
-
-      {/* Tours */}
-      {form.type === "tours" && (
-        <div className="mb-4">
-          <label className="block text-sm mb-1">Select Tour</label>
-          <select
-            name="tour"
-            className="w-full p-2 rounded bg-black/40 border"
-            value={form.tour}
-            onChange={handleChange}
-          >
-            <option value="">Choose a Tour</option>
-            {(metadata?.tours || []).map((tour: string, i: number) => (
-              <option key={i} value={tour}>{tour}</option>
-            ))}
-          </select>
-        </div>
-      )}
-
-      {/* Transportation */}
-      {form.type === "transportation" && (
-        <div className="mb-4">
-          <label className="block text-sm mb-1">Transportation Type</label>
-          <select
-            name="transportType"
-            className="w-full p-2 rounded bg-black/40 border"
-            value={form.transportType}
-            onChange={handleChange}
-          >
-            <option value="">Select</option>
-            <option value="taxi">Taxi</option>
-            <option value="shuttle">Shuttle</option>
-            <option value="rental">Car Rental</option>
-          </select>
-        </div>
-      )}
-
+    <>
       <button
-        onClick={submit}
-        className="w-full mt-4 p-3 bg-emerald-500 hover:bg-emerald-600 rounded font-semibold text-black"
+        onClick={() => setOpen(true)}
+        className="px-4 py-2 rounded-lg bg-blue-600 text-white"
       >
-        Submit Booking
+        Start Booking
       </button>
-    </div>
+
+      <Modal open={open} onClose={() => setOpen(false)} title="Book Your Trip">
+        <div className="space-y-4">
+
+          {/* Parish */}
+          <div>
+            <label className="block mb-1">Select Parish</label>
+            <select
+              className="w-full border rounded p-2"
+              value={form.parish}
+              onChange={(e) => update("parish", e.target.value)}
+            >
+              <option value="">-- Choose Parish --</option>
+              {parishes.map((p) => (
+                <option key={p.name} value={p.name}>
+                  {p.name}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Town */}
+          <div>
+            <label className="block mb-1">Town</label>
+            <select
+              className="w-full border rounded p-2"
+              value={form.town}
+              onChange={(e) => update("town", e.target.value)}
+              disabled={!towns.length}
+            >
+              <option value="">-- Choose Town --</option>
+              {towns.map((t) => (
+                <option key={t} value={t}>
+                  {t}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Hotel */}
+          <div>
+            <label className="block mb-1">Accommodation</label>
+            <select
+              className="w-full border rounded p-2"
+              value={form.hotel}
+              onChange={(e) => update("hotel", e.target.value)}
+              disabled={!hotels.length}
+            >
+              <option value="">-- Choose Hotel --</option>
+              {hotels.map((h) => (
+                <option key={h.name} value={h.name}>
+                  {h.name} {h.rating ? `(${h.rating}★)` : ""}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Tour */}
+          <div>
+            <label className="block mb-1">Tour</label>
+            <select
+              className="w-full border rounded p-2"
+              value={form.tour}
+              onChange={(e) => update("tour", e.target.value)}
+              disabled={!tours.length}
+            >
+              <option value="">-- Choose Tour --</option>
+              {tours.map((t) => (
+                <option key={t.name} value={t.name}>
+                  {t.name}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Transport */}
+          <div>
+            <label className="block mb-1">Transportation</label>
+            <select
+              className="w-full border rounded p-2"
+              value={form.transport}
+              onChange={(e) => update("transport", e.target.value)}
+              disabled={!transport.length}
+            >
+              <option value="">-- Choose Transport --</option>
+              {transport.map((tr) => (
+                <option key={tr.name} value={tr.name}>
+                  {tr.name} ({tr.type})
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Dates */}
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="block mb-1">Start Date</label>
+              <input
+                type="date"
+                className="w-full border rounded p-2"
+                value={form.dates.start}
+                onChange={(e) =>
+                  update("dates", { ...form.dates, start: e.target.value })
+                }
+              />
+            </div>
+
+            <div>
+              <label className="block mb-1">End Date</label>
+              <input
+                type="date"
+                className="w-full border rounded p-2"
+                value={form.dates.end}
+                onChange={(e) =>
+                  update("dates", { ...form.dates, end: e.target.value })
+                }
+              />
+            </div>
+          </div>
+
+          <button
+            onClick={handleSubmit}
+            className="w-full bg-green-600 text-white p-2 rounded-lg"
+          >
+            Submit Booking
+          </button>
+        </div>
+      </Modal>
+    </>
   );
 }
