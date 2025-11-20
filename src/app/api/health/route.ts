@@ -1,5 +1,6 @@
+// src/app/api/health/route.ts
 import { NextResponse } from "next/server";
 
-export function GET() {
-  return NextResponse.json({ status: "OK", timestamp: Date.now() });
+export async function GET() {
+  return NextResponse.json({ ok: true, uptime: Date.now() });
 }
