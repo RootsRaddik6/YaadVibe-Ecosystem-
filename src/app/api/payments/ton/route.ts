@@ -4,10 +4,13 @@ import { sendTon } from "@/lib/ton";
 
 export async function POST(req: Request) {
   try {
-    const { to, amountNano } = await req.json();
-    const tx = await sendTon(to, amountNano);
+    const body = await req.json();
+    // expected: { to, amount, comment? }
+    const { to, amount, comment } = body;
+    const tx = await sendTon(to, amount, comment);
     return NextResponse.json({ ok: true, tx });
   } catch (err: any) {
-    return NextResponse.json({ ok: false, error: err.message }, { status: 500 });
+    console.error("ton send error:", err);
+    return NextResponse.json({ ok: false, error: err?.message ?? "ton error" }, { status: 500 });
   }
 }
