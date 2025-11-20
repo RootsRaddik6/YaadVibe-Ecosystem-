@@ -1,3 +1,12 @@
+"use client";
+
+import { useState } from "react";
+
+export default function BookingPage() {
+  const [form, setForm] = useState({
+    ...
+  });
+
 import { useState } from "react";
 
 export default function BookingPage() {
