@@ -1,13 +1,15 @@
-// src/app/api/metadata/flights/route.ts
+// src/app/api/metadata/hotels/route.ts
 import { NextResponse } from "next/server";
+import { getHotelsForParish } from "@/utils/metadata";
 
-export async function GET() {
-  // Stub - integrate real flight API or preseed data
-  return NextResponse.json({
-    ok: true,
-    flights: [
-      { from: "KIN", to: "MBJ", carrier: "LocalAir", price: 15000 },
-      { from: "MBJ", to: "KIN", carrier: "LocalAir", price: 15000 },
-    ],
-  });
+export async function GET(req: Request) {
+  try {
+    const url = new URL(req.url);
+    const parish = url.searchParams.get("parish") || undefined;
+    const results = await getHotelsForParish(parish);
+    return NextResponse.json({ ok: true, data: results });
+  } catch (err: any) {
+    console.error("metadata hotels", err);
+    return NextResponse.json({ ok: false, error: err?.message ?? "metadata error" }, { status: 500 });
+  }
 }
