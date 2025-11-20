@@ -1,0 +1,17 @@
+:root{
+  --gold:#e8b300;
+  --red:#ff0000;
+  --dark:#0b0b0b;
+  --glass: rgba(0,0,0,0.35);
+  --card-radius: 12px;
+}
+html,body,#__next{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(0deg, rgba(0,0,0,0.45), rgba(0,0,0,0.05)), url('/images/backgrounds/main-bg.jpg') center/cover no-repeat;
+  color:#fff;
+}
+main{min-height: calc(100vh - 80px); padding-top: 80px}
+a{color:var(--gold)}
+button{cursor:pointer}
