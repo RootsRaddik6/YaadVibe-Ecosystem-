@@ -1,12 +1,15 @@
-// src/app/api/metadata/tours/route.ts
+// src/app/api/metadata/hotels/route.ts
 import { NextResponse } from "next/server";
+import { getHotelsForParish } from "@/utils/metadata";
 
-export async function GET() {
-  return NextResponse.json({
-    ok: true,
-    tours: [
-      { id: "bobMarley", title: "Bob Marley Tour", price: 3500 },
-      { id: "blueMountain", title: "Blue Mountain Day Trip", price: 6000 },
-    ],
-  });
+export async function GET(req: Request) {
+  try {
+    const url = new URL(req.url);
+    const parish = url.searchParams.get("parish") || undefined;
+    const results = await getHotelsForParish(parish);
+    return NextResponse.json({ ok: true, data: results });
+  } catch (err: any) {
+    console.error("metadata hotels", err);
+    return NextResponse.json({ ok: false, error: err?.message ?? "metadata error" }, { status: 500 });
+  }
 }
