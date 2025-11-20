@@ -2,8 +2,17 @@ import { NextResponse } from "next/server";
 import { sendLynkPayment } from "@/lib/lynk";
 
 export async function POST(req: Request) {
-  const body = await req.json();
-  const res = await sendLynkPayment(body);
+  try {
+    const body = await req.json();
+    const { amount, orderId } = body;
 
-  return NextResponse.json(res);
+    const result = await sendLynkPayment(amount, orderId);
+
+    return NextResponse.json({ ok: true, result });
+  } catch (err) {
+    return NextResponse.json(
+      { ok: false, error: "Lynk payment failed" },
+      { status: 500 }
+    );
+  }
 }
