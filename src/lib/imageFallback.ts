@@ -1,6 +1,6 @@
 // src/lib/imageFallback.ts
+
 export function getUiPath(name: string) {
-  // All images are in /public/ui/
   const map: Record<string,string> = {
     flag: "/ui/IMG_0460.jpeg",
     background: "/ui/IMG_0039.jpeg",
@@ -9,5 +9,7 @@ export function getUiPath(name: string) {
     eastoakridge: "/ui/IMG_0142.jpeg",
     sunrise: "/ui/camera_1761045942319.jpeg",
   };
+
+  // fallback is background
   return map[name] ?? "/ui/IMG_0039.jpeg";
 }
