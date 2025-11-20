@@ -1,6 +1,17 @@
-export async function sendWC(body: any) {
-  return {
-    ok: true,
-    wc: "walletconnect_request_created",
-  };
+// src/lib/walletconnect.ts
+import WalletConnect from "@walletconnect/client";
+import QRCodeModal from "@walletconnect/qrcode-modal";
+
+export function createWalletConnector() {
+  const connector = new WalletConnect({
+    bridge: "https://bridge.walletconnect.org",
+  });
+
+  if (!connector.connected) {
+    connector.createSession().then(() => {
+      QRCodeModal.open(connector.uri);
+    });
+  }
+
+  return connector;
 }
