@@ -7,13 +7,13 @@ interface Props {
 
 export default function ProgressButtons({ step, setStep }: Props) {
   const steps = [
-    { id: 1, icon: "📍" },
-    { id: 2, icon: "🚐" },
-    { id: 3, icon: "🏨" },
-    { id: 4, icon: "🍽️" },
-    { id: 5, icon: "🎒" },
-    { id: 6, icon: "📅" },
-    { id: 7, icon: "💳" },
+    { id: 1, icon: "📍" }, // select parish
+    { id: 2, icon: "🚐" }, // transport
+    { id: 3, icon: "🏨" }, // hotels
+    { id: 4, icon: "🍽️" }, // restaurants
+    { id: 5, icon: "🎒" }, // excursions
+    { id: 6, icon: "📅" }, // schedule
+    { id: 7, icon: "💳" }, // payment
   ];
 
   return (
@@ -24,8 +24,8 @@ export default function ProgressButtons({ step, setStep }: Props) {
           onClick={() => setStep(s.id)}
           className={`text-2xl px-3 py-2 rounded-full border transition ${
             step === s.id
-              ? "bg-white text-black"
-              : "bg-black/40 border-white/25"
+              ? "bg-white text-black border-white"
+              : "bg-black/40 border-white/25 text-white"
           }`}
         >
           {s.icon}
