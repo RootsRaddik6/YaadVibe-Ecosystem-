@@ -1,19 +1,28 @@
 import "./globals.css";
-import Header from "@/components/Header";
-import FloatingTipButton from "@/components/FloatingTipButton";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 
-export const metadata = {
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
   title: "YaadVibe Ecosystem",
-  description: "YaadVibe — Travel, Tours, Food & Local Jamaica"
+  description: "Seamless Jamaica travel, booking, food, tours & DApp payments",
+  manifest: "/manifest.json",
+  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  themeColor: "#000000",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body>
-        <Header />
-        <main>{children}</main>
-        <FloatingTipButton />
+      <body className={`${inter.className} bg-black text-white`}>
+        <div className="min-h-screen w-full relative overflow-hidden">
+          {children}
+        </div>
       </body>
     </html>
   );
