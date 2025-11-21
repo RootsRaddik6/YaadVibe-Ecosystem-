@@ -1,6 +1,6 @@
 // src/app/booking/page.tsx
 
-import BookingForm from "./BookingForm";
+import BookingFormComponent from "./BookingFormComponent";
 
 export default function Page() {
   return <BookingForm />;
