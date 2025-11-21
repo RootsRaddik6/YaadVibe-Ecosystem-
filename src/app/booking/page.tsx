@@ -3,5 +3,5 @@
 import BookingFormComponent from "./BookingFormComponent";
 
 export default function Page() {
-  return <BookingForm />;
+  return <BookingFormComponent />;
 }
