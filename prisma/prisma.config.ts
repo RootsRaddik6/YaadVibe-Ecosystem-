@@ -1,11 +1,11 @@
-import { defineConfig } from "@prisma/config";
+import { defineConfig } from '@prisma/cli';
 
 export default defineConfig({
-  datasources: {
+  datasource: {
     db: {
-      provider: "postgresql",
-      url: process.env.DATABASE_URL,
-      directUrl: process.env.DIRECT_URL
-    }
-  }
+      provider: 'postgresql',
+      url: process.env.DATABASE_URL!,
+      directUrl: process.env.DIRECT_URL!,
+    },
+  },
 });
