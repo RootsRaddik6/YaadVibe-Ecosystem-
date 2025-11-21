@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String   @id @default(uuid())
+  email           String   @unique
+  walletAddress   String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  bookings        Booking[]
+  payments        Payment[]
+}
+
+model Booking {
+  id            String   @id @default(uuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id])
+
+  parish        String
+  town          String
+  category      String
+  startDate     DateTime
+  endDate       DateTime?
+  status        String   @default("pending")
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  payment       Payment?
+}
+
+model Payment {
+  id              String   @id @default(uuid())
+  bookingId       String   @unique
+  booking         Booking  @relation(fields: [bookingId], references: [id])
+
+  amountJMD       Float
+  amountCrypto    Float?
+  method          String   // TON, JAMDEX, CARD, LYNK
+  status          String   @default("pending")
+
+  txHash          String?
+  relayerId       String?
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  userId          String?
+  user            User?     @relation(fields: [userId], references: [id])
+}
