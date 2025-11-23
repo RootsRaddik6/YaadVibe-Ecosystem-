@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getParishMetadata } from "@/utils/metadata";
+import { METADATA } from "@/app/parishData/metadata";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
