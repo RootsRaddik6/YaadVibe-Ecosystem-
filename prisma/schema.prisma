@@ -3,38 +3,35 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
+  provider = "postgresql"
 }
 
 model User {
-  id             String    @id @default(uuid())
-  email          String    @unique
-  walletAddress  String?
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
-  bookings       Booking[]
-  payments       Payment[]
+  id            String     @id @default(uuid())
+  email         String     @unique
+  walletAddress String?
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  bookings      Booking[]
+  payments      Payment[]
 }
 
 model Booking {
-  id        String   @id @default(uuid())
-  userId    String
-  user      User     @relation(fields: [userId], references: [id])
-  parish    String
-  town      String
-  category  String
-  startDate DateTime
-  endDate   DateTime?
-  status    String   @default("pending")
+  id         String     @id @default(uuid())
+  userId     String
+  user       User       @relation(fields: [userId], references: [id])
+  parish     String
+  town       String
+  category   String
+  startDate  DateTime
+  endDate    DateTime?
+  status     String     @default("pending")
 }
 
 model Payment {
-  id        String   @id @default(uuid())
-  userId    String
-  bookingId String?
-  user      User     @relation(fields: [userId], references: [id])
-  amount    Float
-  method    String
-  status    String   @default("pending")
-  createdAt DateTime @default(now())
+  id         String   @id @default(uuid())
+  userId     String
+  bookingId  String?
+  user       User     @relation(fields: [userId], references: [id])
+  amount     Float
 }
