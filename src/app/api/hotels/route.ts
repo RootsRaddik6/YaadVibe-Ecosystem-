@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { HOTELS } from "@/parishData";
+import { HOTELS } from "@/app/parishData/hotels";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
