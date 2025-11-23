@@ -4,9 +4,10 @@
     "paths": {
       "@/*": ["*"],
       "@/app/*": ["app/*"],
-      "@/components/*": ["components/*"],
-      "@/utils/*": ["utils/*"],
-      "@/lib/*": ["lib/*"]
+      "@/components/*": ["app/components/*", "components/*"],
+      "@/utils/*": ["utils/*", "app/utils/*"],
+      "@/lib/*": ["lib/*"],
+      "@/workers/*": ["workers/*"]
     }
   }
 }
