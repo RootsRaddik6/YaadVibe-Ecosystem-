@@ -1,18 +1,17 @@
+// Full 14 parish dataset
 export const PARISHES = [
-  { name: "Kingston", towns: ["Downtown", "New Kingston", "Cross Roads"] },
-  { name: "St. Andrew", towns: ["Constant Spring", "Half Way Tree", "Papine", "Manor Park"] },
-  { name: "St. Thomas", towns: ["Morant Bay", "Yallahs", "Seaforth"] },
-  { name: "Portland", towns: ["Port Antonio", "Buff Bay", "Hope Bay"] },
-  { name: "St. Mary", towns: ["Port Maria", "Oracabessa", "Annotto Bay"] },
-  { name: "St. Ann", towns: ["Ocho Rios", "St. Ann's Bay", "Runaway Bay"] },
-  { name: "Trelawny", towns: ["Falmouth", "Clark's Town", "Duncans"] },
-  { name: "St. James", towns: ["Montego Bay", "Ironshore", "Anchovy"] },
-  { name: "Hanover", towns: ["Lucea", "Green Island", "Hopewell"] },
-  { name: "Westmoreland", towns: ["Savanna-la-Mar", "Negril", "Whitehouse"] },
-  { name: "St. Elizabeth", towns: ["Black River", "Santa Cruz", "Lacovia"] },
-  { name: "Manchester", towns: ["Mandeville", "Christiana", "Porus"] },
-  { name: "Clarendon", towns: ["May Pen", "Chapelton", "Kellits"] },
-  { name: "St. Catherine", towns: ["Spanish Town", "Portmore", "Linstead", "Old Harbour"] }
+  { code: "KIN", name: "Kingston" },
+  { code: "SJA", name: "St. Andrew" },
+  { code: "SJB", name: "St. James" },
+  { code: "WML", name: "Westmoreland" },
+  { code: "HNV", name: "Hanover" },
+  { code: "TRL", name: "Trelawny" },
+  { code: "STB", name: "St. Ann" },
+  { code: "STC", name: "St. Mary" },
+  { code: "PTL", name: "Portland" },
+  { code: "STT", name: "St. Thomas" },
+  { code: "CLD", name: "Clarendon" },
+  { code: "MNC", name: "Manchester" },
+  { code: "STJ", name: "St. Elizabeth" },
+  { code: "STG", name: "St. Catherine" }
 ];
-
-export default PARISHES;
