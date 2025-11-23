@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["*"],
-      "@/app/*": ["app/*"],
-      "@/parishData/*": ["app/parishData/*"]
+      "@/*": ["src/*"],
+      "@/app/*": ["src/app/*"],
+      "@/components/*": ["src/app/components/*"],
+      "@/utils/*": ["src/app/utils/*"]
     }
   }
 }
