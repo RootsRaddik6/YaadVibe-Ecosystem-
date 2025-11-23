@@ -1,5 +1,4 @@
-import { NextResponse } from "next/server";
-import { TOURS } from "@/app/parishData";
+import * as ParishData from "@/parishData";
 
 export async function GET() {
   return NextResponse.json(TOURS);
