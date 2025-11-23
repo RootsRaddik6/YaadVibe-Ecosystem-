@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { HOTELS } from "@/app/parishData";
+import { PARISHES } from "../../../parishData/parishes";
 
 export async function GET() {
-  return NextResponse.json(HOTELS);
+  return Response.json({ parishes: PARISHES });
 }
