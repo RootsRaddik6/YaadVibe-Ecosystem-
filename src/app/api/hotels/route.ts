@@ -1,19 +1,16 @@
 import { NextResponse } from "next/server";
-import { getHotelsByParish } from "@/utils/hotels";
-import type { Hotel } from "@/types/hotels";
+import { HOTELS } from "../../parishData/hotels";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
-  const parishCode = searchParams.get("parish");
+  const parish = searchParams.get("parish");
 
-  if (!parishCode) {
-    return NextResponse.json(
-      { error: "Missing ?parish parameter" },
-      { status: 400 }
-    );
+  if (!parish) {
+    return NextResponse.json({ error: "Missing ?parish parameter" }, { status: 400 });
   }
 
-  const hotels: Hotel[] = getHotelsByParish(parishCode);
+  const parishLower = parish.toLowerCase();
+  const hotels = HOTELS.filter(h => (h.parishCode ?? "").toLowerCase() === parishLower);
 
   return NextResponse.json({ hotels });
 }
