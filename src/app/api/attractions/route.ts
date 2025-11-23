@@ -1,17 +1,19 @@
 import { NextResponse } from "next/server";
-import { ATTRACTIONS } from "@/app/parishData/attractions";
+import { getAttractionsByParish } from "@/utils/attractions";
+import type { Attraction } from "@/types/attractions";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const parishCode = searchParams.get("parish");
 
   if (!parishCode) {
-    return NextResponse.json({
-      error: "Missing ?parish= parameter",
-    });
+    return NextResponse.json(
+      { error: "Missing ?parish parameter" },
+      { status: 400 }
+    );
   }
 
-  return NextResponse.json({
-    attractions: ATTRACTIONS.filter(a => a.parishCode === parishCode),
-  });
+  const attractions: Attraction[] = getAttractionsByParish(parishCode);
+
+  return NextResponse.json({ attractions });
 }
