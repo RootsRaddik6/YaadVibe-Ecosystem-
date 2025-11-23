@@ -1,6 +1,15 @@
 import { NextResponse } from "next/server";
-import { PARISHES } from "@/app/parishdata";
+import { ATTRACTIONS } from "@/parishData";
 
-export async function GET() {
-  return Response.json({ parishes: PARISHES });
+export async function GET(req: Request) {
+  const { searchParams } = new URL(req.url);
+  const parishCode = searchParams.get("parish");
+
+  if (!parishCode) {
+    return NextResponse.json({ error: "Missing parish parameter" });
+  }
+
+  return NextResponse.json({
+    attractions: ATTRACTIONS.filter((a) => a.parishCode === parishCode),
+  });
 }
