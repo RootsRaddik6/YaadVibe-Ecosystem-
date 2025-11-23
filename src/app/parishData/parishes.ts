@@ -1,111 +1,146 @@
-// src/app/parishData/parishes.ts
-export type ParishSummary = {
-  name: string;
-  code: string;
-  description?: string;
-  image?: string;
-  mainAirport?: string | null;
-};
+// Full, accurate 14-parish dataset for Jamaica.
+// Includes commonly known towns, districts, or major population centers.
 
-export const PARISHES: ParishSummary[] = [
+export const PARISHES = [
   {
     name: "Kingston",
-    code: "kingston",
-    description: "Capital city parish — culture, museums, nightlife and business hub.",
-    image: "/images/parishes/kingston.jpg",
-    mainAirport: "KIN (Norman Manley Intl.)",
+    towns: ["Kingston Central", "New Kingston", "Downtown", "Rollington Town"]
   },
   {
     name: "St. Andrew",
-    code: "st-andrew",
-    description: "Residential and commercial areas; gateway to the Blue Mountains.",
-    image: "/images/parishes/st-andrew.jpg",
-    mainAirport: "KIN (serves Kingston area)",
+    towns: [
+      "Half Way Tree",
+      "Constant Spring",
+      "Papine",
+      "Manor Park",
+      "Red Hills",
+      "Stony Hill"
+    ]
   },
   {
     name: "St. Catherine",
-    code: "st-catherine",
-    description: "Includes Spanish Town and Portmore; large urban and industrial areas.",
-    image: "/images/parishes/st-catherine.jpg",
-    mainAirport: null,
+    towns: [
+      "Spanish Town",
+      "Portmore",
+      "Linstead",
+      "Bog Walk",
+      "Old Harbour",
+      "Greater Portmore"
+    ]
   },
   {
     name: "Clarendon",
-    code: "clarendon",
-    description: "Agricultural parish with access to inland tours and caves.",
-    image: "/images/parishes/clarendon.jpg",
-    mainAirport: null,
+    towns: [
+      "May Pen",
+      "Chapelton",
+      "Kellits",
+      "Lionel Town",
+      "Milk River",
+      "Sandy Bay"
+    ]
   },
   {
     name: "Manchester",
-    code: "manchester",
-    description: "Cooler hill town of Mandeville, central Jamaica.",
-    image: "/images/parishes/manchester.jpg",
-    mainAirport: null,
+    towns: [
+      "Mandeville",
+      "Christiana",
+      "Williamsfield",
+      "Porus",
+      "Newport",
+      "Bellefield"
+    ]
   },
   {
     name: "St. Elizabeth",
-    code: "st-elizabeth",
-    description: "Rural and coastal attractions such as Treasure Beach and YS Falls.",
-    image: "/images/parishes/st-elizabeth.jpg",
-    mainAirport: null,
+    towns: [
+      "Black River",
+      "Santa Cruz",
+      "Junction",
+      "Balaclava",
+      "Lacovia",
+      "Treasure Beach"
+    ]
   },
   {
     name: "Westmoreland",
-    code: "westmoreland",
-    description: "Negril and Seven Mile Beach — top west-coast destination.",
-    image: "/images/parishes/westmoreland.jpg",
-    mainAirport: "MBJ (nearest Sangster Intl. in Montego Bay)",
+    towns: [
+      "Savanna-la-Mar",
+      "Negril",
+      "Little London",
+      "Whitehouse",
+      "Grange Hill"
+    ]
   },
   {
     name: "Hanover",
-    code: "hanover",
-    description: "Small parish with Lucea harbor and quiet coastal towns.",
-    image: "/images/parishes/hanover.jpg",
-    mainAirport: null,
+    towns: [
+      "Lucea",
+      "Hopewell",
+      "Sandy Bay",
+      "Chester Castle",
+      "Green Island"
+    ]
   },
   {
     name: "St. James",
-    code: "st-james",
-    description: "Montego Bay — major resort town, nightlife, airport (MBJ).",
-    image: "/images/parishes/st-james.jpg",
-    mainAirport: "MBJ (Sangster Intl.)",
+    towns: [
+      "Montego Bay",
+      "Ironshore",
+      "Rose Hall",
+      "Anchovy",
+      "Coral Gardens"
+    ]
   },
   {
     name: "Trelawny",
-    code: "trelawny",
-    description: "Falmouth (cruise port) and cultural heritage sites.",
-    image: "/images/parishes/trelawny.jpg",
-    mainAirport: null,
+    towns: [
+      "Falmouth",
+      "Duncans",
+      "Clarks Town",
+      "Wakefield",
+      "Rio Bueno"
+    ]
   },
   {
     name: "St. Ann",
-    code: "st-ann",
-    description: "Ocho Rios and Dunn's River Falls — waterfall & adventure hub.",
-    image: "/images/parishes/st-ann.jpg",
-    mainAirport: null,
+    towns: [
+      "Ocho Rios",
+      "St. Ann's Bay",
+      "Runaway Bay",
+      "Discovery Bay",
+      "Brown's Town"
+    ]
   },
   {
     name: "St. Mary",
-    code: "st-mary",
-    description: "Oracabessa and Port Maria — calm beaches and snorkeling.",
-    image: "/images/parishes/st-mary.jpg",
-    mainAirport: null,
+    towns: [
+      "Port Maria",
+      "Annotto Bay",
+      "Oracabessa",
+      "Richmond",
+      "Highgate"
+    ]
   },
   {
     name: "Portland",
-    code: "portland",
-    description: "Port Antonio — Blue Lagoon, rafting, and lush coastal scenery.",
-    image: "/images/parishes/portland.jpg",
-    mainAirport: null,
+    towns: [
+      "Port Antonio",
+      "Buff Bay",
+      "Hope Bay",
+      "Manchioneal",
+      "Long Bay"
+    ]
   },
   {
     name: "St. Thomas",
-    code: "st-thomas",
-    description: "Eastern parish with mineral baths and small coastal towns.",
-    image: "/images/parishes/st-thomas.jpg",
-    mainAirport: null,
-  },
+    towns: [
+      "Morant Bay",
+      "Yallahs",
+      "Seaforth",
+      "Golden Grove",
+      "Albion"
+    ]
+  }
 ];
 
 export default PARISHES;
