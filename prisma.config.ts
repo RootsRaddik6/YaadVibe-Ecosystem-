@@ -5,5 +5,9 @@ export default defineConfig({
     provider: "postgresql",
     url: process.env.DATABASE_URL,
     directUrl: process.env.DIRECT_URL,
+  },
+  migrate: {
+    provider: "postgresql",
+    url: process.env.DATABASE_URL!,
   }
 });
