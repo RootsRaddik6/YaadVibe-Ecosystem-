@@ -1,24 +1,17 @@
-// src/app/parishData/towns.ts
-export type TownsForParish = {
-  parishCode: string;
-  towns: string[];
-};
-
-export const TOWNS: TownsForParish[] = [
-  { parishCode: "kingston", towns: ["Kingston", "Downtown", "New Kingston", "Port Royal"] },
-  { parishCode: "st-andrew", towns: ["Half Way Tree", "Mona", "Papine", "Constant Spring"] },
-  { parishCode: "st-catherine", towns: ["Spanish Town", "Portmore", "Old Harbour", "Linstead"] },
-  { parishCode: "clarendon", towns: ["May Pen", "Chapelton", "Frankfield"] },
-  { parishCode: "manchester", towns: ["Mandeville", "Christiana", "Porus"] },
-  { parishCode: "st-elizabeth", towns: ["Black River", "Santa Cruz", "Treasure Beach"] },
-  { parishCode: "westmoreland", towns: ["Negril", "Savanna-la-Mar", "Little London"] },
-  { parishCode: "hanover", towns: ["Lucea", "Hopewell"] },
-  { parishCode: "st-james", towns: ["Montego Bay", "Rose Hall", "Ironshore"] },
-  { parishCode: "trelawny", towns: ["Falmouth", "Duncans", "Martha Brae"] },
-  { parishCode: "st-ann", towns: ["Ocho Rios", "St. Ann's Bay", "Bamboo"] },
-  { parishCode: "st-mary", towns: ["Port Maria", "Oracabessa", "Annotto Bay"] },
-  { parishCode: "portland", towns: ["Port Antonio", "Boston Bay", "Buff Bay"] },
-  { parishCode: "st-thomas", towns: ["Morant Bay", "Yallahs", "Bath"] },
+export const TOWNS = [
+  { parishCode: "KIN", name: "Half Way Tree" },
+  { parishCode: "KIN", name: "New Kingston" },
+  { parishCode: "SJA", name: "Papine" },
+  { parishCode: "SJB", name: "Montego Bay" },
+  { parishCode: "WML", name: "Savanna-la-Mar" },
+  { parishCode: "HNV", name: "Lucea" },
+  { parishCode: "TRL", name: "Falmouth" },
+  { parishCode: "STB", name: "Ocho Rios" },
+  { parishCode: "STC", name: "Port Maria" },
+  { parishCode: "PTL", name: "Port Antonio" },
+  { parishCode: "STT", name: "Morant Bay" },
+  { parishCode: "CLD", name: "May Pen" },
+  { parishCode: "MNC", name: "Mandeville" },
+  { parishCode: "STJ", name: "Black River" },
+  { parishCode: "STG", name: "Spanish Town" }
 ];
-
-export default TOWNS;
