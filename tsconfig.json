@@ -1,27 +1,12 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": false,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
-      "@/*": ["src/*"],
-      "@/app/*": ["src/app/*"],
-      "@/components/*": ["src/app/components/*"],
-      "@/utils/*": ["src/app/utils/*"],
-      "@/parishData/*": ["src/app/parishData/*"]
+      "@/*": ["*"],
+      "@/app/*": ["app/*"],
+      "@/components/*": ["app/components/*"],
+      "@/parishData/*": ["app/parishData/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": ["src"]
 }
