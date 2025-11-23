@@ -1,17 +1,16 @@
 import { NextResponse } from "next/server";
-import { TRANSPORT } from "@/app/parishData/transport";
+import { TRANSPORTATION } from "../../parishData/transportation";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
-  const parishCode = searchParams.get("parish");
+  const parish = searchParams.get("parish");
 
-  if (!parishCode) {
-    return NextResponse.json({
-      error: "Missing ?parish= parameter",
-    });
+  if (!parish) {
+    return NextResponse.json({ error: "Missing ?parish parameter" }, { status: 400 });
   }
 
-  return NextResponse.json({
-    transport: TRANSPORTATION.filter(t => t.parishCode === parishCode),
-  });
+  const parishLower = parish.toLowerCase();
+  const transport = TRANSPORTATION.filter(t => (t.parishCode ?? "").toLowerCase() === parishLower);
+
+  return NextResponse.json({ transport });
 }
