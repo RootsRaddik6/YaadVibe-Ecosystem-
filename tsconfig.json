@@ -17,8 +17,7 @@
     "baseUrl": "./src",
     "paths": {
       "@/*": ["*"],
-      "@/app/*": ["app/*"],
-      "@/app/parishData": ["app/parishData/index.ts"],
+      "@/app/parishData/*": ["app/parishData/*"],
       "@/utils/*": ["utils/*"],
       "@/components/*": ["app/components/*"]
     }
