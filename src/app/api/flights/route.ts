@@ -1,12 +1,9 @@
-// src/app/api/flights/route.ts
-import { ok, err } from "@/lib/response";
-import { getFlightsForParish } from "@/lib/parish";
-import { requireApiKey, rateLimit } from "@/lib/auth";
+import { NextResponse } from "next/server";
+import { FLIGHTS } from "@/app/parishData";
 
-/**
- * GET /api/flights?parish=st-james&page=1&limit=20
- */
-export async function GET(req: Request) {
+export async function GET() {
+  return NextResponse.json(FLIGHTS);
+}
   try {
     try { requireApiKey(req); rateLimit(req); } catch (e:any) { return err(e.message || "auth error", 401); }
 
