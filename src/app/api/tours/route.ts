@@ -6,11 +6,11 @@ export async function GET(req: Request) {
   const parish = searchParams.get("parish");
 
   if (!parish) {
-    return NextResponse.json({ error: "Missing ?parish=" });
+    return NextResponse.json({ error: "Missing ?parish= parameter" }, { status: 400 });
   }
 
   const parishLower = parish.toLowerCase();
-  const tours = TOURS.filter(t => t.parishCode.toLowerCase() === parishLower);
+  const tours = TOURS.filter(t => t.parishCode?.toLowerCase() === parishLower);
 
   return NextResponse.json({ tours });
 }
