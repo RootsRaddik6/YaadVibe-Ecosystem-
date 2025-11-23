@@ -1,23 +1,23 @@
 import { NextResponse } from "next/server";
-import { HOTELS, ATTRACTIONS, TOURS, TRANSPORT } from "@/app/parishData";
+import { getParishMetadata } from "@/utils/metadata";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
-  const parish = searchParams.get("parish");
+  const parishCode = searchParams.get("parish");
 
-  if (!parish) {
-    return NextResponse.json(
-      { error: "Missing ?parish parameter" },
-      { status: 400 }
-    );
+  if (!parishCode) {
+    return NextResponse.json({
+      error: "Missing ?parish= parameter",
+    });
   }
 
-  const parishLower = parish.toLowerCase();
+  const metadata = getParishMetadata(parishCode);
 
-  return NextResponse.json({
-    hotels: HOTELS.filter(h => h.parish.toLowerCase() === parishLower),
-    attractions: ATTRACTIONS.filter(a => a.parish.toLowerCase() === parishLower),
-    tours: TOURS.filter(t => t.parish.toLowerCase() === parishLower),
-    transport: TRANSPORT.filter(x => x.parish.toLowerCase() === parishLower)
-  });
+  if (!metadata) {
+    return NextResponse.json({
+      error: "No metadata found for parish",
+    });
+  }
+
+  return NextResponse.json({ metadata });
 }
