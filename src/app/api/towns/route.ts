@@ -1,7 +1,9 @@
-import { parishData } from '@/data/parishData';
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
+import { TOWNS } from "@/app/parishData";
 
-export async function GET(request: Request) {
+export async function GET() {
+  return NextResponse.json(TOWNS);
+}
   const { searchParams } = new URL(request.url);
   const parish = searchParams.get('parish');
   
