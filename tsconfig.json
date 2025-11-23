@@ -4,9 +4,9 @@
     "paths": {
       "@/*": ["*"],
       "@/app/*": ["app/*"],
-      "@/components/*": ["app/components/*"],
-      "@/parishData/*": ["app/parishData/*"]
+      "@/components/*": ["components/*"],
+      "@/utils/*": ["utils/*"],
+      "@/lib/*": ["lib/*"]
     }
-  },
-  "include": ["src"]
+  }
 }
