@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+
 import {
   PARISHES,
   TOWNS,
@@ -6,7 +7,7 @@ import {
   TOURS,
   TRANSPORT_OPTIONS,
   ATTRACTIONS,
-  FLIGHTS,
+  FLIGHTS
 } from "@/app/parishData";
 
 export async function GET(req: Request) {
@@ -14,7 +15,7 @@ export async function GET(req: Request) {
   const parishCode = searchParams.get("parish");
 
   if (!parishCode) {
-    return NextResponse.json({ error: "Missing parish parameter" });
+    return NextResponse.json({ error: "Missing ?parish query" });
   }
 
   const parish = PARISHES.find(p => p.code === parishCode);
@@ -29,6 +30,6 @@ export async function GET(req: Request) {
     tours: TOURS.filter(t => t.parishCode === parishCode),
     transport: TRANSPORT_OPTIONS.filter(t => t.parishCode === parishCode),
     attractions: ATTRACTIONS.filter(a => a.parishCode === parishCode),
-    flights: FLIGHTS.filter(f => f.parishHint === parishCode),
+    flights: FLIGHTS.filter(f => f.parishHint === parishCode)
   });
 }
