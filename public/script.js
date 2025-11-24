@@ -1,20 +1,19 @@
-const parishes = [
-  { name: "Kingston",     img: "parishes/Camera_1760355457294.jpeg" },
-  { name: "St. Andrew",   img: "parishes/Camera_1761045942319.jpeg" },
-  { name: "St. Catherine",img: "parishes/IMG_0090.jpeg" },
-  { name: "Clarendon",    img: "parishes/IMG_0142.jpeg" }
-];
+// Small helpers: menu toggle and smooth scroll
+document.addEventListener('DOMContentLoaded', function(){
+  const menuBtn = document.getElementById('menuToggle');
+  if(menuBtn){
+    menuBtn.addEventListener('click', () => {
+      alert('Menu placeholder — you can wire this to your nav later.');
+    });
+  }
 
-const grid = document.querySelector(".parish-grid");
-
-parishes.forEach(p => {
-  const card = document.createElement("div");
-  card.className = "parish-card";
-
-  card.innerHTML = `
-    <img src="${p.img}" alt="${p.name}">
-    <p>${p.name}</p>
-  `;
-
-  grid.appendChild(card);
+  // smooth scroll for internal links
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      const id = this.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({ behavior: 'smooth', block:'start' });
+    });
+  });
 });
