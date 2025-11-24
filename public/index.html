@@ -1,17 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YaadVibe Ecosystem</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>YaadVibe Ecosystem</title>
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
+  <header class="site-header">
+    <button id="menuToggle" class="menu-btn" aria-label="Open menu">☰</button>
+    <div class="logo">YaadVibe</div>
+  </header>
 
-    <div class="overlay">
-        <h1>YaadVibe Ecosystem</h1>
-        <p>Experience Jamaica Like Never Before</p>
+  <section class="hero" id="hero">
+    <div class="hero-overlay">
+      <h1>YaadVibe Ecosystem</h1>
+      <p class="subtitle">Experience Jamaica Like Never Before</p>
+      <a class="cta" href="#about">Learn more</a>
     </div>
+  </section>
 
+  <main>
+    <section id="about" class="about container">
+      <h2>About YaadVibe</h2>
+      <p>
+        YaadVibe is a decentralized travel ecosystem (DApp) built to highlight the beauty,
+        culture, and experiences across Jamaica’s 14 parishes. Visitors can explore
+        accommodations, tours, food, attractions, transportation, and community experiences —
+        all powered by blockchain payments including WalletConnect, TONConnect, JamDex, and more.
+      </p>
+    </section>
+
+    <section class="parishes container">
+      <h2>Select a Parish</h2>
+      <div class="cards">
+        <article class="card"><div class="card-title">Kingston</div></article>
+        <article class="card"><div class="card-title">St. Andrew</div></article>
+        <article class="card"><div class="card-title">St. Catherine</div></article>
+        <article class="card"><div class="card-title">Clarendon</div></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <small>© YaadVibe Ecosystem</small>
+  </footer>
+
+  <script src="/script.js"></script>
 </body>
 </html>
