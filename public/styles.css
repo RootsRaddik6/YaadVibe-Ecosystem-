@@ -22,7 +22,11 @@ header { position:fixed; top:0; left:0; right:0; height:70px; background:rgba(0,
 .btn-primary { padding:18px 50px; background:#009B3A; border-radius:50px; font-weight:700; font-size:1.2rem; text-decoration:none; display:inline-block; margin-top:20px; }
 .btn-primary:hover { background:#007030; transform:scale(1.05); }
 
-.flag-bar { height:16px; background:linear-gradient(to right, #000 33%, #FED141 33%, #FED141 66%, #009B3A 66%); }
+.flag-bar {
+  height: 20px;
+  background: url('images/IMG_0090.png') center/cover no-repeat;
+  background-size: contain;
+}
 
 .ecosystem { padding:120px 20px; text-align:center; }
 .ecosystem h2 { font-size:3.5rem; margin-bottom:20px; }
