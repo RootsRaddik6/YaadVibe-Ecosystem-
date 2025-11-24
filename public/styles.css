@@ -1,38 +1,46 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
 }
 
-#slideshow {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    transition: opacity 1s ease-in-out;
+.hero {
+  background: url("backgrounds/IMG_0039.jpeg") center/cover no-repeat;
+  padding: 80px 20px;
+  text-align: center;
+  color: white;
 }
 
-.center-text {
-    position: fixed;
-    top: 50%;
-    width: 100%;
-    text-align: center;
-    color: white;
-    transform: translateY(-50%);
+.logo {
+  width: 120px;
+  margin-bottom: 20px;
 }
 
-.center-text h1 {
-    font-size: 48px;
-    font-weight: bold;
-    margin: 0;
-    line-height: 1.2;
+.about, .parishes {
+  padding: 20px;
 }
 
-.center-text p {
-    font-size: 22px;
+.parish-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.parish-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.parish-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.parish-card p {
+  margin: 10px;
+  font-weight: bold;
 }
