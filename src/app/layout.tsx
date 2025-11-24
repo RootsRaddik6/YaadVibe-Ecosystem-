@@ -1,4 +1,3 @@
-// src/app/layout.tsx
 import "./global.css";
 
 export const metadata = {
@@ -6,7 +5,7 @@ export const metadata = {
   description: "Experience Jamaica Like Never Before",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>{children}</body>
