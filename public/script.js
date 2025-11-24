@@ -1,66 +1,20 @@
-// CONFIG — how long each image stays (ms)
-const SLIDE_HOLD = 5000;
-
-// FOLDERS TO SCAN
-const folders = [
-    "images",
-    "images/backgrounds",
-    "images/parishes"
+const parishes = [
+  { name: "Kingston",     img: "parishes/Camera_1760355457294.jpeg" },
+  { name: "St. Andrew",   img: "parishes/Camera_1761045942319.jpeg" },
+  { name: "St. Catherine",img: "parishes/IMG_0090.jpeg" },
+  { name: "Clarendon",    img: "parishes/IMG_0142.jpeg" }
 ];
 
-// Allowed file types
-const exts = [".jpg", ".jpeg", ".png", ".webp"];
+const grid = document.querySelector(".parish-grid");
 
-// Final list of slide URLs
-const slides = [];
+parishes.forEach(p => {
+  const card = document.createElement("div");
+  card.className = "parish-card";
 
-// Fetch images automatically
-async function loadImages() {
-    for (const folder of folders) {
-        try {
-            const res = await fetch(folder);
-            const text = await res.text();
+  card.innerHTML = `
+    <img src="${p.img}" alt="${p.name}">
+    <p>${p.name}</p>
+  `;
 
-            // Pull links out of directory listing
-            const matches = [...text.matchAll(/href="([^"]+)"/g)];
-
-            matches.forEach(m => {
-                const url = m[1];
-                if (exts.some(e => url.toLowerCase().endsWith(e))) {
-                    slides.push(`${folder}/${url}`);
-                }
-            });
-        } catch (err) {
-            console.log(`Could not read folder: ${folder}`);
-        }
-    }
-
-    startSlideshow();
-}
-
-// Slideshow logic
-let current = 0;
-function startSlideshow() {
-    if (slides.length === 0) {
-        console.log("No images found.");
-        return;
-    }
-
-    const div = document.getElementById("slideshow");
-
-    function next() {
-        div.style.opacity = 0;
-
-        setTimeout(() => {
-            div.style.backgroundImage = `url('${slides[current]}')`;
-            div.style.opacity = 1;
-        }, 500);
-
-        current = (current + 1) % slides.length;
-    }
-
-    next();
-    setInterval(next, SLIDE_HOLD);
-}
-
-loadImages();
+  grid.appendChild(card);
+});
