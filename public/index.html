@@ -1,146 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>1Drop Ecosystem | YaadVibe • YaadLife • IrieVibe • PurVibe</title>
-  <meta name="description" content="Jamaica's first Web3 tourism & lifestyle ecosystem. One Drop. One Jamaica."/>
-
-  <link rel="stylesheet" href="styles.css"/>
-  <link rel="stylesheet" href="about.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1Drop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<<section id="about-section" class="about-section">
-  <div class="container">
-    <h2>About 1Drop</h2>
-    <p class="lead">
-      Only ~20¢ of every tourist dollar stays in Jamaica.<br>
-      The rest leaks out to foreign platforms, banks, and middlemen.
-    </p>
-    <p>
-      1Drop is the first Jamaican-owned Web3 ecosystem that closes the loop.<br>
-      Four interconnected apps — YaadVibe, YaadLife, IrieVibe, PurVibe — powered by one silent AI engine and instant JamDex/Lynk payouts.
-    </p>
-    <p>
-      Tourists and diaspora spend in USDT, TON, card or Lynk → hosts and vendors get paid the same day in JMD → money stays circulating inside Jamaica.
-    </p>
-    <p class="strong">
-      One platform. One mission.<br>
-      Keeping money in Jamaican hands.
-    </p>
-    <div style="margin-top:40px;">
-      <a href="https://t.me/yaadvibelite_bot" target="_blank" class="btn-primary">Experience YaadLife Lite (LIVE)</a>
-      <a href="mailto:partners@1drop.eco" class="btn-secondary">Partners & Investors →</a>
+  <header>
+    <div class="logo">
+      <img src="images/IMG_0454.png" alt="1Drop" class="red-logo">
     </div>
+  </header>
+
+  <main class="hero">
+    <h1>1Drop Ecosystems</h1>
+    <p class="apps">YaadVibe • YaadLife • IrieVibe • PurVibe</p>
+    <p class="mission">One platform keeping every tourist & diaspora dollar in Jamaica<br>Web3 • AI • JamDex • TON • Solana</p>
+    <a href="https://t.me/yaadvibelite_bot" target="_blank" class="live-btn">Open YaadLife Lite (LIVE)</a>
+  </main>
+
+  <div class="flag-bar">
+    <img src="images/IMG_0090.png" alt="Jamaica Flag">
   </div>
-</section>
 
-<div class="flag-bar"></div>
-  <!-- THE FOUR DApps — THIS IS THE NEW MAIN SECTION -->
-  <section class="ecosystem">
-    <h2>1Drop Ecosystem</h2>
-    <p class="section-desc">Four powerful apps. One unified mission.</p>
-
-    <div class="dapp-grid">
-
-      <!-- YaadVibe -->
-      <div class="dapp-card" onclick="openModal('yaadvibe')">
-        <img src="images/yaadvibe.jpg" alt="YaadVibe" onerror="this.src='images/IMG_0039.jpeg'"/>
-        <div class="card-body">
-          <h3>YaadVibe</h3>
-          <p class="role">Flagship Booking DApp</p>
-          <p>Hotels, villas, tours, experiences — paid in USDT/card/Lynk → instant JMD payouts via JamDex</p>
-          <span class="status">TON • Solana • Polygon</span>
-        </div>
-      </div>
-
-      <!-- YaadLife Lite -->
-      <div class="dapp-card live" onclick="openModal('yaadlife')">
-        <img src="images/yaadlife.jpg" alt="YaadLife Lite" onerror="this.src='images/IMG_0039.jpeg'"/>
-        <div class="card-body">
-          <h3>YaadLife Lite</h3>
-          <p class="role">LIVE on Telegram</p>
-          <p>Zero-friction bookings for 100M+ Telegram users. Real stays, real hosts, real payouts — right now.</p>
-          <span class="status live">LIVE • TON Blockchain</span>
-        </div>
-      </div>
-
-      <!-- IrieVibe -->
-      <div class="dapp-card" onclick="openModal('irievibe')">
-        <img src="images/irievibe.jpg" alt="IrieVibe" onerror="this.src='images/IMG_0039.jpeg'"/>
-        <div class="card-body">
-          <h3>IrieVibe</h3>
-          <p class="role">Local Life Super App</p>
-          <p>Food delivery, transport, events, entertainment — zero fees when using Lynk/JamDex</p>
-          <span class="status">Coming Q1 2026</span>
-        </div>
-      </div>
-
-      <!-- PurVibe -->
-      <div class="dapp-card" onclick="openModal('purvibe')">
-        <img src="images/purvibe.jpg" alt="PurVibe" onerror="this.src='images/IMG_0039.jpeg'"/>
-        <div class="card-body">
-          <h3>PurVibe</h3>
-          <p class="role">Add text here</p>
-          <p>Add text here discribe PurVibe.</p>
-          <span class="status">Channel Content Curation</span>
-        </div>
-      </div>
-
+  <section class="apps-grid">
+    <div class="app-card" onclick="location.href='https://t.me/yaadvibelite_bot'">
+      <img src="images/yaadlife-screenshot.png" alt="YaadLife Lite" onerror="this.src='images/IMG_0039.jpeg'">
+      <h3>YaadLife Lite</h3>
+      <p class="live">LIVE NOW on Telegram</p>
+    </div>
+    <div class="app-card">
+      <img src="images/yaadvibe.png" alt="YaadVibe" onerror="this.src='images/IMG_0039.jpeg'">
+      <h3>YaadVibe</h3>
+      <p>Flagship Booking DApp • Coming Q1</p>
+    </div>
+    <div class="app-card">
+      <img src="images/irievibe.png" alt="IrieVibe" onerror="this.src='images/IMG_0039.jpeg'">
+      <h3>IrieVibe</h3>
+      <p>Local Life Super App • Coming Q1</p>
+    </div>
+    <div class="app-card">
+      <img src="images/purvibe.png" alt="PurVibe" onerror="this.src='images/IMG_0039.jpeg'">
+      <h3>PurVibe</h3>
+      <p>Channel Content Curator</p>
     </div>
   </section>
 
-  <!-- MODAL FOR EACH DAPP -->
-  <div id="dappModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">×</span>
-
-      <div id="yaadvibe" class="modal-body">
-        <h2>YaadVibe — Flagship DApp</h2>
-        <p>Full immersive Web3 booking platform for tourists & diaspora. Pay with wallet, card, or Lynk → hosts get paid same day in JMD via JamDex. Multi-chain (TON, Solana, Polygon). SBT passports & NFTs on Tezos.</p>
-        <a href="#" class="btn-primary">Coming Q1 2026</a>
-      </div>
-
-      <div id="yaadlife" class="modal-body" style="display:none">
-        <h2>YaadLife Lite — LIVE RIGHT NOW</h2>
-        <p>First Jamaican Web3 booking experience inside Telegram. Real listings. Real hosts. TON payments → instant JamDex payouts.</p>
-        <a href="https://t.me/yaadvibelite_bot" target="_blank" class="btn-primary">Open Live Mini App</a>
-      </div>
-
-      <div id="irievibe" class="modal-body" style="display:none">
-        <h2>IrieVibe — Everyday Jamaica</h2>
-        <p>Food (Hotplate/Quikcart), transport (Knutsford, taxis), events, nightlife — all one-tap, zero-fee when using Lynk/JamDex.</p>
-        <a href="#" class="btn-primary">Launching Q1 2026</a>
-      </div>
-
-      <div id="purvibe" class="modal-body" style="display:none">
-        <h2>PurVibe</h2>
-        <p>Send content where you control it.</p>
-        <a href="mailto:invest@1drop.eco" class="btn-primary">Investors → Contact Us</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="flag-bar"></div>
-
   <footer>
-    <p>© 2025 1Drop Ecosystem • Built by Jamaicans, for Jamaica & the global family</p>
-    <p>YaadVibe • YaadLife Lite• IrieVibe • PurVibe • JamDex • TON • Solana • Tezos • AI</p>
+    <p>© 2025 1Drop • Built by Jamaicans, for Jamaica</p>
   </footer>
 
-  <script src="script.js"></script>
-  <script>
-    function openModal(id) {
-      document.getElementById('dappModal').classList.add('active');
-      document.querySelectorAll('.modal-body').forEach(el => el.style.display = 'none');
-      document.getElementById(id).style.display = 'block';
-    }
-    function closeModal() {
-      document.getElementById('dappModal').classList.remove('active');
-    }
-    window.onclick = e => { if (e.target.classList.contains('modal')) closeModal(); }
-  </script>
 </body>
 </html>
