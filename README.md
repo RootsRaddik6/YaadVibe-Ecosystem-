@@ -1,12 +1,8 @@
-# 🇯🇲 YaadVibe Ecosystem
+# 🇯🇲 YaadVibe Ecosystems
 
-A Next.js DApp for Jamaica travel:
-- Transport
-- Hotels
-- Food & Restaurants
-- Tours
-- SBT Receipts
-- QR Codes
-- TON / WalletConnect / Stripe / Lynk (JamDex)
+# 1Drop Ecosystem – Jamaica’s Web3 Future
 
-Deploy on Vercel.
+Live at: https://yaadvibe-ecosystem.vercel.app
+
+One Drop. One Jamaica.  
+YaadVibe • YaadLife Lite • IrieVibe • PurVibe
