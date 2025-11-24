@@ -1,5 +1,9 @@
-function subscribe() {
-  const msg = document.getElementById("subMessage");
-  msg.innerText = "Thanks! You’ll be notified when the full YaadVibe experience launches.";
-  msg.style.color = "#00d66c";
-}
+// Smooth scroll for "Learn More"
+document.querySelectorAll("a[href^='#']").forEach(anchor => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
+      behavior: "smooth"
+    });
+  });
+});
