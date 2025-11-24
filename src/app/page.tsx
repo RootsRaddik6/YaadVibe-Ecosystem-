@@ -18,6 +18,7 @@ export default function Home() {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
     }, 4000);
+
     return () => clearInterval(interval);
   }, []);
 
@@ -25,9 +26,8 @@ export default function Home() {
     <main className="landing">
       <div className="slideshow">
         <Image
-          key={slides[current]}
           src={slides[current]}
-          alt="Slideshow"
+          alt="Slide"
           fill
           priority
           style={{ objectFit: "cover" }}
