@@ -1,11 +1,12 @@
+// src/app/layout.tsx
 import "./global.css";
 
 export const metadata = {
   title: "YaadVibe Ecosystem",
-  description: "Find authentic Jamaican vibes",
+  description: "Experience Jamaica Like Never Before",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>{children}</body>
