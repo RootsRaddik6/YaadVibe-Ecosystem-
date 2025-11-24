@@ -1,138 +1,45 @@
-/* Keep everything you love — just better */
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Inter',sans-serif; background:#000; color:white; }
+body { font-family:'Inter',sans-serif; background:#000; color:white; overflow-x:hidden; }
 
-header { position:fixed; top:0; left:0; right:0; height:70px; background:rgba(0,0,0,0.95); backdrop-filter:blur(10px);
-  display:flex; align-items:center; justify-content:space-between; padding:0 20px; z-index:1000; }
-.logo { font-size:2rem; font-weight:900; background:#FED141; color:#000; padding:8px 16px; border-radius:8px; }
+header { position:fixed; top:20px; left:0; right:0; text-align:center; z-index:1000; }
+.red-logo { height:60px; width:auto; }
 
-..hero {
-  height: 100vh;
-  background: linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.85)), 
-              url('images/IMG_0039.jpeg') center/cover no-repeat fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 20px;
+.hero {
+  height:100vh;
+  background: linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.9)), url('images/IMG_0039.jpeg') center/cover no-repeat fixed;
+  display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:0 20px;
 }
-/* Red hot logo */
-.logo-img {
-  height: 48px;           /* adjust if your logo is bigger/smaller */
-  width: auto;
+h1 {
+  font-family:'Playfair Display',serif; font-size:5.5rem; color:white; text-shadow:0 0 20px rgba(254,209,65,0.5);
 }
+.apps {
+  font-size:2rem; color:#FED141; font-weight:900; margin:20px 0; letter-spacing:2px;
+}
+.mission { font-size:1.4rem; max-width:90%; margin:30px auto; line-height:1.7; }
+.live-btn {
+  background:#009B3A; color:white; padding:20px 60px; border-radius:50px; font-size:1.5rem; font-weight:900; text-decoration:none; margin-top:40px;
+  box-shadow:0 10px 30px rgba(0,155,58,0.4);
+}
+.live-btn:hover { background:#007030; transform:scale(1.05); }
 
-/* Header links - clean gold */
-.about-link {
-  color: #FED141;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-.about-link:hover { color: white; }
+.flag-bar { height:20px; }
+.flag-bar img { width:100%; height:100%; object-fit:cover; }
 
-/* Hero text - fyah gold & white */
-.hero-content h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 4.8rem;
-  color: white;
-  text-shadow: 0 0 20px rgba(254,209,65,0.6);
+.apps-grid {
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:30px; padding:80px 20px; max-width:1400px; margin:0 auto;
 }
-.subtitle {
-  font-size: 1.7rem;
-  color: #FED141;
-  font-weight: 900;
-  letter-spacing: 2px;
+.app-card {
+  background:rgba(255,255,255,0.05); border-radius:20px; overflow:hidden; text-align:center; padding:20px; transition:0.3s; border:1px solid rgba(255,255,255,0.1);
 }
-.tagline {
-  font-size: 1.35rem;
-  color: white;
-  max-width: 90%;
-  margin: 20px auto;
-}
+.app-card:hover { background:#009B3A; transform:translateY(-10px); }
+.app-card img { width:100%; height:300px; object-fit:cover; border-radius:12px; margin-bottom:16px; }
+.app-card h3 { font-size:1.8rem; margin:16px 0 8px; }
+.live { color:#FED141; font-weight:900; font-size:1.1rem; }
 
-/* About section - proper gold fire */
-#about-section h2 {
-  font-size: 4rem;
-  color: #FED141;
-  font-weight: 900;
-  text-shadow: 0 0 15px rgba(254,209,65,0.4);
-}
-#about-section .lead {
-  font-size: 1.6rem;
-  color: #FED141;
-  font-weight: 700;
-}
-.flag-bar {
-  height: 20px;
-  background: url('images/IMG_0454.png') center/cover no-repeat;
-  background-size: contain;
-}
-
-.ecosystem { padding:120px 20px; text-align:center; }
-.ecosystem h2 { font-size:3.5rem; margin-bottom:20px; }
-.section-desc { font-size:1.3rem; opacity:0.8; margin-bottom:60px; }
-
-.dapp-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:30px; max-width:1400px; margin:0 auto; }
-.dapp-card { background:rgba(255,255,255,0.07); border-radius:20px; overflow:hidden; cursor:pointer; transition:0.4s; border:1px solid rgba(255,255,255,0.1); }
-.dapp-card:hover { transform:translateY(-15px); box-shadow:0 20px 40px rgba(0,150,58,0.3); background:#009B3A; }
-.dapp-card img { width:100%; height:220px; object-fit:cover; }
-.card-body { padding:30px; text-align:left; }
-.card-body h3 { font-size:2rem; margin-bottom:8px; }
-.role { color:#FED141; font-weight:700; font-size:1.1rem; }
-.dapp-card p { opacity:0.9; margin:16px 0; }
-.status { background:rgba(0,0,0,0.4); padding:8px 16px; border-radius:50px; font-size:0.9rem; display:inline-block; }
-.status.live { background:#FED141; color:#000; font-weight:900; }
-
-.modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.98); z-index:2000; padding:20px; overflow-y:auto; }
-.modal.active { display:block; }
-.modal-content { max-width:900px; margin:80px auto; background:#111; border-radius:24px; padding:50px; position:relative; }
-.close { position:absolute; top:20px; right:30px; font-size:3.5rem; cursor:pointer; opacity:0.6; }
-.modal-body h2 { font-size:3rem; color:#FED141; margin-bottom:20px; }
-.modal-body p { font-size:1.3rem; line-height:1.8; }
-
-footer { padding:80px 20px; text-align:center; opacity:0.7; }
+footer { text-align:center; padding:60px 20px; opacity:0.7; font-size:0.9rem; }
 
 @media (max-width:768px) {
-  .hero-content h1 { font-size:3.2rem; }
-  .dapp-grid { grid-template-columns:1fr; }
+  h1 { font-size:3.8rem; }
+  .apps { font-size:1.5rem; }
+  .live-btn { font-size:1.3rem; padding:18px 50px; }
 }
-.about-section {
-  padding: 120px 20px;
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
-}
-.about-section h2 {
-  font-size: 3.2rem;
-  color: #FED141;
-  margin-bottom: 2rem;
-}
-.about-section .lead {
-  font-size: 1.4rem;
-  margin: 2rem 0;
-  color: #FED141;
-}
-.about-section p {
-  font-size: 1.25rem;
-  line-height: 1.9;
-  margin: 1.5rem 0;
-  opacity: 0.9;
-}
-.strong { font-weight: 700; font-size: 1.4rem; color: #FED141; margin-top: 2rem; }
-
-.btn-secondary {
-  display: inline-block;
-  margin-left: 20px;
-  padding: 16px 40px;
-  background: transparent;
-  color: #FED141;
-  border: 2px solid #FED141;
-  border-radius: 50px;
-  font-weight: 700;
-  text-decoration: none;
-}
-.btn-secondary:hover { background: #FED141; color: #000; }
-
-/* Smooth scroll when clicking About */
-html { scroll-behavior: smooth; }
