@@ -16,12 +16,53 @@ header { position:fixed; top:0; left:0; right:0; height:70px; background:rgba(0,
   text-align: center;
   padding: 0 20px;
 }
-.hero-content h1 { font-family:'Playfair Display',serif; font-size:5rem; margin-bottom:1rem; }
-.subtitle { font-size:1.6rem; color:#FED141; }
-.tagline { font-size:1.4rem; max-width:900px; margin:30px auto; opacity:0.9; }
-.btn-primary { padding:18px 50px; background:#009B3A; border-radius:50px; font-weight:700; font-size:1.2rem; text-decoration:none; display:inline-block; margin-top:20px; }
-.btn-primary:hover { background:#007030; transform:scale(1.05); }
+/* Red hot logo */
+.logo-img {
+  height: 48px;           /* adjust if your logo is bigger/smaller */
+  width: auto;
+}
 
+/* Header links - clean gold */
+.about-link {
+  color: #FED141;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.about-link:hover { color: white; }
+
+/* Hero text - fyah gold & white */
+.hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.8rem;
+  color: white;
+  text-shadow: 0 0 20px rgba(254,209,65,0.6);
+}
+.subtitle {
+  font-size: 1.7rem;
+  color: #FED141;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+.tagline {
+  font-size: 1.35rem;
+  color: white;
+  max-width: 90%;
+  margin: 20px auto;
+}
+
+/* About section - proper gold fire */
+#about-section h2 {
+  font-size: 4rem;
+  color: #FED141;
+  font-weight: 900;
+  text-shadow: 0 0 15px rgba(254,209,65,0.4);
+}
+#about-section .lead {
+  font-size: 1.6rem;
+  color: #FED141;
+  font-weight: 700;
+}
 .flag-bar {
   height: 20px;
   background: url('images/IMG_0454.png') center/cover no-repeat;
