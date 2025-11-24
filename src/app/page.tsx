@@ -25,11 +25,12 @@ export default function Home() {
     <main className="landing">
       <div className="slideshow">
         <Image
+          key={slides[current]}
           src={slides[current]}
           alt="Slideshow"
           fill
-          style={{ objectFit: "cover" }}
           priority
+          style={{ objectFit: "cover" }}
         />
       </div>
 
