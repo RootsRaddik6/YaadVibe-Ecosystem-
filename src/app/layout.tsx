@@ -1,8 +1,8 @@
-import "./globals.css";
+import "./global.css";
 
 export const metadata = {
   title: "YaadVibe Ecosystem",
-  description: "Experience Jamaica your way",
+  description: "Find authentic Jamaican vibes",
 };
 
 export default function RootLayout({ children }) {
