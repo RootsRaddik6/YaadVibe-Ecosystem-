@@ -1,22 +1,16 @@
 export default function Home() {
   return (
     <main style={{
-      minHeight: "100vh",
+      height: "100vh",
       display: "flex",
+      flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
-      flexDirection: "column",
-      background: "#0a0a0a",
-      color: "white",
-      fontFamily: "sans-serif",
-      textAlign: "center"
+      background: "#000",
+      color: "#fff"
     }}>
-      <h1 style={{ fontSize: "3rem", marginBottom: "1rem" }}>
-        YaadVibe Ecosystem
-      </h1>
-      <p style={{ opacity: 0.8 }}>
-        The official landing page is under construction.
-      </p>
+      <h1>YaadVibe Ecosystem</h1>
+      <p>Landing page loading…</p>
     </main>
   );
 }
