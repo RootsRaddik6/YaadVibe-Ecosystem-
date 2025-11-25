@@ -5,68 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>1Drop Ecosystems</title>
 
-    <!-- Playfair Display (KEEPING YOUR ORIGINAL FONT + WEIGHT) -->
-    <link 
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" 
-        rel="stylesheet"
-    >
+    <!-- Playfair Display (KEEPING YOUR ORIGINAL FONT) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Cinzel Decorative (GOLD LOGO FONT YOU USED) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
 
-    <!-- DARK OVERLAY (now correct + NOT blocking elements) -->
-    <div class="overlay"></div>
+    <!-- HERO SECTION -->
+    <section class="hero-container">
 
-    <!-- 3D FLAG HOLOGRAM (YOUR ORIGINAL BLOCK) -->
-    <div class="flag-3d-wrapper">
-        <img src="IMG_0454.png" class="flag base-layer" alt="Jamaica Flag">
-        <img src="IMG_0454.png" class="flag holo-layer" alt="Jamaica Flag Hologram">
-    </div>
+        <!-- BACKGROUND IMAGE -->
+        <div class="hero-bg"></div>
 
-    <!-- TITLE (YOUR ORIGINAL GOLD, GLOWING, LARGE DISPLAY TEXT) -->
-    <h1 class="title">1DROP YAADVIBE</h1>
+        <!-- DARK BLUR GRADIENT -->
+        <div class="hero-overlay"></div>
 
-    <!-- BUTTON STACK (YOUR ORIGINAL BUTTONS) -->
-    <div class="button-stack">
-        <button class="btn ton" onclick="openTon()">TON</button>
-        <button class="btn wc" onclick="openWalletConnect()">WalletConnect</button>
-    </div>
+        <!-- CENTERED 3D FLAG + TITLE + BUTTONS -->
+        <div class="hero-content">
 
-    <!-- CARD GRID (CORRECT ORDER) -->
+            <!-- 3D FLAG HOLOGRAM -->
+            <div class="flag-3d-wrapper">
+                <img src="IMG_0454.png" class="flag base-layer" alt="Jamaica Flag">
+                <img src="IMG_0454.png" class="flag holo-layer" alt="Jamaica Flag Hologram">
+            </div>
+
+            <!-- MAIN GOLD TITLE -->
+            <h1 class="hero-title">1DROP YAADVIBE</h1>
+
+            <!-- TAGLINE -->
+            <p class="hero-text">
+                A new dimension of lifestyle, culture & immersive digital experience.
+            </p>
+
+            <!-- BUTTONS -->
+            <div class="hero-buttons">
+                <button class="btn ton" onclick="openTon()">TON</button>
+                <button class="btn wc" onclick="openWalletConnect()">WalletConnect</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CARD GRID -->
     <main class="card-grid">
 
         <div class="app-card card-yaadvibe" onclick="openApp('YAADVIBE')">
             <h2>YaadVibe</h2>
             <p>A flagship immersive Jamaican booking experience tailored to you.</p>
-            <button class="about-btn" onclick="event.stopPropagation(); openAbout('YAADVIBE');">
-                About This App
-            </button>
+            <button class="about-btn" onclick="event.stopPropagation(); openAbout('YAADVIBE');">About This App</button>
         </div>
 
         <div class="app-card card-yaadlife" onclick="openApp('YAADLIFE')">
             <h2>YaadLife Lite</h2>
             <p>Fast, TON version in Lite full access DApp.</p>
-            <button class="about-btn" onclick="event.stopPropagation(); openAbout('YAADLIFE');">
-                About This App
-            </button>
+            <button class="about-btn" onclick="event.stopPropagation(); openAbout('YAADLIFE');">About This App</button>
         </div>
 
         <div class="app-card card-purvibe" onclick="openApp('PURVIBE')">
             <h2>PurVibe</h2>
             <p>Channel Content Curator for Pur-digital vibes.</p>
-            <button class="about-btn" onclick="event.stopPropagation(); openAbout('PURVIBE');">
-                About This App
-            </button>
+            <button class="about-btn" onclick="event.stopPropagation(); openAbout('PURVIBE');">About This App</button>
         </div>
 
         <div class="app-card card-irievibe" onclick="openApp('IRIEVIBE')">
             <h2>IrieVibe</h2>
             <p>Mobile superpowered lifestyle curator for food, restaurants & accommodations.</p>
-            <button class="about-btn" onclick="event.stopPropagation(); openAbout('IRIEVIBE');">
-                About This App
-            </button>
+            <button class="about-btn" onclick="event.stopPropagation(); openAbout('IRIEVIBE');">About This App</button>
         </div>
 
     </main>
