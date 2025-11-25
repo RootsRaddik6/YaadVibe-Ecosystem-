@@ -1,2 +1,7 @@
-// Placeholder for future interactive WalletConnect / TON logic
-console.log("YaadVibe Landing Page Loaded");
+function connectTON() {
+    alert("TON Wallet Coming Soon");
+}
+
+function connectWC() {
+    alert("WalletConnect Coming Soon");
+}
