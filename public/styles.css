@@ -200,3 +200,52 @@ body {
         transform: translateZ(30px) rotateY(4deg);
     }
 }
+/* Background Image */
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('/IMG_1125.jpeg') center center/cover no-repeat fixed;
+    overflow: hidden;
+}
+
+/* Dark overlay for readability */
+.hero-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* 3D Card */
+.hero-3d {
+    background: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(8px);
+    padding: 40px;
+    border-radius: 20px;
+    transform-style: preserve-3d;
+    transition: transform 0.15s ease-out;
+    max-width: 700px;
+    text-align: center;
+}
+
+/* Typography preserved exactly — your Google Fonts stay untouched */
+.hero-title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.hero-text {
+    font-size: 1.4rem;
+    color: #f0f0f0;
+    margin-bottom: 25px;
+}
+
+/* Buttons (your style, not overwritten) */
+.hero-buttons a {
+    margin: 0 10px;
+}
