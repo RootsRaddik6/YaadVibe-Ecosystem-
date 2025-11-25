@@ -26,22 +26,32 @@
     justify-content: flex-end;
 }
 
-/* --- BACKGROUND IMAGES (from your provided composite image) --- */
-
-.app-card:nth-child(1) {
-    background-image: url('/images/card-yaadvibe.jpg');
+/* YAADVIBE */
+.app-card.yaadvibe {
+    background-image: url('/images/DCE3C919-9E51-49D6-8E7x-xxxx.jpeg');
+    background-size: cover;
+    background-position: center;
 }
 
-.app-card:nth-child(2) {
-    background-image: url('/images/card-yaadlife.jpg');
+/* YAADLIFE LITE */
+.app-card.yaadlife {
+    background-image: url('/images/C9577413-ED2C-4C08-BFCx-xxxx.jpeg');
+    background-size: cover;
+    background-position: center;
 }
 
-.app-card:nth-child(3) {
-    background-image: url('/images/card-purvibe.jpg');
+/* PURVIBE */
+.app-card.purvibe {
+    background-image: url('/images/A10813F1-F3F5-4EB1-8BD5-04E1119116BE.png');
+    background-size: cover;
+    background-position: center;
 }
 
-.app-card:nth-child(4) {
-    background-image: url('/images/card-irievibe.jpg');
+/* IRIEVIBE */
+.app-card.irievibe {
+    background-image: url('/images/A10813F1-F3F5-4EB1-8BD5-xxxx.jpeg');
+    background-size: cover;
+    background-position: center;
 }
 
 /* --- TEXT --- */
