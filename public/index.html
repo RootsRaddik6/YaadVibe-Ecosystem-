@@ -11,35 +11,26 @@
     <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
+<<body>
     <div class="overlay"></div>
 
-    <!-- ========================= -->
-    <!--        HERO SECTION       -->
-    <!-- ========================= -->
-    <section class="hero">
+    <!-- HERO SECTION -->
+    <section class="hero-container">
+        <div class="hero-overlay">
+            <div class="hero-3d" id="hero3d">
+                <h1 class="hero-title">YaadVibe Ecosystems</h1>
+                <p class="hero-text">A new dimension of lifestyle, culture & immersive digital experience.</p>
 
-        <div class="flag-3d-wrapper">
-            <img src="IMG_0454.png" class="flag base-layer" alt="Jamaica Flag" />
-            <img src="IMG_0454.png" class="flag holo-layer" alt="Jamaica Flag Hologram" />
+                <div class="hero-buttons">
+                    <a href="{TON_URL}" class="btn btn-primary">TON Access</a>
+                    <a href="{Walletconnect_URL}" class="btn btn-secondary">WalletConnect</a>
+                </div>
+            </div>
         </div>
-
-        <!-- TITLE -->
-        <h1 class="title">1DROP YAADVIBE</h1>
-
-        <!-- BUTTON STACK -->
-        <div class="button-stack">
-            <button class="btn ton" onclick="openTon()">TON</button>
-            <button class="btn wc" onclick="openWalletConnect()">WalletConnect</button>
-        </div>
-
     </section>
-    <!-- END HERO -->
 
-    <!-- ========================= -->
-    <!--        APP CARDS          -->
-    <!-- ========================= -->
-    <main class="card-grid">
+    <!-- CARD GRID (LEAVE THIS PART) -->
+    <main class="card-grid"><main class="card-grid">
 
         <div class="app-card card-yaadvibe" onclick="openApp('YAADVIBE')">
             <h2>YaadVibe</h2>
