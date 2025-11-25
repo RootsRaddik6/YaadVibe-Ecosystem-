@@ -1,18 +1,18 @@
-function openApp(app) {
+function openAbout(app) {
     switch (app) {
         case "YAADVIBE":
-            window.location.href = "/yaadvibe";
+            window.location.href = "/about-yaadvibe";
             break;
         case "YAADLIFE":
-            window.location.href = "/yaadlife";
+            window.location.href = "/about-yaadlife";
             break;
         case "PURVIBE":
-            window.location.href = "/purvibe";
+            window.location.href = "/about-purvibe";
             break;
         case "IRIEVIBE":
-            window.location.href = "/irievibe";
+            window.location.href = "/about-irievibe";
             break;
         default:
-            alert("App not configured yet.");
+            alert("About page not configured.");
     }
 }
