@@ -5,22 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>1Drop Ecosystems</title>
 
-    <!-- Google Fonts (Original v1) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Google Fonts (v1 ONLY) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
+    <!-- Styles -->
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
     <div class="overlay"></div>
 
-    <!-- Flag -->
+    <!-- FLAG -->
     <img src="IMG_0454.png" class="flag" alt="Jamaica Flag" />
 
-    <!-- ONE LINE TITLE — EXACTLY AS REQUESTED -->
+    <!-- ONE-LINE TITLE using Playfair Display -->
     <h1 class="title">1DROP YAADVIBE</h1>
 
-    <!-- Button column under the “E” in YAADVIBE -->
+    <!-- BUTTONS under the “E” of VIBE -->
     <div class="button-stack">
         <button class="btn primary" onclick="openTon()">TON</button>
 
@@ -29,7 +30,7 @@
         </button>
     </div>
 
-    <!-- Four Cards (Bottom Row) -->
+    <!-- FOUR CARDS ROW (visible + scrollable) -->
     <div class="four-card-row">
         <div class="small-card">YaadVibe</div>
         <div class="small-card">YaadLife Lite</div>
@@ -37,15 +38,6 @@
         <div class="small-card">IrieVibe</div>
     </div>
 
-    <script>
-        function openTon() {
-            window.open("https://ton.org", "_blank");
-        }
-
-        function openWalletConnect() {
-            window.open("https://walletconnect.com", "_blank");
-        }
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
