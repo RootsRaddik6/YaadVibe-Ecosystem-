@@ -107,7 +107,6 @@ body {
         0 0 10px rgba(255, 80, 80, 0.25);
 }
 
-/* MOBILE FIXES (small iPhones) */
 @media (max-width: 430px) {
     .title {
         top: 22vh;
