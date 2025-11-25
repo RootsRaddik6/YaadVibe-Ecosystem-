@@ -1,39 +1,27 @@
 <main class="card-grid">
 
-    <div class="app-card" onclick="openApp('YAADVIBE')">
-        <h2>YaadVibe</h2>
-        <p>A flagship immersive Jamaican booking experience tailored to you, chosen by you.</p>
+    <div class="app-card yaadvibe" onclick="openApp('YAADVIBE')">
+    <h2>YaadVibe</h2>
+    <p>A flagship immersive Jamaican booking experience tailored to you.</p>
+    <button class="about-btn" onclick="event.stopPropagation(); openAbout('YAADVIBE');">About</button>
+</div>
 
-        <button class="about-btn" onclick="event.stopPropagation(); openAbout('YAADVIBE');">
-            About This App
-        </button>
-    </div>
+<div class="app-card yaadlife" onclick="openApp('YAADLIFE')">
+    <h2>YaadLife Lite</h2>
+    <p>Fast, TON version in Lite full access DApp.</p>
+    <button class="about-btn" onclick="event.stopPropagation(); openAbout('YAADLIFE');">About</button>
+</div>
 
-    <div class="app-card" onclick="openApp('YAADLIFE')">
-        <h2>YaadLife Lite</h2>
-        <p>Fast, TON version in Lite full access DApp.</p>
+<div class="app-card purvibe" onclick="openApp('PURVIBE')">
+    <h2>PurVibe</h2>
+    <p>Channel Content Curator for Pur-digital vibes.</p>
+    <button class="about-btn" onclick="event.stopPropagation(); openAbout('PURVIBE');">About</button>
+</div>
 
-        <button class="about-btn" onclick="event.stopPropagation(); openAbout('YAADLIFE');">
-            About This App
-        </button>
-    </div>
-
-    <div class="app-card" onclick="openApp('PURVIBE')">
-        <h2>PurVibe</h2>
-        <p>Channel Content Curator for Pur-digital vibes.</p>
-
-        <button class="about-btn" onclick="event.stopPropagation(); openAbout('PURVIBE');">
-            About This App
-        </button>
-    </div>
-
-    <div class="app-card" onclick="openApp('IRIEVIBE')">
-        <h2>IrieVibe</h2>
-        <p>Mobile superpowered lifestyle curator food, restaurants accommodations all geared to local lifestyle.</p>
-
-        <button class="about-btn" onclick="event.stopPropagation(); openAbout('IRIEVIBE');">
-            About This App
-        </button>
-    </div>
+<div class="app-card irievibe" onclick="openApp('IRIEVIBE')">
+    <h2>IrieVibe</h2>
+    <p>Mobile superpowered lifestyle curator food, restaurants accommodations all geared to local lifestyle.</p>
+    <button class="about-btn" onclick="event.stopPropagation(); openAbout('IRIEVIBE');">About</button>
+</div>
 
 </main>
