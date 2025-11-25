@@ -1,7 +1,7 @@
-function connectTON() {
-    alert("TON Wallet Coming Soon");
+function openTon() {
+    window.location.href = "https://ton.org/en/wallets";
 }
 
-function connectWC() {
-    alert("WalletConnect Coming Soon");
+function openWalletConnect() {
+    window.location.href = "https://walletconnect.com/";
 }
