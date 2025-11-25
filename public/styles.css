@@ -1,106 +1,156 @@
-/* --- GLOBAL RESET --- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* --- BACKGROUND --- */
+/* ---------- GLOBAL ---------- */
 body {
-  font-family: 'Cinzel', serif; /* Do NOT change fonts */
-  background: #000;
-  background-image: url('/background.jpg');
-  background-size: cover;
-  background-position: center;
-  text-align: center;
-  color: #fff;
-  overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: 'Cinzel', serif;
+    background: #000;
+    background-image: url('/background.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* --- LOGO + TITLE --- */
+/* ---------- HEADER TITLE ---------- */
 .hero-title {
-  font-size: 3.2rem;
-  margin-top: 30px;
-  color: #FFD84D;
-  text-shadow:
-    0 0 6px rgba(255, 80, 40, 0.65),     /* REDDISH inner glow */
-    0 0 14px rgba(255, 200, 40, 0.55),   /* GOLD outer — 15% reduced */
-    0 0 28px rgba(255, 200, 40, 0.35);
+    margin-top: 60px;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #FFD700;
+    text-shadow:
+        0 0 10px rgba(255, 215, 0, 0.75),
+        0 0 20px rgba(255, 80, 0, 0.20),      /* red tint */
+        0 0 35px rgba(255, 215, 0, 0.65);     /* glow reduced ~15% */
 }
 
-/* --- TOP BUTTONS (TON + WalletConnect) --- */
+/* ---------- FLAG ---------- */
+.flag {
+    width: 140px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+}
+
+/* ---------- MAIN BUTTONS (TON / WalletConnect) ---------- */
 .top-buttons {
-  margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
 }
 
-.top-buttons button {
-  width: 165px;        /* Desktop reduced size */
-  padding: 10px 0;
-  margin: 10px auto;
-  display: block;
-  border-radius: 32px;
-  font-size: 0.95rem;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.4);
-  border: 2px solid #FFD84D;
-  box-shadow:
-    0 0 4px rgba(255, 80, 40, 0.45),
-    0 0 12px rgba(255, 200, 40, 0.30);
-  transition: 0.25s;
+.action-button {
+    padding: 10px 28px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    background: transparent;
+    border: 2px solid #FFD700;
+    color: #FFD700;
+    text-shadow: 0 0 6px rgba(255, 215, 0, 0.7);
+    box-shadow:
+        0 0 8px rgba(255, 215, 0, 0.5),
+        0 0 14px rgba(255, 60, 0, 0.25);      /* slight red tint */
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
 }
 
-.top-buttons button:hover {
-  transform: scale(1.06);
-  box-shadow:
-    0 0 6px rgba(255, 80, 40, 0.7),
-    0 0 18px rgba(255, 200, 40, 0.45);
+.action-button:hover {
+    transform: scale(1.07);
+    box-shadow:
+        0 0 10px rgba(255, 215, 0, 0.9),
+        0 0 20px rgba(255, 60, 0, 0.35);
 }
 
-/* --- BOTTOM NAV BUTTONS --- */
+/* ---------- BOTTOM NAV BUTTONS ---------- */
 .bottom-nav {
-  width: 100%;
-  position: fixed;
-  bottom: 22px;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  gap: 18px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    padding-bottom: 25px;
 }
 
-.bottom-nav button {
-  padding: 8px 22px;
-  border-radius: 26px;
-  font-size: 0.9rem;
-  border: 2px solid #FFD84D;
-  background: rgba(0, 0, 0, 0.45);
-  color: white;
-  box-shadow:
-    0 0 4px rgba(255, 80, 40, 0.45),
-    0 0 10px rgba(255, 200, 40, 0.30);
+.nav-button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    background: transparent;
+    border: 2px solid #FFD700;
+    font-size: 0.9rem;
+    color: #FFD700;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.6);
+    box-shadow:
+        0 0 7px rgba(255, 215, 0, 0.45),
+        0 0 12px rgba(255, 60, 0, 0.20);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
 }
 
-/* --- MOBILE RESPONSIVE FIX --- */
-@media (max-width: 760px) {
+.nav-button:hover {
+    transform: scale(1.05);
+}
 
-  .hero-title {
-    font-size: 2.1rem;
-    margin-top: 15px;
-  }
+/* ---------- DESKTOP ADJUSTMENTS ---------- */
+@media (min-width: 900px) {
 
-  .top-buttons button {
-    width: 135px;      /* Mobile smaller */
-    padding: 8px 0;
-    font-size: 0.85rem;
-  }
+    .hero-title {
+        font-size: 4rem;
+        margin-top: 80px;
+    }
 
-  .bottom-nav {
-    bottom: 30px;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
+    .flag {
+        width: 200px;
+    }
 
-  .bottom-nav button {
-    padding: 6px 18px;
-    font-size: 0.8rem;
-  }
+    .top-buttons {
+        gap: 18px;
+        margin-top: 25px;
+    }
+
+    .action-button {
+        font-size: 1.1rem;
+        padding: 10px 40px;
+        transform: scale(0.85);   /* Smaller on desktop */
+    }
+
+    .bottom-nav .nav-button {
+        transform: scale(0.90);   /* Smaller desktop nav */
+    }
+}
+
+/* ---------- MOBILE ADJUSTMENTS ---------- */
+@media (max-width: 480px) {
+
+    .hero-title {
+        font-size: 2.2rem;
+        margin-top: 40px;
+    }
+
+    .flag {
+        width: 115px;
+    }
+
+    .top-buttons {
+        margin-top: 10px;
+        gap: 12px;
+    }
+
+    .action-button {
+        font-size: 0.9rem;
+        padding: 8px 22px;
+    }
+
+    .bottom-nav {
+        gap: 12px;
+        padding-bottom: 30px;
+    }
+
+    .nav-button {
+        font-size: 0.8rem;
+        padding: 8px 14px;
+    }
 }
