@@ -1,21 +1,48 @@
-/* About Buttons inside Cards */
-.about-btn {
-    margin-top: 15px;
-    width: 100%;
-    padding: 12px 0;
-    border-radius: 14px;
-    border: 1px solid rgba(255, 215, 0, 0.55);
-    background: rgba(0,0,0,0.45);
-    color: gold;
-    font-size: 15px;
-    font-family: 'Poppins', sans-serif;
-    cursor: pointer;
-    transition: 0.2s ease;
-    text-shadow: 0 0 6px rgba(255, 215, 0, 0.45);
+/* --- CARD IMAGE BACKGROUNDS FROM SINGLE MASTER IMAGE --- */
+
+.card {
+    background-image: url('/mnt/data/365EE8F9-6D3B-4436-9086-7E8A23A22375.jpeg');
+    background-size: 400% 100%; /* Four cards horizontally */
+    background-repeat: no-repeat;
+    border-radius: 18px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #fff;
 }
 
-.about-btn:hover {
-    background: rgba(0,0,0,0.65);
-    transform: translateY(-2px);
-    box-shadow: 0 0 10px rgba(255,215,0,0.25);
+/* YAADVIBE – 1st quadrant (left-most) */
+.card-yaadvibe {
+    background-position: 0% 0%;
+}
+
+/* YAADLIFE LITE – 2nd quadrant */
+.card-yaadlife-lite {
+    background-position: 33.33% 0%;
+}
+
+/* PURVIBE – 3rd quadrant */
+.card-purvibe {
+    background-position: 66.66% 0%;
+}
+
+/* IRIEVIBE – right-most quadrant */
+.card-irievibe {
+    background-position: 100% 0%;
+}
+
+/* --- BUTTON --- */
+.card-button {
+    margin-top: 16px;
+    padding: 10px 22px;
+    border-radius: 10px;
+    background: #FFCA28;
+    color: #000;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
 }
