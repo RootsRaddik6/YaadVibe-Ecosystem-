@@ -1,123 +1,133 @@
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Background */
 body {
-    font-family: 'Playfair Display', serif;
-    background: url('IMG_0039.jpeg') center/cover no-repeat fixed;
-    height: 100vh;
-    overflow-x: hidden;
-    position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: url("/bg.jpg") center center / cover no-repeat;
+  font-family: "Cinzel", serif;
+  overflow-x: hidden;
 }
 
-/* DARK OVERLAY */
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.55);
-    backdrop-filter: blur(1.5px);
-    z-index: 1;
+/* Container for the top section */
+.header-container {
+  position: relative;
+  width: 100%;
+  text-align: left;
+  padding-left: 6vw;          /* Moves title + flag LEFT */
+  padding-top: 5vh;           /* Moves title UP closer to flag */
 }
 
-/* FLAG */
+/* Jamaican flag */
 .flag {
-    position: absolute;
-    top: 7vh;
-    left: 5vw;
-    width: 32vw;
-    max-width: 160px;
-    z-index: 3;
+  width: 140px;
+  height: auto;
+  position: relative;
+  top: 0;
 }
 
-/* TITLE WITH REDDISH-GOLD REDUCED GLOW */
+/* Title "1DROP YAADVIBE" */
 .title {
-    position: absolute;
-    top: 21vh;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 6vw;
-    max-font-size: 48px;
-    color: #FFD700;
-    font-weight: 700;
-    white-space: nowrap;
+  font-size: 48px;
+  font-weight: bold;
+  margin-top: -15px;          /* Pull title upward closer to flag */
+  margin-left: 10px;          /* Moves title LEFT */
+  color: #ffd700;
 
-    /* 15% reduced glow + slight red */
-    text-shadow:
-        0 0 6px rgba(255, 215, 0, 0.75),
-        0 0 12px rgba(255, 150, 0, 0.55),
-        0 0 20px rgba(255, 70, 0, 0.35);
-
-    z-index: 4;
+  /* Softer golden glow + slight red tint */
+  text-shadow:
+    0 0 10px rgba(255, 215, 0, 0.7),
+    0 0 18px rgba(255, 0, 0, 0.3),
+    0 0 35px rgba(255, 215, 0, 0.6);
 }
 
-/* BUTTON STACK (mobile default) */
-.button-stack {
-    position: absolute;
-    top: 33vh;
-    left: 58%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    z-index: 4;
+/* CENTER BUTTON WRAPPER */
+.button-wrapper {
+  position: absolute;
+  top: 45vh;                  /* Moves buttons downward */
+  left: 52%;                  /* Moves buttons RIGHT under the “E” */
+  transform: translateX(-50%);
+  text-align: center;
 }
 
-.btn {
-    font-size: 12px;
-    padding: 7px 22px;
-    border-radius: 45px;
-    border: 1px solid gold;
-    background: rgba(0,0,0,0.45);
-    color: white;
-    min-width: 130px;
-    text-align: center;
+/* Main buttons */
+.action-btn {
+  font-size: 15px;
+  padding: 10px 22px;
+  width: 165px;               /* ⬅️ Reduced size by ~15% as you asked */
+  border-radius: 30px;
+
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: 2px solid #ffd700;
+  margin: 12px 0;
+
+  box-shadow:
+    0 0 6px rgba(255, 215, 0, 0.4),
+    0 0 12px rgba(255, 0, 0, 0.25),
+    inset 0 0 8px rgba(255, 215, 0, 0.25);
 }
 
-/* CARD ROW */
+/* CARD BUTTON ROW */
 .card-row {
-    position: absolute;
-    bottom: 4vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    z-index: 4;
+  width: 100%;
+  position: absolute;
+  bottom: 6vh;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  transform: translateX(-3%);    /* Moves cards LEFT slightly */
 }
 
-.card {
-    padding: 10px 16px;
-    background: rgba(0,0,0,0.65);
-    border: 1px solid rgba(255,215,0,0.7);
-    border-radius: 12px;
-    color: white;
-    white-space: nowrap;
+/* Card buttons */
+.card-btn {
+  font-size: 14px;
+  padding: 10px 22px;
+  border-radius: 25px;
+
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: 2px solid #ffd700;
+
+  box-shadow:
+    0 0 6px rgba(255, 215, 0, 0.4),
+    inset 0 0 6px rgba(255, 215, 0, 0.25);
+}
+
+/* RESPONSIVE FIXES FOR IPHONE 13 PRO MAX */
+@media (max-width: 430px) {
+  .header-container {
+    padding-left: 5vw;
+    padding-top: 4vh;
+  }
+
+  .flag {
+    width: 120px;
+  }
+
+  .title {
+    font-size: 34px;
+    margin-top: -10px;
+  }
+
+  .button-wrapper {
+    top: 43vh;
+    left: 57%;                /* Adjust to match under the “E” on mobile */
+  }
+
+  .action-btn {
+    width: 150px;
+    padding: 9px 20px;
     font-size: 14px;
-    text-shadow: 0 0 8px #FFD700;
-}
+  }
 
-/* *************************************
-   DESKTOP FIX — SHIFT BUTTONS DOWN + RIGHT
-   ************************************* */
+  .card-row {
+    gap: 14px;
+    transform: translateX(-4%);
+  }
 
-@media (min-width: 768px) {
-
-    .button-stack {
-        top: 40vh;        /* moved DOWN */
-        left: 63%;        /* moved RIGHT */
-        transform: translateX(-50%);
-        gap: 16px;
-    }
-
-    .btn {
-        font-size: 16px;
-        padding: 12px 32px;
-        min-width: 180px;
-    }
-
-    .title {
-        font-size: 52px;
-    }
+  .card-btn {
+    font-size: 12px;
+    padding: 8px 18px;
+  }
 }
