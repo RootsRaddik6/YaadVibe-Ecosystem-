@@ -1,133 +1,186 @@
-/* Background */
+/* ==========================
+   1DROP YAADVIBE - styles.css
+   Full replacement - paste entire file
+   ========================== */
+
+/* RESET */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* BACKGROUND */
 body {
-  margin: 0;
-  padding: 0;
   height: 100vh;
-  background: url("/bg.jpg") center center / cover no-repeat;
-  font-family: "Cinzel", serif;
+  font-family: "Playfair Display", serif;
+  background: url('IMG_0039.jpeg') center/cover no-repeat fixed;
+  color: #fff;
+  position: relative;
   overflow-x: hidden;
 }
 
-/* Container for the top section */
+/* DARK OVERLAY to preserve contrast */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.56);
+  backdrop-filter: blur(1.5px);
+  z-index: 1;
+}
+
+/* HEADER CONTAINER - holds flag + title */
 .header-container {
   position: relative;
   width: 100%;
-  text-align: left;
-  padding-left: 6vw;          /* Moves title + flag LEFT */
-  padding-top: 5vh;           /* Moves title UP closer to flag */
+  z-index: 4;
+  display: block;
+  padding-left: 5.5vw;   /* shifts everything left as requested */
+  padding-top: 3.8vh;    /* keeps top gap consistent */
 }
 
-/* Jamaican flag */
+/* FLAG - stable for mobile and desktop */
 .flag {
+  position: absolute;
+  top: 4.6vh;
+  left: 5.5vw;
   width: 140px;
   height: auto;
-  position: relative;
-  top: 0;
+  z-index: 5;
+  image-rendering: auto;
 }
 
-/* Title "1DROP YAADVIBE" */
+/* TITLE - moved left and closer to flag */
 .title {
-  font-size: 48px;
-  font-weight: bold;
-  margin-top: -15px;          /* Pull title upward closer to flag */
-  margin-left: 10px;          /* Moves title LEFT */
-  color: #ffd700;
+  display: inline-block;
+  position: absolute;
+  top: 22.5vh;            /* vertical placement (adjusted for mobile) */
+  left: calc(5.5vw + 160px); /* position just to the right of flag */
+  transform: translateY(-6%);
+  font-size: 4.2rem;      /* large on desktop */
+  line-height: 1;
+  color: #ffd200;         /* primary gold color */
+  font-weight: 700;
+  white-space: nowrap;
+  z-index: 5;
 
-  /* Softer golden glow + slight red tint */
+  /* Golden glow reduced ~15% + slight red tint */
   text-shadow:
-    0 0 10px rgba(255, 215, 0, 0.7),
-    0 0 18px rgba(255, 0, 0, 0.3),
-    0 0 35px rgba(255, 215, 0, 0.6);
+    0 0 8px rgba(255,215,0,0.62),
+    0 0 14px rgba(255,215,0,0.48),
+    0 0 22px rgba(255,40,0,0.18);
 }
 
-/* CENTER BUTTON WRAPPER */
+/* BUTTON WRAPPER - position relative to visual "E" in VIBE */
 .button-wrapper {
   position: absolute;
-  top: 45vh;                  /* Moves buttons downward */
-  left: 52%;                  /* Moves buttons RIGHT under the “E” */
+  top: 43.5vh;            /* pushes buttons downward (desktop baseline) */
+  left: 52.5%;            /* nudges slightly right so the stack sits under "E" */
   transform: translateX(-50%);
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  z-index: 5;
 }
 
-/* Main buttons */
+/* ACTION BUTTONS - 15% smaller than earlier size */
 .action-btn {
+  width: 180px;           /* reduced size (desktop) */
+  padding: 10px 16px;
+  border-radius: 36px;
+  border: 2px solid #ffd200;
+  background: rgba(0,0,0,0.62);
+  color: #fff;
   font-size: 15px;
-  padding: 10px 22px;
-  width: 165px;               /* ⬅️ Reduced size by ~15% as you asked */
-  border-radius: 30px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
 
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-  border: 2px solid #ffd700;
-  margin: 12px 0;
-
+  /* subtle neon + inner warmth */
   box-shadow:
-    0 0 6px rgba(255, 215, 0, 0.4),
-    0 0 12px rgba(255, 0, 0, 0.25),
-    inset 0 0 8px rgba(255, 215, 0, 0.25);
+    0 0 6px rgba(255,215,0,0.32),
+    0 0 12px rgba(255,40,0,0.12),
+    inset 0 -6px 18px rgba(0,0,0,0.18);
 }
 
-/* CARD BUTTON ROW */
+/* Secondary variant if needed */
+.action-btn.secondary {
+  background: rgba(18,18,18,0.6);
+}
+
+/* CARD ROW - fixed at bottom, shifted left slightly */
 .card-row {
-  width: 100%;
   position: absolute;
-  bottom: 6vh;
+  bottom: 4.5vh;
+  left: 2.5%;             /* nudge entire row to the left */
+  width: 95%;
   display: flex;
   justify-content: center;
-  gap: 20px;
-
-  transform: translateX(-3%);    /* Moves cards LEFT slightly */
+  gap: 18px;
+  z-index: 5;
+  pointer-events: auto;
 }
 
-/* Card buttons */
+/* Individual card style */
 .card-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  padding: 10px 18px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.6);
+  border: 2px solid rgba(255,215,0,0.9);
+  color: #fff;
   font-size: 14px;
-  padding: 10px 22px;
-  border-radius: 25px;
-
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-  border: 2px solid #ffd700;
-
+  font-weight: 600;
+  text-shadow: 0 0 6px rgba(255,215,0,0.18);
   box-shadow:
-    0 0 6px rgba(255, 215, 0, 0.4),
-    inset 0 0 6px rgba(255, 215, 0, 0.25);
+    0 2px 12px rgba(0,0,0,0.45),
+    0 0 10px rgba(255,215,0,0.18) inset;
 }
 
-/* RESPONSIVE FIXES FOR IPHONE 13 PRO MAX */
+/* SMALLER VIEWPORT (phones incl. iPhone 13 Pro Max) */
 @media (max-width: 430px) {
-  .header-container {
-    padding-left: 5vw;
-    padding-top: 4vh;
-  }
 
-  .flag {
-    width: 120px;
-  }
+  .flag { width: 115px; left: 6vw; top: 5vh; }
 
   .title {
-    font-size: 34px;
-    margin-top: -10px;
+    font-size: 2.4rem;            /* smaller on phone */
+    left: calc(6vw + 125px);      /* keep it near flag */
+    top: 28vh;                    /* adjust vertical specifically for mobile */
+    transform: translateY(-10%);
+    text-shadow:
+      0 0 6px rgba(255,215,0,0.58),
+      0 0 10px rgba(255,40,0,0.14);
   }
 
   .button-wrapper {
-    top: 43vh;
-    left: 57%;                /* Adjust to match under the “E” on mobile */
+    top: 50vh;                    /* lower on small screens so buttons are visible */
+    left: 57%;                    /* move slightly to align under E on mobile */
+    gap: 10px;
   }
 
   .action-btn {
-    width: 150px;
-    padding: 9px 20px;
-    font-size: 14px;
+    width: 145px;                 /* ~15% smaller in mobile context */
+    padding: 8px 12px;
+    font-size: 13px;
+    border-radius: 28px;
   }
 
   .card-row {
-    gap: 14px;
-    transform: translateX(-4%);
+    bottom: 3.2vh;
+    gap: 12px;
+    left: 1.8%;
+    width: 96%;
   }
 
   .card-btn {
+    min-width: 100px;
+    padding: 8px 14px;
     font-size: 12px;
-    padding: 8px 18px;
   }
+}
+
+/* Extra desktop tweak for very wide screens to keep button cluster sane */
+@media (min-width: 1400px) {
+  .title { font-size: 5.2rem; left: calc(5.5vw + 170px); }
+  .action-btn { width: 200px; font-size: 16px; }
 }
