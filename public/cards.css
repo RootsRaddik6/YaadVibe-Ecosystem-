@@ -25,7 +25,23 @@
     flex-direction: column;
     justify-content: flex-end;
 }
+/* ---- APP CARD BACKGROUND IMAGES ---- */
 
+.card-yaadvibe {
+    background-image: url("/images/DCE3C919-9E51-49D6-8E7x-xxxx.jpeg");
+}
+
+.card-yaadlife {
+    background-image: url("/images/C9577413-ED2C-4C08-BFCx-xxxx.jpeg");
+}
+
+.card-purvibe {
+    background-image: url("/images/A10813F1-F3F5-4EB1-8BD5-04E1119116BE.jpeg");
+}
+
+.card-irievibe {
+    background-image: url("/images/81EF35A3-E5BA-4AF4-8A78-B93B47C461F3.jpeg");
+}
 /.card-container {
     display: flex;
     gap: 20px;
