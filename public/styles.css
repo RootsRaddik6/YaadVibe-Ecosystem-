@@ -1,111 +1,24 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Inter', sans-serif; overflow: hidden; height: 100vh; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body, html { height:100%; overflow:hidden; }
 
-.flag-container {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 10;
-}
-.flag {
-  height: 80px;
-  border-radius: 15px;
-  position: relative;
-}
-.drop-inside-flag {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 40px;
-  z-index: 5;
-  filter: brightness(1.2); /* Red glow on flag */
+body {
+  background: linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.95)),
+              url('IMG_0039.jpeg') center/cover no-repeat fixed;
 }
 
-.hero {
-  height: 100vh;
-  background: 
-    radial-gradient(circle at 50% 20%, rgba(255, 215, 0, 0.3) 0%, transparent 50%), /* Moon glow */
-    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
-    url('IMG_0039.jpeg') center/cover no-repeat fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
+.logo-box {
+  position:fixed; top:20px; left:20px; z-index:100;
+}
+.flag { width:90px; border-radius:14px; box-shadow:0 4px 20px rgba(0,0,0,0.6); }
+.drop-red {
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:45px; filter:drop-shadow(0 0 10px #ff0000);
 }
 
-/* Glowing handwritten title */
-.title-glow {
-  font-family: 'Caveat Brush', cursive;
-  font-size: 18vw;
-  line-height: 0.85;
-  color: white;
-  text-shadow: 
-    0 0 20px rgba(255,255,255,0.8),
-    0 0 40px rgba(255,215,0,0.6),
-    0 0 60px rgba(0,155,58,0.4);
-  letter-spacing: 2px;
-  animation: glow-pulse 3s ease-in-out infinite alternate;
+.center {
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  text-align:center; width:100%; padding:0 20px;
 }
-.title-glow span {
-  display: block;
-  font-size: 22vw;
-  background: linear-gradient(45deg, #ffffff, #FED141, #009B3A);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 
-    0 0 30px rgba(254,209,65,0.9),
-    0 0 50px rgba(0,155,58,0.7);
-}
-
-@keyframes glow-pulse {
-  from { text-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,215,0,0.6); }
-  to { text-shadow: 0 0 30px rgba(255,255,255,1), 0 0 60px rgba(255,215,0,0.8); }
-}
-
-/* Buttons — smaller (18% size), low placement */
-.buttons-low {
-  position: absolute;
-  bottom: 15vh;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
-  max-width: 300px;
-  padding: 0 20px;
-}
-.btn {
-  padding: 10px 16px; /* 18% smaller */
-  border-radius: 30px;
-  font-size: 1rem;
-  font-weight: 700;
-  text-decoration: none;
-  text-align: center;
-  transition: 0.3s;
-  opacity: 0.9;
-}
-.ton-btn {
-  background: rgba(0,155,58,0.8);
-  color: white;
-  border: 1px solid #009B3A;
-}
-.wc-btn {
-  background: rgba(0,122,255,0.8);
-  color: white;
-  border: 1px solid #007AFF;
-}
-.btn:hover {
-  opacity: 1;
-  transform: scale(1.05);
-  box-shadow: 0 5px 20px rgba(0,155,58,0.5);
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .title-glow { font-size: 20vw; }
-  .title-glow span { font-size: 25vw; }
-  .buttons-low { bottom: 12vh; }
-}
+.title {
+  font-family:'Caveat Brush',cursive; color:white; line-height:0.9;
+  font
