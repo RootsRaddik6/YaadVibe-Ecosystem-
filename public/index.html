@@ -1,24 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>1Drop YAADVIBE</title>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush:wght@400&family=Bebas+Neue&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body, html { height:100%; overflow:hidden; font-family:'Inter',sans-serif; }
+    
+    body {
+      background: linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.95)),
+                  url('IMG_0039.jpeg') center/cover no-repeat fixed;
+    }
+    
+    .logo-box {
+      position:fixed; top:20px; left:20px; z-index:100;
+    }
+    .flag {
+      width:90px; border-radius:14px; box-shadow:0 4px 20px rgba(0,0,0,0.6);
+    }
+    .drop-red {
+      position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+      width:45px; filter:drop-shadow(0 0 8px #ff0000);
+    }
+    
+    .center {
+      position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+      text-align:center; width:100%; padding:0 20px;
+    }
+    .title {
+      font-family:'Caveat Brush',cursive; color:white; line-height:0.9;
+      font-size:18vw; text-shadow:0 0 30px rgba(255,255,255,0.8);
+    }
+    .yaadvibe {
+      display:block; font-size:24vw;
+      background:linear-gradient(90deg,#fff,#FED141,#009B3A);
+      -webkit-background-clip:text; background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-shadow:0 0 40px rgba(254,209,65,0.9);
+    }
+    
+    .buttons {
+      position:absolute; bottom:14vh; left:50%; transform:translateX(-50%);
+      display:flex; flex-direction:column; gap:16px; width:90%; max-width:320px;
+    }
+    .btn {
+      padding:11px 20px; border-radius:40px; font-weight:900; font-size:1.1rem;
+      text-decoration:none; text-align:center; transition:0.3s;
+      box-shadow:0 8px 25px rgba(0,0,0,0.5);
+    }
+    .ton { background:#121212; color:#00ff9d; border:2px solid #00ff9d; }
+    .wc  { background:#121212; color:#00d0ff; border:2px solid #00d0ff; }
+    .btn:hover { transform:scale(1.07); }
+    
+    @media (max-width:640px) {
+      .title { font-size:20vw; }
+      .yaadvibe { font-size:28vw; }
+      .buttons { bottom:10vh; }
+    }
+  </style>
 </head>
 <body>
-  <div class="flag-container">
+
+  <div class="logo-box">
     <img src="IMG_0454.png" alt="Jamaica Flag" class="flag">
-    <img src="1drop-red.png" alt="1Drop Red" class="drop-inside-flag">
+    <img src="1drop-red.png" alt="1Drop" class="drop-red">
   </div>
 
-  <main class="hero">
-    <h1 class="title-glow">1Drop<br><span>YAADVIBE</span></h1>
-    <div class="buttons-low">
-      <a href="https://wallet.ton.org/" class="btn ton-btn">@TON_URL</a>
-      <a href="https://walletconnect.com/" class="btn wc-btn">@WalletConnect_URL</a>
-    </div>
-  </main>
+  <div class="center">
+    <div class="title">1Drop<br><span class="yaadvibe">YAADVIBE</span></div>
+  </div>
+
+  <div class="buttons">
+    <a href="https://wallet.ton.org" class="btn ton">TON</a>
+    <a href="https://walletconnect.com" class="btn wc">WalletConnect</a>
+  </div>
+
 </body>
 </html>
