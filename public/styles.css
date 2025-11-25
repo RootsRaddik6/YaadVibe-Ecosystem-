@@ -51,36 +51,56 @@ body {
     z-index: 4;
 }
 
-/* BUTTON STACK — under the "E" in YAADVIBE */
+/* BUTTON STACK — aligned precisely under the "E" */
 .button-stack {
     position: absolute;
-    top: 35vh;
-    left: 60%;
+    top: 33.5vh;
+    left: 57%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
     z-index: 4;
 }
 
-/* BUTTONS — 15% smaller + less glow + red tint */
+/* BUTTONS — enhanced browser-style look */
 .btn {
-    font-size: 9px;
-    padding: 5px 15px;
-    min-width: 102px;
-    border-radius: 40px;
+    font-size: 11px;
+    padding: 8px 22px;
+    min-width: 128px;
+    border-radius: 50px;
 
-    background: rgba(0, 0, 0, 0.42);
+    background: rgba(0, 0, 0, 0.48);
     color: white;
-    border: 1px solid #FFD700;
+    border: 1.5px solid #FFD700;
 
     text-align: center;
+    font-weight: 600;
 
     text-shadow:
-        0 0 6px rgba(255, 215, 0, 0.7),
-        0 0 10px rgba(255, 80, 80, 0.35);
+        0 0 4px rgba(255, 215, 0, 0.6),
+        0 0 8px rgba(255, 80, 80, 0.22);
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,0.45),
+        0 0 6px rgba(255,215,0,0.20);
 }
 
+/* MOBILE FIX — proportional & centered better */
+@media (max-width: 430px) {
+    .button-stack {
+        top: 39vh;
+        left: 59%;
+        gap: 8px;
+    }
+
+    .btn {
+        font-size: 10px;
+        padding: 7px 18px;
+        min-width: 118px;
+        border-radius: 40px;
+    }
+}
 /* CARD ROW — slight left shift */
 .card-row {
     position: absolute;
@@ -107,23 +127,5 @@ body {
         0 0 10px rgba(255, 80, 80, 0.25);
 }
 
-@media (max-width: 430px) {
-    .title {
-        top: 22vh;
-        font-size: 7vw;
-    }
 
-    .button-stack {
-        top: 38vh; 
-        left: 61%;
-    }
-
-    .btn {
-        font-size: 9px;
-        min-width: 100px;
-    }
-
-    .card-row {
-        gap: 10px;
-    }
 }
