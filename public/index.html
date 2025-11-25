@@ -1,55 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YaadVibe Ecosystem Landing</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YaadVibe Ecosystem</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
+    <div class="overlay"></div>
+
     <header class="hero">
-        <h1>YaadVibe Ecosystem</h1>
-        <p>Select an experience to enter</p>
+        <img src="IMG_0454.png" class="flag" alt="Jamaica Flag" />
+        <h1 class="title">IDROP YAADVIBE</h1>
     </header>
 
-    <main class="card-container">
+    <main class="button-stack">
+        <button class="btn primary" onclick="openTon()">TON</button>
 
-        <!-- YaadVibe -->
-        <div class="app-card">
-            <h2>YaadVibe</h2>
-            <p>The flagship immersive Jamaican digital experience.</p>
-            <button onclick="openApp('YAADVIBE')">Enter</button>
+        <button class="btn secondary" onclick="openWalletConnect()">
+            <span class="dot"></span> WalletConnect
+        </button>
+
+        <div class="links">
+            <p>@WalletConnect_URL</p>
+            <p>@TON_URL</p>
         </div>
-
-        <!-- YaadLife Lite -->
-        <div class="app-card">
-            <h2>YaadLife Lite</h2>
-            <p>Quick and simple lifestyle access. Low data. Fast load.</p>
-            <button onclick="openApp('YAADLIFE')">Enter</button>
-        </div>
-
-        <!-- PurVibe -->
-        <div class="app-card">
-            <h2>PurVibe</h2>
-            <p>Pure, clean, and minimal digital vibes.</p>
-            <button onclick="openApp('PURVIBE')">Enter</button>
-        </div>
-
-        <!-- IrieVibe -->
-        <div class="app-card">
-            <h2>IrieVibe</h2>
-            <p>Chill, relaxing, cultural digital flows.</p>
-            <button onclick="openApp('IRIEVIBE')">Enter</button>
-        </div>
-
     </main>
-
-    <section class="connect-section">
-        <h3>Connect Your Wallet</h3>
-        <button class="wallet-btn ton" onclick="connectTon()">TON Connect</button>
-        <button class="wallet-btn wc" onclick="connectWalletConnect()">WalletConnect</button>
-    </section>
 
     <script src="script.js"></script>
 </body>
