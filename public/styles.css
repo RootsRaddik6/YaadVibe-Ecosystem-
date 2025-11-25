@@ -1,98 +1,93 @@
-/* GLOBAL RESET */
+/* RESET */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* PAGE BACKGROUND */
+/* GLOBAL */
 body {
-  background: url('/IMG_0039.jpeg') center center / cover no-repeat fixed;
-  width: 100vw;
-  min-height: 100vh;
-  overflow-x: hidden;
-  font-family: 'YourGoogleFont', sans-serif;
+    font-family: 'Playfair Display', serif;
+    background: url('IMG_0039.jpeg') center/cover no-repeat fixed;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    color: white;
 }
 
-/* HERO CONTAINER */
-.hero {
-  width: 100%;
-  padding-top: 6vh; /* Gives space from top status bar */
-  text-align: center;
-  position: relative;
+/* DARK OVERLAY */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(1.5px);
+    z-index: 1;
 }
 
-/* FLAG IMAGE — RESPONSIVE + CORRECT ALIGNMENT */
-.hero-flag {
-  width: 36vw;
-  max-width: 180px;
-  min-width: 110px;
-  height: auto;
-  margin-left: 6vw; /* moves into correct visible position */
-  margin-bottom: 2vh;
+/* FLAG — locked top-left and scaled properly */
+.flag {
+    position: absolute;
+    top: 6vh;
+    left: 4vw;
+    width: 28vw;     /* responsive correct size */
+    max-width: 150px;
+    z-index: 3;
 }
 
-/* TITLE — PERFECT CENTERING */
-.hero-title {
-  font-size: 9vw;
-  font-weight: 700;
-  text-align: center;
-  color: #FFD700;
-  letter-spacing: 0.4vw;
-
-  text-shadow:
-    0 0 6px #FFD700,
-    0 0 12px #FFD700,
-    0 0 18px #FFD700;
+/* TITLE — centered perfectly, never shifts */
+.title {
+    position: absolute;
+    top: 24vh;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 7vw;      /* responsive — perfect scaling */
+    max-font-size: 48px;
+    font-weight: 700;
+    color: gold;
+    white-space: nowrap;
+    text-shadow: 0 0 14px rgba(255,215,0,0.75);
+    z-index: 4;
 }
 
-/* BUTTON GROUP — UNDER THE “E” OF YAADVIBE */
-.connect-buttons {
-  margin-top: -2vh; /* positions under the “E” */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2vh;
+/* BUTTON STACK — 15% of previous size EXACT */
+.button-stack {
+    position: absolute;
+    top: 33vh;          /* sits directly under the “E” in VIBE */
+    left: 58%;          /* aligns with right edge of VIBE */
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 4;
 }
 
-/* BUTTONS — 15% of original size, responsive */
-.connect-buttons button {
-  width: 22vw;
-  max-width: 140px;
-  min-width: 70px;
-
-  padding: 1.1vh 0;
-
-  border-radius: 32px;
-  border: 2px solid #FFD700;
-
-  background: rgba(0, 0, 0, 0.55);
-  color: white;
-  font-size: 1.9vw;
-  font-weight: 500;
-
-  text-shadow: 0 0 6px #FFD700;
-  box-shadow: 0 0 10px #FFD700;
+.btn {
+    font-size: 9px;         /* exactly 15% scale */
+    padding: 4px 10px;      /* exactly 15% scale */
+    border-radius: 20px;
+    border: 1px solid gold;
+    background: rgba(0,0,0,0.55);
+    color: white;
+    width: 90px;            /* fixed for iPhone consistent alignment */
+    text-align: center;
 }
 
-/* 4-CARD ROW FIX — PERFECT FIT ON MOBILE */
+/* CARD ROW — fixed bottom band, fully aligned */
 .card-row {
-  display: flex;
-  justify-content: space-between;
-  width: 92vw;
-  margin: 3vh auto 4vh auto;
-  gap: 2vw;
+    position: absolute;
+    bottom: 3vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    z-index: 4;
 }
 
-.card-row .card {
-  flex: 1;
-  padding: 1.2vh 0;
-  text-align: center;
-  font-size: 3.2vw;
-  border: 2px solid #FFD700;
-  border-radius: 22px;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.55);
-  text-shadow: 0 0 6px #FFD700;
-  box-shadow: 0 0 10px #FFD700;
+.card {
+    padding: 10px 14px;
+    background: rgba(0,0,0,0.55);
+    border: 1px solid rgba(255,215,0,0.75);
+    border-radius: 12px;
+    font-size: 13px;
+    white-space: nowrap;
 }
