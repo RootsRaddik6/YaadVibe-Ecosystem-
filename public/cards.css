@@ -1,91 +1,21 @@
-body {
-    margin: 0;
-    padding: 0;
+/* About Buttons inside Cards */
+.about-btn {
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 215, 0, 0.55);
+    background: rgba(0,0,0,0.45);
+    color: gold;
+    font-size: 15px;
     font-family: 'Poppins', sans-serif;
-    background: url('IMG_0039.jpeg') center/cover no-repeat;
-    height: 100vh;
-    color: white;
-    overflow-y: auto;
-    position: relative;
-}
-
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.42);
-    backdrop-filter: blur(1.2px);
-}
-
-.flag {
-    width: 110px;
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    z-index: 3;
-}
-
-.top-header {
-    text-align: center;
-    padding-top: 120px;
-    z-index: 3;
-    position: relative;
-}
-
-.title {
-    font-family: 'Rock Salt', cursive;
-    font-size: 40px;
-    color: gold;
-    text-shadow: 0 0 18px rgba(255, 215, 0, 0.8);
-}
-
-.subtitle {
-    margin-top: -10px;
-    font-size: 18px;
-    opacity: 0.9;
-}
-
-/* Card Grid */
-.card-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
-    width: 90%;
-    margin: 40px auto;
-    z-index: 3;
-    position: relative;
-}
-
-@media (min-width: 600px) {
-    .card-grid {
-        grid-template-columns: repeat(2, 1fr);
-        width: 70%;
-    }
-}
-
-/* Card Style */
-.app-card {
-    padding: 22px;
-    border-radius: 20px;
-    background: rgba(0,0,0,0.55);
-    border: 1px solid rgba(255,215,0,0.3);
-    backdrop-filter: blur(3px);
     cursor: pointer;
-    transition: 0.25s;
+    transition: 0.2s ease;
+    text-shadow: 0 0 6px rgba(255, 215, 0, 0.45);
 }
 
-.app-card:hover {
-    transform: translateY(-4px);
-    background: rgba(0,0,0,0.7);
-}
-
-.app-card h2 {
-    color: gold;
-    font-family: 'Rock Salt', cursive;
-    margin: 0 0 10px;
-}
-
-.app-card p {
-    margin: 0;
-    font-size: 16px;
-    opacity: 0.85;
+.about-btn:hover {
+    background: rgba(0,0,0,0.65);
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(255,215,0,0.25);
 }
