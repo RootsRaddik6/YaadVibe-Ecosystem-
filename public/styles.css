@@ -1,67 +1,98 @@
+/* Global */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: url('IMG_0039.jpeg') no-repeat center top;
-    background-size: cover;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: url('IMG_0039.jpeg') no-repeat center center/cover;
+    height: 100vh;
     color: white;
-    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dim overlay */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(1px);
 }
 
 /* Flag */
 .flag {
     width: 140px;
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 15px;
+    left: 15px;
+    z-index: 3;
 }
 
-/* Hero section */
-.hero {
-    padding-top: 150px;
-    padding-bottom: 40px;
-    background: rgba(0,0,0,0.3);
+/* Title */
+.title {
+    font-family: 'Rock Salt', cursive;
+    font-size: 46px;
+    color: gold;
+    text-shadow: 0px 0px 18px rgba(255, 210, 60, 0.9);
+    text-align: center;
+    margin-top: 120px;
+    z-index: 3;
+    position: relative;
 }
 
-/* Wallet buttons stacked */
-.wallet-buttons {
+/* Buttons area */
+.button-stack {
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-top: 20px;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    align-items: center;
+    z-index: 3;
+    position: relative;
 }
 
-.wallet-buttons button {
-    padding: 14px;
-    border-radius: 12px;
-    border: 2px solid rgba(0,255,0,0.4);
-    background: rgba(0,0,0,0.6);
+.btn {
+    width: 280px;
+    padding: 18px 0;
+    margin: 12px 0;
+    border-radius: 42px;
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.primary {
+    background: rgba(255, 215, 0, 0.14);
+    border: 1px solid rgba(255, 215, 0, 0.4);
     color: white;
-    font-size: 18px;
 }
 
-/* About section */
-.about {
-    padding: 50px 20px;
-    background: rgba(0,0,0,0.7);
+.primary:hover {
+    background: rgba(255, 215, 0, 0.24);
 }
 
-/* Cards bottom */
-.card-container {
+.secondary {
+    background: rgba(30, 30, 30, 0.42);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    color: white;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 40px;
-    background: rgba(0,0,0,0.85);
+    align-items: center;
+    justify-content: center;
 }
 
-.card {
-    background: rgba(20,20,20,0.9);
-    padding: 25px;
-    border-radius: 14px;
-    text-decoration: none;
-    color: white;
-    border: 1px solid rgba(0, 255, 0, 0.3);
+.secondary .dot {
+    width: 20px;
+    height: 20px;
+    background: gold;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+/* Links */
+.links {
+    margin-top: 22px;
+    text-align: center;
+    font-size: 16px;
+    color: gold;
+    text-shadow: 0px 0px 6px rgba(255, 210, 60, 0.8);
 }
