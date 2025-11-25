@@ -1,182 +1,130 @@
-/* ==========================
-   1DROP YAADVIBE - styles.css
-   FULL CSS WITH BUTTON SIZE + PLACEMENT FIX ONLY
-   ========================== */
-
 /* RESET */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* BACKGROUND */
 body {
-  height: 100vh;
-  font-family: "Playfair Display", serif;
-  background: url('IMG_0039.jpeg') center/cover no-repeat fixed;
-  color: #fff;
-  position: relative;
-  overflow-x: hidden;
+    font-family: 'Playfair Display', serif;
+    background: url('IMG_0039.jpeg') center/cover no-repeat fixed;
+    height: 100vh;
+    overflow-x: hidden;
+    position: relative;
 }
 
 /* DARK OVERLAY */
 .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.56);
-  backdrop-filter: blur(1.5px);
-  z-index: 1;
-}
-
-/* HEADER */
-.header-container {
-  position: relative;
-  width: 100%;
-  z-index: 4;
-  padding-left: 5.5vw;
-  padding-top: 3.8vh;
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(1.5px);
+    z-index: 1;
 }
 
 /* FLAG */
 .flag {
-  position: absolute;
-  top: 4.6vh;
-  left: 5.5vw;
-  width: 140px;
-  height: auto;
-  z-index: 5;
+    position: absolute;
+    top: 7vh;
+    left: 4vw;
+    width: 30vw;
+    max-width: 150px;
+    z-index: 3;
 }
 
-/* TITLE */
+/* TITLE — tighter to flag + moved left slightly + reduced glow */
 .title {
-  display: inline-block;
-  position: absolute;
-  top: 22.5vh;
-  left: calc(5.5vw + 160px);
-  transform: translateY(-6%);
-  font-size: 4.2rem;
-  line-height: 1;
-  color: #ffd200;
-  font-weight: 700;
-  white-space: nowrap;
-  z-index: 5;
-  text-shadow:
-    0 0 8px rgba(255,215,0,0.62),
-    0 0 14px rgba(255,215,0,0.48),
-    0 0 22px rgba(255,40,0,0.18);
-}
-
-/* ===========================================================
-   BUTTON PLACEMENT — MATCHES YOUR SCREENSHOT EXACTLY
-   Buttons aligned right side, stacked, same glow, 15% smaller
-   =========================================================== */
-.button-wrapper {
-  position: absolute;
-  top: 26vh;                     /* EXACT height from screenshot */
-  right: 17vw;                   /* This is the correct alignment */
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 5;
-}
-
-/* BUTTONS (15% smaller) */
-.action-btn {
-  width: 160px;                  /* smaller */
-  padding: 8px 14px;
-  border-radius: 36px;
-  border: 2px solid #ffd200;
-  background: rgba(0,0,0,0.55);
-  color: #fff;
-  font-size: 13px;
-  font-weight: 600;
-  text-align: center;
-  cursor: pointer;
-
-  /* Slightly reduced glow + red tint preserved */
-  box-shadow:
-    0 0 6px rgba(255,215,0,0.32),
-    0 0 10px rgba(255,40,0,0.12),
-    inset 0 -6px 18px rgba(0,0,0,0.18);
-}
-
-/* ===========================================================
-   CARD ROW — unchanged (matches screenshot)
-   =========================================================== */
-.card-row {
-  position: absolute;
-  bottom: 4.5vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-  z-index: 5;
-}
-
-.card-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 120px;
-  padding: 10px 18px;
-  border-radius: 12px;
-  background: rgba(0,0,0,0.6);
-  border: 2px solid rgba(255,215,0,0.9);
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  text-shadow: 0 0 6px rgba(255,215,0,0.18);
-  box-shadow:
-    0 2px 12px rgba(0,0,0,0.45),
-    0 0 10px rgba(255,215,0,0.18) inset;
-}
-
-/* ===========================================================
-   MOBILE — matching your screenshot layout
-   =========================================================== */
-@media (max-width: 430px) {
-
-  .flag {
-    width: 115px;
-    left: 6vw;
-    top: 5vh;
-  }
-
-  .title {
-    font-size: 2.4rem;
-    left: calc(6vw + 125px);
-    top: 28vh;
-    transform: translateY(-10%);
-  }
-
-  .button-wrapper {
-    top: 50vh;
-    right: auto;
-    left: 50%;
+    position: absolute;
+    top: 21vh;
+    left: 46%; /* moved left */
     transform: translateX(-50%);
-    gap: 10px;
-  }
+    font-size: 6vw;
+    max-font-size: 46px;
+    font-weight: 700;
+    white-space: nowrap;
+    color: #FFD700;
 
-  .action-btn {
-    width: 145px;
-    font-size: 13px;
-    padding: 8px 12px;
-  }
+    text-shadow:
+        0 0 8px rgba(255, 215, 0, 0.75),
+        0 0 14px rgba(255, 80, 80, 0.25);
 
-  .card-row {
-    bottom: 3.2vh;
-    gap: 12px;
-  }
-
-  .card-btn {
-    min-width: 100px;
-    padding: 8px 14px;
-    font-size: 12px;
-  }
+    z-index: 4;
 }
 
-/* WIDE DESKTOP */
-@media (min-width: 1400px) {
-  .title { font-size: 5.2rem; }
-  .action-btn {
-    width: 190px;
-    font-size: 15px;
-  }
+/* BUTTON STACK — under the "E" in YAADVIBE */
+.button-stack {
+    position: absolute;
+    top: 35vh;
+    left: 60%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 4;
+}
+
+/* BUTTONS — 15% smaller + less glow + red tint */
+.btn {
+    font-size: 9px;
+    padding: 5px 15px;
+    min-width: 102px;
+    border-radius: 40px;
+
+    background: rgba(0, 0, 0, 0.42);
+    color: white;
+    border: 1px solid #FFD700;
+
+    text-align: center;
+
+    text-shadow:
+        0 0 6px rgba(255, 215, 0, 0.7),
+        0 0 10px rgba(255, 80, 80, 0.35);
+}
+
+/* CARD ROW — slight left shift */
+.card-row {
+    position: absolute;
+    bottom: 4vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    transform: translateX(-2%); /* slight left shift */
+    z-index: 4;
+}
+
+.card {
+    padding: 10px 14px;
+    background: rgba(0,0,0,0.65);
+    border: 1px solid rgba(255,215,0,0.7);
+    border-radius: 12px;
+    color: white;
+    white-space: nowrap;
+    font-size: 13px;
+
+    text-shadow:
+        0 0 8px rgba(255, 215, 0, 0.65),
+        0 0 10px rgba(255, 80, 80, 0.25);
+}
+
+/* MOBILE FIXES (small iPhones) */
+@media (max-width: 430px) {
+    .title {
+        top: 22vh;
+        font-size: 7vw;
+    }
+
+    .button-stack {
+        top: 38vh; 
+        left: 61%;
+    }
+
+    .btn {
+        font-size: 9px;
+        min-width: 100px;
+    }
+
+    .card-row {
+        gap: 10px;
+    }
 }
