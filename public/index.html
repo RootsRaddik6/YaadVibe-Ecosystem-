@@ -3,62 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YaadVibe Ecosystem</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>YaadVibe Ecosystem Landing</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- FLAG -->
-    <img src="IMG_0454.png" class="flag" alt="Jamaica Flag">
-
-    <!-- HERO SECTION -->
-    <section class="hero">
+    <header class="hero">
         <h1>YaadVibe Ecosystem</h1>
-        <p>Experience Jamaica Like Never Before</p>
+        <p>Select an experience to enter</p>
+    </header>
 
-        <div class="wallet-buttons">
-            <button onclick="connectTON()">Connect TON Wallet</button>
-            <button onclick="connectWC()">Connect WalletConnect</button>
+    <main class="card-container">
+
+        <!-- YaadVibe -->
+        <div class="app-card">
+            <h2>YaadVibe</h2>
+            <p>The flagship immersive Jamaican digital experience.</p>
+            <button onclick="openApp('YAADVIBE')">Enter</button>
         </div>
-    </section>
 
-    <!-- ABOUT SECTION -->
-    <section class="about">
-        <h2>About YaadVibe</h2>
-        <p>
-            YaadVibe is a tourism-first ecosystem powering Jamaican travel, culture, micro-commerce,
-            local events, and immersive location-based experiences through simple mobile-friendly Web3 tools.
-        </p>
-        <p>
-            <a href="1drop.html">1DROP App</a> ·
-            <a href="marketplace.html">YaadVibe Marketplace</a> ·
-            <a href="heritage.html">Culture & Heritage Interactive Map</a>
-        </p>
-    </section>
+        <!-- YaadLife Lite -->
+        <div class="app-card">
+            <h2>YaadLife Lite</h2>
+            <p>Quick and simple lifestyle access. Low data. Fast load.</p>
+            <button onclick="openApp('YAADLIFE')">Enter</button>
+        </div>
 
-    <!-- FOOTER CARDS WITH LINKS -->
-    <section class="card-container">
+        <!-- PurVibe -->
+        <div class="app-card">
+            <h2>PurVibe</h2>
+            <p>Pure, clean, and minimal digital vibes.</p>
+            <button onclick="openApp('PURVIBE')">Enter</button>
+        </div>
 
-        <a class="card" href="1drop.html">
-            <h3>1DROP App</h3>
-        </a>
+        <!-- IrieVibe -->
+        <div class="app-card">
+            <h2>IrieVibe</h2>
+            <p>Chill, relaxing, cultural digital flows.</p>
+            <button onclick="openApp('IRIEVIBE')">Enter</button>
+        </div>
 
-        <a class="card" href="marketplace.html">
-            <h3>Marketplace</h3>
-        </a>
+    </main>
 
-        <a class="card" href="heritage.html">
-            <h3>Culture & Heritage</h3>
-        </a>
-
-        <a class="card" href="map.html">
-            <h3>Interactive Map</h3>
-        </a>
-
+    <section class="connect-section">
+        <h3>Connect Your Wallet</h3>
+        <button class="wallet-btn ton" onclick="connectTon()">TON Connect</button>
+        <button class="wallet-btn wc" onclick="connectWalletConnect()">WalletConnect</button>
     </section>
 
     <script src="script.js"></script>
-
 </body>
 </html>
