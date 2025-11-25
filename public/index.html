@@ -26,29 +26,42 @@
         <button class="btn wc" onclick="openWalletConnect()">WalletConnect</button>
     </div>
 
-    <div class="card-container">
+    <!-- CARD GRID (RESTORED ORIGINAL FORMAT) -->
+    <main class="card-grid">
 
-    <div class="app-card">
-        <img src="./images/DCE3C919-9E51-49D6-8E7x-xxxx.jpeg" alt="YaadVibe">
-        <h3>YaadVibe</h3>
-    </div>
+        <div class="app-card card-yaadvibe" onclick="openApp('YAADVIBE')">
+            <h2>YaadVibe</h2>
+            <p>A flagship immersive Jamaican booking experience tailored to you.</p>
+            <button class="about-btn" onclick="event.stopPropagation(); openAbout('YAADVIBE');">
+                About This App
+            </button>
+        </div>
 
-    <div class="app-card">
-        <img src="./images/C9577413-ED2C-4C08-BFCx-xxxx.jpeg" alt="YaadLife Lite">
-        <h3>YaadLife Lite</h3>
-    </div>
+        <div class="app-card card-yaadlife" onclick="openApp('YAADLIFE')">
+            <h2>YaadLife Lite</h2>
+            <p>Fast, TON version in Lite full access DApp.</p>
+            <button class="about-btn" onclick="event.stopPropagation(); openAbout('YAADLIFE');">
+                About This App
+            </button>
+        </div>
 
-    <div class="app-card">
-        <img src="./images/A10813F1-F3F5-4EB1-8BD5-04E1119116BE.jpeg" alt="PurVibe">
-        <h3>PurVibe</h3>
-    </div>
+        <div class="app-card card-purvibe" onclick="openApp('PURVIBE')">
+            <h2>PurVibe</h2>
+            <p>Channel Content Curator for Pur-digital vibes.</p>
+            <button class="about-btn" onclick="event.stopPropagation(); openAbout('PURVIBE');">
+                About This App
+            </button>
+        </div>
 
-    <div class="app-card">
-        <img src="./images/81EF35A3-E5BA-4AF4-8A78-B93B47C461F3.jpeg" alt="IrieVibe">
-        <h3>IrieVibe</h3>
-    </div>
+        <div class="app-card card-irievibe" onclick="openApp('IRIEVIBE')">
+            <h2>IrieVibe</h2>
+            <p>Mobile superpowered lifestyle curator for food, restaurants & accommodations.</p>
+            <button class="about-btn" onclick="event.stopPropagation(); openAbout('IRIEVIBE');">
+                About This App
+            </button>
+        </div>
 
-</div>
+    </main>
 
     <script src="script.js"></script>
 </body>
