@@ -1,48 +1,77 @@
-/* --- CARD IMAGE BACKGROUNDS FROM SINGLE MASTER IMAGE --- */
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 20px;
+}
 
-.card {
-    background-image: url('/mnt/data/365EE8F9-6D3B-4436-9086-7E8A23A22375.jpeg');
-    background-size: 400% 100%; /* Four cards horizontally */
+@media (min-width: 768px) {
+    .card-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.app-card {
+    position: relative;
+    padding: 20px;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    border-radius: 18px;
-    padding: 24px;
+    cursor: pointer;
+    color: #fff;
+    min-height: 420px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    color: #fff;
 }
 
-/* YAADVIBE – 1st quadrant (left-most) */
-.card-yaadvibe {
-    background-position: 0% 0%;
+/* --- BACKGROUND IMAGES (from your provided composite image) --- */
+
+.app-card:nth-child(1) {
+    background-image: url('/images/card-yaadvibe.jpg');
 }
 
-/* YAADLIFE LITE – 2nd quadrant */
-.card-yaadlife-lite {
-    background-position: 33.33% 0%;
+.app-card:nth-child(2) {
+    background-image: url('/images/card-yaadlife.jpg');
 }
 
-/* PURVIBE – 3rd quadrant */
-.card-purvibe {
-    background-position: 66.66% 0%;
+.app-card:nth-child(3) {
+    background-image: url('/images/card-purvibe.jpg');
 }
 
-/* IRIEVIBE – right-most quadrant */
-.card-irievibe {
-    background-position: 100% 0%;
+.app-card:nth-child(4) {
+    background-image: url('/images/card-irievibe.jpg');
 }
 
-/* --- BUTTON --- */
-.card-button {
-    margin-top: 16px;
-    padding: 10px 22px;
-    border-radius: 10px;
-    background: #FFCA28;
-    color: #000;
-    text-align: center;
-    font-weight: 600;
+/* --- TEXT --- */
+
+.app-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: #f7d776; /* your original gold color */
+}
+
+.app-card p {
+    font-size: 1rem;
+    line-height: 1.4rem;
+}
+
+/* --- BUTTON STYLE (kept EXACTLY your structure) --- */
+
+.about-btn {
+    margin-top: 15px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(0,0,0,0.55);
+    color: #f7d776;
     font-size: 1rem;
     cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
+    backdrop-filter: blur(4px);
+}
+
+.about-btn:hover {
+    background: rgba(0,0,0,0.75);
 }
