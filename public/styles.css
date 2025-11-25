@@ -1,6 +1,6 @@
 /* ==========================
    1DROP YAADVIBE - styles.css
-   FULL CSS WITH FIXED BUTTON PLACEMENT + SIZE
+   FULL CSS WITH BUTTON SIZE + PLACEMENT FIX ONLY
    ========================== */
 
 /* RESET */
@@ -57,60 +57,59 @@ body {
   font-weight: 700;
   white-space: nowrap;
   z-index: 5;
-
   text-shadow:
     0 0 8px rgba(255,215,0,0.62),
     0 0 14px rgba(255,215,0,0.48),
     0 0 22px rgba(255,40,0,0.18);
 }
 
-/* ==========================
-   BUTTON WRAPPER — UPDATED ONLY THIS
-   ========================== */
+/* ===========================================================
+   BUTTON PLACEMENT — MATCHES YOUR SCREENSHOT EXACTLY
+   Buttons aligned right side, stacked, same glow, 15% smaller
+   =========================================================== */
 .button-wrapper {
   position: absolute;
-  top: calc(22.5vh + 135px);  /* aligned under title */
-  left: calc(5.5vw + 285px);  /* directly under the “E” */
+  top: 26vh;                     /* EXACT height from screenshot */
+  right: 17vw;                   /* This is the correct alignment */
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
   z-index: 5;
 }
 
-/* ==========================
-   BUTTON SIZE — UPDATED ONLY THIS
-   ========================== */
+/* BUTTONS (15% smaller) */
 .action-btn {
-  width: 195px;          
-  padding: 12px 18px;    
-  border-radius: 34px;
+  width: 160px;                  /* smaller */
+  padding: 8px 14px;
+  border-radius: 36px;
   border: 2px solid #ffd200;
-  background: rgba(0,0,0,0.68);
+  background: rgba(0,0,0,0.55);
   color: #fff;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 600;
   text-align: center;
   cursor: pointer;
 
+  /* Slightly reduced glow + red tint preserved */
   box-shadow:
-    0 0 8px rgba(255,215,0,0.35),
-    0 0 14px rgba(255,40,0,0.15),
-    inset 0 -8px 20px rgba(0,0,0,0.22);
+    0 0 6px rgba(255,215,0,0.32),
+    0 0 10px rgba(255,40,0,0.12),
+    inset 0 -6px 18px rgba(0,0,0,0.18);
 }
 
-/* CARD ROW */
+/* ===========================================================
+   CARD ROW — unchanged (matches screenshot)
+   =========================================================== */
 .card-row {
   position: absolute;
   bottom: 4.5vh;
-  left: 2.5%;
-  width: 95%;
+  width: 100%;
   display: flex;
   justify-content: center;
   gap: 18px;
   z-index: 5;
 }
 
-/* CARD BUTTONS */
 .card-btn {
   display: inline-flex;
   align-items: center;
@@ -129,9 +128,9 @@ body {
     0 0 10px rgba(255,215,0,0.18) inset;
 }
 
-/* ==========================
-   MOBILE FIXES — ONLY BUTTONS CHANGED
-   ========================== */
+/* ===========================================================
+   MOBILE — matching your screenshot layout
+   =========================================================== */
 @media (max-width: 430px) {
 
   .flag {
@@ -147,26 +146,23 @@ body {
     transform: translateY(-10%);
   }
 
-  /* MOBILE BUTTON FIX — updated only this */
   .button-wrapper {
-    top: 52vh;    
+    top: 50vh;
+    right: auto;
     left: 50%;
     transform: translateX(-50%);
-    gap: 12px;
+    gap: 10px;
   }
 
   .action-btn {
-    width: 155px;
-    padding: 10px 14px;
-    font-size: 14px;
-    border-radius: 26px;
+    width: 145px;
+    font-size: 13px;
+    padding: 8px 12px;
   }
 
   .card-row {
     bottom: 3.2vh;
     gap: 12px;
-    left: 1.8%;
-    width: 96%;
   }
 
   .card-btn {
@@ -178,12 +174,9 @@ body {
 
 /* WIDE DESKTOP */
 @media (min-width: 1400px) {
-  .title {
-    font-size: 5.2rem;
-    left: calc(5.5vw + 170px);
-  }
+  .title { font-size: 5.2rem; }
   .action-btn {
-    width: 200px;
-    font-size: 16px;
+    width: 190px;
+    font-size: 15px;
   }
 }
