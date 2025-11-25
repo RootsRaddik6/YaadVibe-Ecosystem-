@@ -1,4 +1,4 @@
-/* Global */
+/* GLOBAL */
 body {
     margin: 0;
     padding: 0;
@@ -16,6 +16,7 @@ body {
     inset: 0;
     background: rgba(0, 0, 0, 0.45);
     backdrop-filter: blur(1px);
+    z-index: 1;
 }
 
 /* Flag */
@@ -39,36 +40,34 @@ body {
     position: relative;
 }
 
-/* Buttons area */
+/* BUTTON STACK — aligned under the “E” of VIBE */
 .button-stack {
-    margin-top: 80px;
+    position: absolute;
+    top: 245px;
+    left: 54%;
+    transform: translateX(-50%);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    z-index: 3;
-    position: relative;
+    align-items: flex-start;
+    z-index: 5;
 }
 
 .btn {
-    width: 280px;
-    padding: 18px 0;
-    margin: 12px 0;
+    width: 210px;
+    padding: 14px 0;
+    margin: 8px 0;
     border-radius: 42px;
     border: none;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s;
 }
 
 .primary {
-    background: rgba(255, 215, 0, 0.14);
+    background: rgba(255, 215, 0, 0.18);
     border: 1px solid rgba(255, 215, 0, 0.4);
     color: white;
-}
-
-.primary:hover {
-    background: rgba(255, 215, 0, 0.24);
 }
 
 .secondary {
@@ -81,18 +80,32 @@ body {
 }
 
 .secondary .dot {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     background: gold;
     border-radius: 50%;
     margin-right: 8px;
 }
 
-/* Links */
-.links {
-    margin-top: 22px;
-    text-align: center;
-    font-size: 16px;
+/* FOUR CARD ROW */
+.four-card-row {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    z-index: 10;
+}
+
+.small-card {
+    background: rgba(0,0,0,0.55);
+    border: 1px solid rgba(255,215,0,0.35);
+    padding: 12px 18px;
+    border-radius: 14px;
+    font-size: 18px;
+    font-family: 'Rock Salt', cursive;
     color: gold;
-    text-shadow: 0px 0px 6px rgba(255, 210, 60, 0.8);
+    text-shadow: 0 0 8px rgba(255,215,0,0.6);
+    backdrop-filter: blur(3px);
 }
