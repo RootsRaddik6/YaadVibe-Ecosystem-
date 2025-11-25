@@ -1,156 +1,186 @@
-/* ---------- GLOBAL ---------- */
+/* ==========================
+   1DROP YAADVIBE - styles.css
+   Full replacement - paste entire file
+   ========================== */
+
+/* RESET */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* BACKGROUND */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Cinzel', serif;
-    background: #000;
-    background-image: url('/background.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+  height: 100vh;
+  font-family: "Playfair Display", serif;
+  background: url('IMG_0039.jpeg') center/cover no-repeat fixed;
+  color: #fff;
+  position: relative;
+  overflow-x: hidden;
 }
 
-/* ---------- HEADER TITLE ---------- */
-.hero-title {
-    margin-top: 60px;
-    text-align: center;
-    font-size: 3rem;
-    font-weight: 700;
-    color: #FFD700;
-    text-shadow:
-        0 0 10px rgba(255, 215, 0, 0.75),
-        0 0 20px rgba(255, 80, 0, 0.20),      /* red tint */
-        0 0 35px rgba(255, 215, 0, 0.65);     /* glow reduced ~15% */
+/* DARK OVERLAY to preserve contrast */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.56);
+  backdrop-filter: blur(1.5px);
+  z-index: 1;
 }
 
-/* ---------- FLAG ---------- */
+/* HEADER CONTAINER - holds flag + title */
+.header-container {
+  position: relative;
+  width: 100%;
+  z-index: 4;
+  display: block;
+  padding-left: 5.5vw;   /* shifts everything left as requested */
+  padding-top: 3.8vh;    /* keeps top gap consistent */
+}
+
+/* FLAG - stable for mobile and desktop */
 .flag {
-    width: 140px;
-    margin-bottom: 10px;
-    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+  position: absolute;
+  top: 4.6vh;
+  left: 5.5vw;
+  width: 140px;
+  height: auto;
+  z-index: 5;
+  image-rendering: auto;
 }
 
-/* ---------- MAIN BUTTONS (TON / WalletConnect) ---------- */
-.top-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 10px;
+/* TITLE - moved left and closer to flag */
+.title {
+  display: inline-block;
+  position: absolute;
+  top: 22.5vh;            /* vertical placement (adjusted for mobile) */
+  left: calc(5.5vw + 160px); /* position just to the right of flag */
+  transform: translateY(-6%);
+  font-size: 4.2rem;      /* large on desktop */
+  line-height: 1;
+  color: #ffd200;         /* primary gold color */
+  font-weight: 700;
+  white-space: nowrap;
+  z-index: 5;
+
+  /* Golden glow reduced ~15% + slight red tint */
+  text-shadow:
+    0 0 8px rgba(255,215,0,0.62),
+    0 0 14px rgba(255,215,0,0.48),
+    0 0 22px rgba(255,40,0,0.18);
 }
 
-.action-button {
-    padding: 10px 28px;
-    border-radius: 25px;
-    font-size: 1rem;
-    font-weight: bold;
-    background: transparent;
-    border: 2px solid #FFD700;
-    color: #FFD700;
-    text-shadow: 0 0 6px rgba(255, 215, 0, 0.7);
-    box-shadow:
-        0 0 8px rgba(255, 215, 0, 0.5),
-        0 0 14px rgba(255, 60, 0, 0.25);      /* slight red tint */
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
+/* BUTTON WRAPPER - position relative to visual "E" in VIBE */
+.button-wrapper {
+  position: absolute;
+  top: 43.5vh;            /* pushes buttons downward (desktop baseline) */
+  left: 52.5%;            /* nudges slightly right so the stack sits under "E" */
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  z-index: 5;
 }
 
-.action-button:hover {
-    transform: scale(1.07);
-    box-shadow:
-        0 0 10px rgba(255, 215, 0, 0.9),
-        0 0 20px rgba(255, 60, 0, 0.35);
+/* ACTION BUTTONS - 15% smaller than earlier size */
+.action-btn {
+  width: 180px;           /* reduced size (desktop) */
+  padding: 10px 16px;
+  border-radius: 36px;
+  border: 2px solid #ffd200;
+  background: rgba(0,0,0,0.62);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+
+  /* subtle neon + inner warmth */
+  box-shadow:
+    0 0 6px rgba(255,215,0,0.32),
+    0 0 12px rgba(255,40,0,0.12),
+    inset 0 -6px 18px rgba(0,0,0,0.18);
 }
 
-/* ---------- BOTTOM NAV BUTTONS ---------- */
-.bottom-nav {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 22px;
-    padding-bottom: 25px;
+/* Secondary variant if needed */
+.action-btn.secondary {
+  background: rgba(18,18,18,0.6);
 }
 
-.nav-button {
-    padding: 10px 20px;
-    border-radius: 20px;
-    background: transparent;
-    border: 2px solid #FFD700;
-    font-size: 0.9rem;
-    color: #FFD700;
-    text-shadow: 0 0 5px rgba(255, 215, 0, 0.6);
-    box-shadow:
-        0 0 7px rgba(255, 215, 0, 0.45),
-        0 0 12px rgba(255, 60, 0, 0.20);
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
+/* CARD ROW - fixed at bottom, shifted left slightly */
+.card-row {
+  position: absolute;
+  bottom: 4.5vh;
+  left: 2.5%;             /* nudge entire row to the left */
+  width: 95%;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  z-index: 5;
+  pointer-events: auto;
 }
 
-.nav-button:hover {
-    transform: scale(1.05);
+/* Individual card style */
+.card-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  padding: 10px 18px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.6);
+  border: 2px solid rgba(255,215,0,0.9);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-shadow: 0 0 6px rgba(255,215,0,0.18);
+  box-shadow:
+    0 2px 12px rgba(0,0,0,0.45),
+    0 0 10px rgba(255,215,0,0.18) inset;
 }
 
-/* ---------- DESKTOP ADJUSTMENTS ---------- */
-@media (min-width: 900px) {
+/* SMALLER VIEWPORT (phones incl. iPhone 13 Pro Max) */
+@media (max-width: 430px) {
 
-    .hero-title {
-        font-size: 4rem;
-        margin-top: 80px;
-    }
+  .flag { width: 115px; left: 6vw; top: 5vh; }
 
-    .flag {
-        width: 200px;
-    }
+  .title {
+    font-size: 2.4rem;            /* smaller on phone */
+    left: calc(6vw + 125px);      /* keep it near flag */
+    top: 28vh;                    /* adjust vertical specifically for mobile */
+    transform: translateY(-10%);
+    text-shadow:
+      0 0 6px rgba(255,215,0,0.58),
+      0 0 10px rgba(255,40,0,0.14);
+  }
 
-    .top-buttons {
-        gap: 18px;
-        margin-top: 25px;
-    }
+  .button-wrapper {
+    top: 50vh;                    /* lower on small screens so buttons are visible */
+    left: 57%;                    /* move slightly to align under E on mobile */
+    gap: 10px;
+  }
 
-    .action-button {
-        font-size: 1.1rem;
-        padding: 10px 40px;
-        transform: scale(0.85);   /* Smaller on desktop */
-    }
+  .action-btn {
+    width: 145px;                 /* ~15% smaller in mobile context */
+    padding: 8px 12px;
+    font-size: 13px;
+    border-radius: 28px;
+  }
 
-    .bottom-nav .nav-button {
-        transform: scale(0.90);   /* Smaller desktop nav */
-    }
+  .card-row {
+    bottom: 3.2vh;
+    gap: 12px;
+    left: 1.8%;
+    width: 96%;
+  }
+
+  .card-btn {
+    min-width: 100px;
+    padding: 8px 14px;
+    font-size: 12px;
+  }
 }
 
-/* ---------- MOBILE ADJUSTMENTS ---------- */
-@media (max-width: 480px) {
-
-    .hero-title {
-        font-size: 2.2rem;
-        margin-top: 40px;
-    }
-
-    .flag {
-        width: 115px;
-    }
-
-    .top-buttons {
-        margin-top: 10px;
-        gap: 12px;
-    }
-
-    .action-button {
-        font-size: 0.9rem;
-        padding: 8px 22px;
-    }
-
-    .bottom-nav {
-        gap: 12px;
-        padding-bottom: 30px;
-    }
-
-    .nav-button {
-        font-size: 0.8rem;
-        padding: 8px 14px;
-    }
+/* Extra desktop tweak for very wide screens to keep button cluster sane */
+@media (min-width: 1400px) {
+  .title { font-size: 5.2rem; left: calc(5.5vw + 170px); }
+  .action-btn { width: 200px; font-size: 16px; }
 }
