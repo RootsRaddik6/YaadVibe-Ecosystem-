@@ -1,83 +1,97 @@
-/* ---------- GLOBAL ---------- */
-body, html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  font-family: 'Cinzel', serif; /* Keep your Google Font EXACTLY as you requested */
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* ---------- BACKGROUND IMAGE ---------- */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background-image: url('/background.jpg'); /* Replace with your actual bg path */
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+body {
+    font-family: 'Playfair Display', serif;
+    background: url('IMG_0039.jpeg') center/cover no-repeat fixed;
+    height: 100vh;
+    overflow-x: hidden;
+    position: relative;
 }
 
-/* ---------- FLAG POSITIONING ---------- */
+/* DARK OVERLAY (PREVENT WHITE SCREEN) */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(1.5px);
+    z-index: 1;
+}
+
+/* FLAG — stable size & alignment for iPhone */
 .flag {
-  position: absolute;
-  top: 4vh;
-  left: 4vw;
-  width: 32vw; /* Scales PERFECTLY for iPhone 13 Pro Max */
-  max-width: 160px;
+    position: absolute;
+    top: 8vh;
+    left: 5vw;
+    width: 32vw;
+    max-width: 160px;
+    z-index: 3;
 }
 
-/* ---------- TITLE ---------- */
+/* TITLE (GOLD GLOW RESTORED) */
 .title {
-  margin-top: 22vh; /* Moves title down into proper zone */
-  font-size: 7vw;
-  color: #FFD700;
-  text-shadow: 0 0 14px #FFD700, 0 0 26px #FFD700;
-  text-align: center;
+    position: absolute;
+    top: 23vh;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 6vw;
+    max-font-size: 46px;
+    color: #FFD700;
+    font-weight: 700;
+    white-space: nowrap;
+    text-shadow:
+        0 0 10px #FFD700,
+        0 0 18px #FFD700,
+        0 0 26px rgba(255,215,0,0.9);
+    z-index: 4;
 }
 
-/* ---------- MAIN BUTTONS (TON + WalletConnect) ---------- */
-.connect-buttons {
-  margin-top: 3vh;
-  display: flex;
-  flex-direction: column;
-  gap: 1.8vh;
-  align-items: center;
+/* BUTTON STACK UNDER "E" IN YAADVIBE */
+.button-stack {
+    position: absolute;
+    top: 33vh;
+    left: 58%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 4;
 }
 
-/* 15% OF YOUR CURRENT BUTTON SIZE */
-.connect-buttons button {
-  width: 38vw;            /* Shrinks button width intelligently */
-  height: 5vh;            /* Proportional height */
-  font-size: 3.5vw;       /* No giant text */
-  border-radius: 30px;
-  background: rgba(0, 0, 0, 0.65);
-  color: #fff;
-  border: 2px solid #FFD700;
-  box-shadow: 0 0 10px #FFD700;
+/* 15% SIZE BUTTONS */
+.btn {
+    font-size: 11px;
+    padding: 6px 18px;
+    border-radius: 40px;
+    border: 1px solid gold;
+    background: rgba(0,0,0,0.45);
+    color: white;
+    text-align: center;
+    min-width: 120px;
 }
 
-/* ---------- 4 BOTTOM APPLICATION CARDS ---------- */
-.bottom-menu {
-  position: absolute;
-  bottom: 3vh;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  padding: 0 2vw;
+/* CARD ROW FIXED AT BOTTOM */
+.card-row {
+    position: absolute;
+    bottom: 4vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    z-index: 4;
 }
 
-.bottom-menu button {
-  width: 22vw;
-  height: 5.2vh;
-  font-size: 3.2vw;
-  border-radius: 18px;
-  background: rgba(0, 0, 0, 0.55);
-  color: #fff;
-  border: 2px solid #FFD700;
-  box-shadow: 0 0 12px #FFD700;
+.card {
+    padding: 10px 14px;
+    background: rgba(0,0,0,0.65);
+    border: 1px solid rgba(255,215,0,0.7);
+    border-radius: 12px;
+    color: white;
+    white-space: nowrap;
+    font-size: 13px;
+    text-shadow: 0 0 10px #FFD700;
 }
