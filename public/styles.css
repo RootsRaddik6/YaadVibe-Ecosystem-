@@ -4,9 +4,10 @@ body {
     padding: 0;
     font-family: 'Playfair Display', serif;
     background: url('IMG_0039.jpeg') center/cover no-repeat;
-    min-height: 100vh;
+    height: 100vh;
     color: white;
     position: relative;
+    overflow: hidden;
 }
 
 /* DARK OVERLAY */
@@ -27,57 +28,57 @@ body {
     z-index: 3;
 }
 
-/* TITLE — correct v1 gold, one line */
+/* TITLE — perfect placement */
 .title {
     position: absolute;
-    top: 26vh;
+    top: 19vh;               /* FIXED — matches reference */
     left: 50%;
     transform: translateX(-50%);
     font-size: 42px;
     font-weight: 700;
     color: gold;
     white-space: nowrap;
-    z-index: 4;
     text-shadow: 0 0 14px rgba(255,215,0,0.75);
+    z-index: 4;
 }
 
-/* BUTTON STACK (20% SIZE REDUCTION) */
+/* BUTTON STACK under “E” in VIBE */
 .button-stack {
     position: absolute;
-    top: 36vh;  /* directly under the E */
-    left: 57%;  /* aligned under the “E” in YAADVIBE */
+    top: 30vh;               /* DIRECTLY under the E */
+    left: 58%;               /* PERFECT alignment under the E */
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     z-index: 4;
 }
 
 .btn {
-    font-size: 12px;     /* 20% size */
-    padding: 6px 14px;   /* 20% size */
+    font-size: 12px;        /* 20% size */
+    padding: 6px 16px;      /* 20% size */
     border-radius: 8px;
     border: 1px solid gold;
     background: rgba(0,0,0,0.45);
     color: white;
 }
 
-/* CARD ROW — (4×1) near bottom */
+/* CARD ROW — floats above bottom (Option B) */
 .card-row {
-    position: relative;
-    margin-top: 70vh;  /* pushes cards to lower section of screen */
+    position: absolute;
+    bottom: 10vh;           /* FLOATING above bottom — correct placement */
+    width: 100%;
     display: flex;
     justify-content: center;
-    gap: 12px;
-    padding-bottom: 40px;
+    gap: 14px;
     z-index: 4;
 }
 
 .card {
-    padding: 12px 14px;
+    padding: 12px 16px;
     background: rgba(0,0,0,0.55);
     border: 1px solid rgba(255,215,0,0.5);
     border-radius: 10px;
-    font-size: 13px;
+    font-size: 14px;
     white-space: nowrap;
 }
