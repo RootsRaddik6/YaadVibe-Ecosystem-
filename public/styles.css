@@ -10,7 +10,7 @@ body {
     overflow: hidden;
 }
 
-/* Dim overlay */
+/* Overlay */
 .overlay {
     position: absolute;
     inset: 0;
@@ -19,47 +19,34 @@ body {
     z-index: 1;
 }
 
-/* Flag — beside title */
+/* Flag */
 .flag {
-    width: 125px;
+    width: 135px;
     position: absolute;
-    top: 22px;
-    left: 26px;
-    z-index: 4;
+    top: 15px;
+    left: 15px;
+    z-index: 3;
 }
 
-/* Title */
+/* ONE LINE TITLE */
 .title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 38px;
+    letter-spacing: 1px;
+    color: gold;
+    text-shadow: 0 0 18px rgba(255, 215, 0, 0.9);
+    text-align: center;
+    margin-top: 115px;
     position: relative;
     z-index: 5;
-    margin-top: 110px;
-    text-align: center;
-    line-height: 1.05;
+    white-space: nowrap;
 }
 
-.title-main {
-    font-family: 'Playfair Display', serif;
-    font-size: 64px;
-    font-weight: 700;
-    color: #FED141;
-    text-shadow: 0 0 22px rgba(255, 215, 0, 0.85);
-    display: block;
-}
-
-.title-sub {
-    font-family: 'Inter', sans-serif;
-    font-weight: 900;
-    font-size: 46px;
-    color: white;
-    letter-spacing: 2px;
-    text-shadow: 0 0 16px rgba(0,0,0,0.6);
-    display: block;
-}
-
-/* BUTTON STACK — aligned under “E” of VIBE */
+/* BUTTON STACK — aligned under the E in YAADVIBE */
 .button-stack {
     position: absolute;
-    top: 255px;
+    top: 245px;
     left: 54%;
     transform: translateX(-50%);
     display: flex;
@@ -75,19 +62,17 @@ body {
     border-radius: 42px;
     border: none;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
-    transition: 0.2s;
+    transition: 0.25s;
 }
 
-/* TON */
 .primary {
     background: rgba(255, 215, 0, 0.18);
     border: 1px solid rgba(255, 215, 0, 0.4);
     color: white;
 }
 
-/* WalletConnect */
 .secondary {
     background: rgba(30, 30, 30, 0.42);
     border: 1px solid rgba(255, 215, 0, 0.3);
@@ -100,30 +85,30 @@ body {
 .secondary .dot {
     width: 16px;
     height: 16px;
-    background: #FED141;
+    background: gold;
     border-radius: 50%;
     margin-right: 8px;
 }
 
-/* FOUR CARD ROW */
+/* 4 CARDS (bottom) */
 .four-card-row {
     position: absolute;
-    bottom: 40px;
+    bottom: 38px;
     width: 100%;
     display: flex;
     justify-content: center;
     gap: 22px;
-    z-index: 10;
+    z-index: 20;
 }
 
 .small-card {
-    background: rgba(0,0,0,0.55);
-    border: 1px solid rgba(255,215,0,0.35);
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 215, 0, 0.35);
     padding: 12px 18px;
     border-radius: 14px;
     font-size: 18px;
     font-family: 'Playfair Display', serif;
-    color: #FED141;
-    text-shadow: 0 0 10px rgba(255,215,0,0.7);
+    color: gold;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
     backdrop-filter: blur(3px);
 }
