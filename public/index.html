@@ -1,27 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>1Drop YAADVIBE</title>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1Drop YaadVibe Ecosystem</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet"/>
+    <script defer src="script.js"></script>
 </head>
+
 <body>
 
-  <div class="logo-box">
-    <img src="IMG_0454.png" alt="Jamaica Flag" class="flag">
-    <img src="1drop-red.png" alt="1Drop" class="drop-red">
-  </div>
+    <!-- HERO SECTION -->
+    <section class="hero">
 
-  <div class="center">
-    <div class="title">1Drop<br><span class="yaadvibe">YAADVIBE</span></div>
-  </div>
+        <!-- FLAG + LOGO (TOP LEFT) -->
+        <div class="flag-logo-container">
+            <img src="assets/IMG_0454.png" class="flag-img" alt="Jamaican Flag">
+            <div class="logo-badge">1Drop</div>
+        </div>
 
-  <div class="buttons">
-    <a href="https://wallet.ton.org" class="btn ton">TON</a>
-    <a href="https://walletconnect.com" class="btn wc">WalletConnect</a>
-  </div>
+        <!-- CENTRAL TITLE -->
+        <div class="title-block">
+            <h1 class="main-title">IDROP YAADVIBE</h1>
+            <p class="sub-title">Experience Jamaica Like Never Before</p>
+        </div>
+
+        <!-- WALLET BUTTONS (UNDER THE “E” IN VIBE / MID-RIGHT) -->
+        <div class="wallet-area">
+            <button class="wallet-btn ton" onclick="window.location.href='https://ton.org'">
+                TON
+            </button>
+
+            <button class="wallet-btn wc" onclick="window.location.href='https://walletconnect.com'">
+                WalletConnect
+            </button>
+        </div>
+
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about">
+        <h2>About the YaadVibe Ecosystem</h2>
+
+        <p>
+            The 1Drop YaadVibe Ecosystem is Jamaica’s first tourism-powered, 
+            blockchain-driven curator engine. Visitors and locals connect to 
+            real businesses, events, services, and attractions through 
+            blockchain-secured bookings, $JamDex payments, Tezos SBT identity, 
+            and an AI metadata engine that learns user preferences across all 
+            four DApp/App experiences.
+        </p>
+
+        <p>
+            YaadVibe brings tourism, culture, and commerce together in one
+            frictionless interface — real-time updates, instant payments, and 
+            curated recommendations powered by your SBT identity.
+        </p>
+    </section>
+
+    <!-- FOUR DAPP/APP CARDS (FOOTER AREA) -->
+    <section class="apps">
+        <div class="app-card">
+            <h3>YaadVibe</h3>
+            <p>The everything DApp for tourism, culture, and local business.</p>
+        </div>
+
+        <div class="app-card">
+            <h3>YaadLife Lite</h3>
+            <p>A lightweight TON-powered ecosystem for fast, simple onboarding.</p>
+        </div>
+
+        <div class="app-card">
+            <h3>PurVibe</h3>
+            <p>A content curator with mood-reading personalization.</p>
+        </div>
+
+        <div class="app-card">
+            <h3>IrieVibe</h3>
+            <p>Food, transport, events & bookings — all TON-ready on the go.</p>
+        </div>
+    </section>
 
 </body>
 </html>
