@@ -1,3 +1,4 @@
+/* --- GRID --- */
 .card-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -11,6 +12,7 @@
     }
 }
 
+/* --- FULL IMAGE CARDS (original) --- */
 .app-card {
     position: relative;
     padding: 20px;
@@ -25,8 +27,8 @@
     flex-direction: column;
     justify-content: flex-end;
 }
-/* ---- APP CARD BACKGROUND IMAGES ---- */
 
+/* ---- APP CARD BACKGROUND IMAGES ---- */
 .card-yaadvibe {
     background-image: url("/images/DCE3C919-9E51-49D6-8E7x-xxxx.jpeg");
 }
@@ -42,7 +44,9 @@
 .card-irievibe {
     background-image: url("/images/81EF35A3-E5BA-4AF4-8A78-B93B47C461F3.jpeg");
 }
-/.card-container {
+
+/* ---- FIXED: Corrected selector ---- */
+.card-container {
     display: flex;
     gap: 20px;
     justify-content: center;
@@ -50,7 +54,8 @@
     flex-wrap: wrap;
 }
 
-.app-card {
+/* --- NEW CLASS to avoid overwriting main .app-card --- */
+.app-card-box {
     width: 180px;
     background: rgba(0,0,0,0.6);
     border: 1px solid #ffcc00;
@@ -59,26 +64,20 @@
     text-align: center;
 }
 
-.app-card img {
+/* --- IMAGE INSIDE SMALL CARDS --- */
+.app-card-box img {
     width: 100%;
     height: 120px;
     object-fit: cover;
     border-radius: 8px;
 }
 
-.app-card h3 {
-    margin-top: 10px;
-    color: #ffcc00;
-    font-family: 'Cinzel', serif;
-}
-
 /* --- TEXT --- */
-
 .app-card h2 {
     font-size: 1.8rem;
     margin-bottom: 8px;
     font-weight: 700;
-    color: #f7d776; /* your original gold color */
+    color: #f7d776;
 }
 
 .app-card p {
@@ -86,8 +85,7 @@
     line-height: 1.4rem;
 }
 
-/* --- BUTTON STYLE (kept EXACTLY your structure) --- */
-
+/* --- ABOUT BUTTONS --- */
 .about-btn {
     margin-top: 15px;
     padding: 10px 16px;
