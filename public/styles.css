@@ -1,6 +1,6 @@
 /* ==========================
    1DROP YAADVIBE - styles.css
-   FULL CSS WITH FIXED BUTTON POSITIONING
+   FULL CSS WITH FIXED BUTTON PLACEMENT + SIZE
    ========================== */
 
 /* RESET */
@@ -65,36 +65,37 @@ body {
 }
 
 /* ==========================
-   FIXED BUTTON PLACEMENT
-   — Centered below the "E"
+   BUTTON WRAPPER — UPDATED ONLY THIS
    ========================== */
 .button-wrapper {
   position: absolute;
-  top: calc(22.5vh + 120px); /* EXACTLY under the title on desktop */
-  left: calc(5.5vw + 260px); /* aligns directly under the E */
+  top: calc(22.5vh + 135px);  /* aligned under title */
+  left: calc(5.5vw + 285px);  /* directly under the “E” */
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   z-index: 5;
 }
 
-/* BUTTONS (15% smaller) */
+/* ==========================
+   BUTTON SIZE — UPDATED ONLY THIS
+   ========================== */
 .action-btn {
-  width: 180px;
-  padding: 10px 16px;
-  border-radius: 36px;
+  width: 195px;          
+  padding: 12px 18px;    
+  border-radius: 34px;
   border: 2px solid #ffd200;
-  background: rgba(0,0,0,0.62);
+  background: rgba(0,0,0,0.68);
   color: #fff;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   text-align: center;
   cursor: pointer;
 
   box-shadow:
-    0 0 6px rgba(255,215,0,0.32),
-    0 0 12px rgba(255,40,0,0.12),
-    inset 0 -6px 18px rgba(0,0,0,0.18);
+    0 0 8px rgba(255,215,0,0.35),
+    0 0 14px rgba(255,40,0,0.15),
+    inset 0 -8px 20px rgba(0,0,0,0.22);
 }
 
 /* CARD ROW */
@@ -129,7 +130,7 @@ body {
 }
 
 /* ==========================
-   MOBILE FIXES
+   MOBILE FIXES — ONLY BUTTONS CHANGED
    ========================== */
 @media (max-width: 430px) {
 
@@ -146,19 +147,19 @@ body {
     transform: translateY(-10%);
   }
 
-  /* MOBILE BUTTON FIX - now aligned AND visible */
+  /* MOBILE BUTTON FIX — updated only this */
   .button-wrapper {
-    top: 50vh;
+    top: 52vh;    
     left: 50%;
     transform: translateX(-50%);
-    gap: 10px;
+    gap: 12px;
   }
 
   .action-btn {
-    width: 145px;
-    padding: 8px 12px;
-    font-size: 13px;
-    border-radius: 28px;
+    width: 155px;
+    padding: 10px 14px;
+    font-size: 14px;
+    border-radius: 26px;
   }
 
   .card-row {
