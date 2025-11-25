@@ -22,7 +22,7 @@ body {
     z-index: 1;
 }
 
-/* FLAG */
+/* FLAG (original version — now overridden by .flag.base-layer) */
 .flag {
     position: absolute;
     top: 7vh;
@@ -32,11 +32,11 @@ body {
     z-index: 3;
 }
 
-/* TITLE — tighter to flag + moved left slightly + reduced glow */
+/* TITLE */
 .title {
     position: absolute;
     top: 21vh;
-    left: 46%; /* moved left */
+    left: 46%;
     transform: translateX(-50%);
     font-size: 6vw;
     max-font-size: 46px;
@@ -51,7 +51,7 @@ body {
     z-index: 4;
 }
 
-/* BUTTON STACK — aligned precisely under the "E" */
+/* BUTTON STACK */
 .button-stack {
     position: absolute;
     top: 33.5vh;
@@ -63,7 +63,7 @@ body {
     z-index: 4;
 }
 
-/* BUTTONS — enhanced browser-style look */
+/* BUTTONS */
 .btn {
     font-size: 11px;
     padding: 8px 22px;
@@ -86,7 +86,7 @@ body {
         0 0 6px rgba(255,215,0,0.20);
 }
 
-/* MOBILE FIX — proportional & centered better */
+/* MOBILE FIX */
 @media (max-width: 430px) {
     .button-stack {
         top: 39vh;
@@ -101,7 +101,8 @@ body {
         border-radius: 40px;
     }
 }
-/* CARD ROW — slight left shift */
+
+/* CARD ROW */
 .card-row {
     position: absolute;
     bottom: 4vh;
@@ -109,7 +110,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 14px;
-    transform: translateX(-2%); /* slight left shift */
+    transform: translateX(-2%);
     z-index: 4;
 }
 
@@ -126,7 +127,8 @@ body {
         0 0 8px rgba(255, 215, 0, 0.65),
         0 0 10px rgba(255, 80, 80, 0.25);
 }
-/* 3D FLAG WRAPPER */
+
+/* --- 3D FLAG WRAPPER --- */
 .flag-3d-wrapper {
     position: relative;
     width: 260px;
@@ -163,5 +165,3 @@ body {
         transform: translateZ(30px) rotateY(4deg);
     }
 }
-
-
