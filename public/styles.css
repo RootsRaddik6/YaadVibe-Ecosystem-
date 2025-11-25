@@ -1,4 +1,4 @@
-/* GLOBAL */
+/* GLOBAL — Using Inter (UI) + Playfair (title) */
 body {
     margin: 0;
     padding: 0;
@@ -7,10 +7,11 @@ body {
     height: 100vh;
     color: white;
     position: relative;
-    overflow: hidden;
+    overflow-y: auto;    /* FIX: lets you scroll to the cards */
+    overflow-x: hidden;
 }
 
-/* Overlay */
+/* Overlay dim */
 .overlay {
     position: absolute;
     inset: 0;
@@ -21,40 +22,40 @@ body {
 
 /* Flag */
 .flag {
-    width: 135px;
+    width: 140px;
     position: absolute;
     top: 15px;
     left: 15px;
     z-index: 3;
 }
 
-/* ONE LINE TITLE */
+/* ONE-LINE TITLE — Playfair Display + v1 gold glow */
 .title {
     font-family: 'Playfair Display', serif;
+    font-size: 42px;
     font-weight: 700;
-    font-size: 38px;
-    letter-spacing: 1px;
-    color: gold;
-    text-shadow: 0 0 18px rgba(255, 215, 0, 0.9);
+    color: #FED141; /* v1 gold */
+    text-shadow: 0 0 18px rgba(254, 209, 65, 0.9);
     text-align: center;
-    margin-top: 115px;
+    margin-top: 120px;
     position: relative;
-    z-index: 5;
-    white-space: nowrap;
+    z-index: 3;
+    white-space: nowrap;      /* FORCES one line */
 }
 
-/* BUTTON STACK — aligned under the E in YAADVIBE */
+/* BUTTON STACK — aligned under the “E” of VIBE */
 .button-stack {
     position: absolute;
-    top: 245px;
+    top: 240px;
     left: 54%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    z-index: 10;
+    z-index: 5;
 }
 
+/* Buttons (TON + WalletConnect) */
 .btn {
     width: 210px;
     padding: 14px 0;
@@ -64,18 +65,19 @@ body {
     font-size: 18px;
     font-weight: 700;
     cursor: pointer;
-    transition: 0.25s;
+    font-family: 'Inter', sans-serif;
+    transition: 0.2s;
 }
 
 .primary {
-    background: rgba(255, 215, 0, 0.18);
-    border: 1px solid rgba(255, 215, 0, 0.4);
+    background: rgba(254, 209, 65, 0.18); /* gold tint */
+    border: 1px solid rgba(254, 209, 65, 0.4);
     color: white;
 }
 
 .secondary {
-    background: rgba(30, 30, 30, 0.42);
-    border: 1px solid rgba(255, 215, 0, 0.3);
+    background: rgba(20, 20, 20, 0.45);
+    border: 1px solid rgba(254, 209, 65, 0.3);
     color: white;
     display: flex;
     align-items: center;
@@ -85,30 +87,31 @@ body {
 .secondary .dot {
     width: 16px;
     height: 16px;
-    background: gold;
+    background: #FED141; /* gold */
     border-radius: 50%;
     margin-right: 8px;
 }
 
-/* 4 CARDS (bottom) */
+/* FOUR CARD ROW — now visible, scroll reachable */
 .four-card-row {
-    position: absolute;
-    bottom: 38px;
     width: 100%;
     display: flex;
     justify-content: center;
     gap: 22px;
-    z-index: 20;
+    padding-bottom: 40px;
+    margin-top: 380px; /* PUSHES into visible scroll area */
+    z-index: 10;
 }
 
+/* Each card */
 .small-card {
-    background: rgba(0, 0, 0, 0.55);
-    border: 1px solid rgba(255, 215, 0, 0.35);
+    background: rgba(0,0,0,0.55);
+    border: 1px solid rgba(254,209,65,0.35);
     padding: 12px 18px;
     border-radius: 14px;
     font-size: 18px;
-    font-family: 'Playfair Display', serif;
-    color: gold;
-    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+    font-family: 'Inter', sans-serif;
+    color: #FED141;
+    text-shadow: 0 0 8px rgba(254,209,65,0.6);
     backdrop-filter: blur(3px);
 }
