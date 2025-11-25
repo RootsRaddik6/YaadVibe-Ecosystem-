@@ -1,251 +1,163 @@
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* GLOBAL --------------------------------------------------------- */
 
 body {
-    font-family: 'Playfair Display', serif;
-    background: url('IMG_1125.jpeg') center/cover no-repeat fixed;
-    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: "Playfair Display", serif;
     overflow-x: hidden;
-    position: relative;
-}
-/* HERO CONTAINER */
-.hero {
-    position: relative;
-    width: 100%;
-    height: 52vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 6vh;
-    z-index: 3;
+    background: #000;
 }
 
-/* Ensure flag, title, buttons stack INSIDE hero */
-.hero .flag-3d-wrapper {
-    margin-top: 0;
-}
+/* HERO SECTION ---------------------------------------------------- */
 
-.hero .title {
-    position: relative;
-    top: 2vh;
-    left: 0;
-    transform: none;
-    text-align: center;
-}
-
-.hero .button-stack {
-    position: relative;
-    top: 4vh;
-    left: 0;
-    transform: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-}
-/* DARK OVERLAY */
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(1.5px);
-    z-index: 1;
-}
-
-/* FLAG (original version — now overridden by .flag.base-layer) */
-.flag {
-    position: absolute;
-    top: 7vh;
-    left: 4vw;
-    width: 30vw;
-    max-width: 150px;
-    z-index: 3;
-}
-
-/* TITLE */
-.title {
-    position: absolute;
-    top: 21vh;
-    left: 46%;
-    transform: translateX(-50%);
-    font-size: 6vw;
-    max-font-size: 46px;
-    font-weight: 700;
-    white-space: nowrap;
-    color: #FFD700;
-
-    text-shadow:
-        0 0 8px rgba(255, 215, 0, 0.75),
-        0 0 14px rgba(255, 80, 80, 0.25);
-
-    z-index: 4;
-}
-
-/* BUTTON STACK */
-.button-stack {
-    position: absolute;
-    top: 33.5vh;
-    left: 57%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 4;
-}
-
-/* BUTTONS */
-.btn {
-    font-size: 11px;
-    padding: 8px 22px;
-    min-width: 128px;
-    border-radius: 50px;
-
-    background: rgba(0, 0, 0, 0.48);
-    color: white;
-    border: 1.5px solid #FFD700;
-
-    text-align: center;
-    font-weight: 600;
-
-    text-shadow:
-        0 0 4px rgba(255, 215, 0, 0.6),
-        0 0 8px rgba(255, 80, 80, 0.22);
-
-    box-shadow:
-        0 2px 6px rgba(0,0,0,0.45),
-        0 0 6px rgba(255,215,0,0.20);
-}
-
-/* MOBILE FIX */
-@media (max-width: 430px) {
-    .button-stack {
-        top: 39vh;
-        left: 59%;
-        gap: 8px;
-    }
-
-    .btn {
-        font-size: 10px;
-        padding: 7px 18px;
-        min-width: 118px;
-        border-radius: 40px;
-    }
-}
-
-/* CARD ROW */
-.card-row {
-    position: absolute;
-    bottom: 4vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-    transform: translateX(-2%);
-    z-index: 4;
-}
-
-.card {
-    padding: 10px 14px;
-    background: rgba(0,0,0,0.65);
-    border: 1px solid rgba(255,215,0,0.7);
-    border-radius: 12px;
-    color: white;
-    white-space: nowrap;
-    font-size: 13px;
-
-    text-shadow:
-        0 0 8px rgba(255, 215, 0, 0.65),
-        0 0 10px rgba(255, 80, 80, 0.25);
-}
-
-/* --- 3D FLAG WRAPPER --- */
-.flag-3d-wrapper {
-    position: relative;
-    width: 260px;
-    margin: 0 auto;
-    perspective: 1000px;
-}
-
-/* Base flag */
-.flag.base-layer {
-    width: 100%;
-    display: block;
-    transform: translateZ(0px);
-}
-
-/* Hologram Overlay */
-.flag.holo-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0.28;
-    mix-blend-mode: screen;
-    transform: translateZ(40px) rotateY(6deg);
-    filter: drop-shadow(0 0 22px rgba(0, 255, 255, 0.45));
-    pointer-events: none;
-}
-
-/* Mobile scaled effect */
-@media (max-width: 768px) {
-    .flag-3d-wrapper {
-        width: 180px;
-    }
-    .flag.holo-layer {
-        transform: translateZ(30px) rotateY(4deg);
-    }
-}
-/* Background Image */
 .hero-container {
     position: relative;
     width: 100%;
     height: 100vh;
-    background: url('/IMG_1125.jpeg') center center/cover no-repeat fixed;
     overflow: hidden;
 }
 
-/* Dark overlay for readability */
-.hero-overlay {
+/* BACKGROUND IMAGE */
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.45);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+    background-image: url("IMG_1125.jpeg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px) brightness(0.7);
+    z-index: 1;
 }
 
-/* 3D Card */
-.hero-3d {
-    background: rgba(255, 255, 255, 0.14);
-    backdrop-filter: blur(8px);
-    padding: 40px;
-    border-radius: 20px;
-    transform-style: preserve-3d;
-    transition: transform 0.15s ease-out;
-    max-width: 700px;
+/* DARK FADE OVERLAY */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.7));
+    z-index: 2;
+}
+
+/* CONTENT CENTERED */
+.hero-content {
+    position: relative;
+    z-index: 3;
     text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-/* Typography preserved exactly — your Google Fonts stay untouched */
-.hero-title {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    color: #fff;
+/* FLAG 3D --------------------------------------------------------- */
+
+.flag-3d-wrapper {
+    position: relative;
+    width: 190px;
+    margin: 0 auto 20px;
 }
+
+.flag {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.base-layer {
+    opacity: 1;
+}
+
+.holo-layer {
+    opacity: 0.3;
+    transform: translateX(8px) translateY(-8px);
+    filter: blur(3px);
+}
+
+/* TITLE ----------------------------------------------------------- */
+
+.hero-title {
+    font-family: "Cinzel", serif;
+    font-size: 3.2rem;
+    font-weight: 900;
+    color: #ffd400;
+    text-shadow: 0 0 25px #ffb700;
+    margin: 20px 0 10px;
+}
+
+/* TAGLINE --------------------------------------------------------- */
 
 .hero-text {
-    font-size: 1.4rem;
-    color: #f0f0f0;
-    margin-bottom: 25px;
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
 }
 
-/* Buttons (your style, not overwritten) */
-.hero-buttons a {
-    margin: 0 10px;
+/* BUTTONS --------------------------------------------------------- */
+
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn {
+    background: transparent;
+    border: 2px solid #ffd400;
+    color: #ffd400;
+    border-radius: 40px;
+    padding: 10px 35px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.btn:hover {
+    background: #ffd400;
+    color: #000;
+}
+
+/* CARDS ----------------------------------------------------------- */
+
+.card-grid {
+    padding: 40px 20px;
+    display: grid;
+    gap: 25px;
+}
+
+.app-card {
+    background: rgba(255,255,255,0.09);
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.app-card h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.app-card p {
+    opacity: 0.9;
+    margin-bottom: 15px;
+}
+
+.about-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    padding: 8px 20px;
+    border-radius: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+.about-btn:hover {
+    background: rgba(255,255,255,0.35);
 }
