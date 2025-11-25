@@ -3,70 +3,77 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Playfair Display', serif;
-    background: url('IMG_0039.jpeg') center/cover no-repeat;
-    height: 100vh;
+    background: url('IMG_0039.jpeg') center/cover no-repeat fixed;
+    min-height: 100vh;
     color: white;
     position: relative;
-    overflow: hidden;
 }
 
-/* DARK OVERLAY */
+/* DARK OVERLAY – deeper & richer */
 .overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.55);
-    backdrop-filter: blur(1.5px);
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(2px);
     z-index: 1;
 }
 
-/* FLAG */
+/* FLAG – richer presence */
 .flag {
     position: absolute;
     top: 40px;
     left: 25px;
-    width: 115px;
-    z-index: 3;
-}
-
-/* TITLE — perfect placement */
-.title {
-    position: absolute;
-    top: 19vh;               /* FIXED — matches reference */
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 42px;
-    font-weight: 700;
-    color: gold;
-    white-space: nowrap;
-    text-shadow: 0 0 14px rgba(255,215,0,0.75);
+    width: 135px;                /* slightly bigger */
+    filter: drop-shadow(0 0 12px rgba(255,255,255,0.25));
     z-index: 4;
 }
 
-/* BUTTON STACK under “E” in VIBE */
+/* TITLE – stronger gold pop, glow & weight */
+.title {
+    position: absolute;
+    top: 24vh;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 58px;             /* bigger like example */
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #FFD700;
+    text-shadow:
+        0 0 18px rgba(255,215,0,0.9),
+        0 0 28px rgba(255,215,0,0.7),
+        0 0 42px rgba(255,215,0,0.4);
+    z-index: 4;
+    white-space: nowrap;
+}
+
+/* BUTTON STACK – wide pill buttons like sample */
 .button-stack {
     position: absolute;
-    top: 30vh;               /* DIRECTLY under the E */
-    left: 58%;               /* PERFECT alignment under the E */
+    top: 38vh;
+    left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 16px;
     z-index: 4;
 }
 
 .btn {
-    font-size: 12px;        /* 20% size */
-    padding: 6px 16px;      /* 20% size */
-    border-radius: 8px;
-    border: 1px solid gold;
-    background: rgba(0,0,0,0.45);
+    width: 240px;                /* wide pill buttons */
+    padding: 12px 0;
+    font-size: 16px;
+    border-radius: 40px;
+    border: 1.5px solid gold;
+    background: rgba(0,0,0,0.55);
     color: white;
+    text-shadow: 0 0 8px rgba(255,215,0,0.5);
+    box-shadow: 0 0 14px rgba(255,215,0,0.35);
 }
 
-/* CARD ROW — floats above bottom (Option B) */
+/* CARD ROW – gold stroke, spaced, lifted */
 .card-row {
     position: absolute;
-    bottom: 10vh;           /* FLOATING above bottom — correct placement */
+    bottom: 32px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -75,10 +82,12 @@ body {
 }
 
 .card {
-    padding: 12px 16px;
+    padding: 12px 18px;
     background: rgba(0,0,0,0.55);
-    border: 1px solid rgba(255,215,0,0.5);
-    border-radius: 10px;
+    border: 1.3px solid rgba(255,215,0,0.65);
+    border-radius: 12px;
     font-size: 14px;
-    white-space: nowrap;
+    letter-spacing: 0.5px;
+    color: white;
+    box-shadow: 0 0 12px rgba(255,215,0,0.35);
 }
