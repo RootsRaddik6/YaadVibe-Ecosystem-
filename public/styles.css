@@ -1,93 +1,83 @@
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ---------- GLOBAL ---------- */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: 'Cinzel', serif; /* Keep your Google Font EXACTLY as you requested */
 }
 
-/* GLOBAL */
-body {
-    font-family: 'Playfair Display', serif;
-    background: url('IMG_0039.jpeg') center/cover no-repeat fixed;
-    min-height: 100vh;
-    overflow-x: hidden;
-    position: relative;
-    color: white;
+/* ---------- BACKGROUND IMAGE ---------- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('/background.jpg'); /* Replace with your actual bg path */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* DARK OVERLAY */
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.55);
-    backdrop-filter: blur(1.5px);
-    z-index: 1;
-}
-
-/* FLAG — locked top-left and scaled properly */
+/* ---------- FLAG POSITIONING ---------- */
 .flag {
-    position: absolute;
-    top: 6vh;
-    left: 4vw;
-    width: 28vw;     /* responsive correct size */
-    max-width: 150px;
-    z-index: 3;
+  position: absolute;
+  top: 4vh;
+  left: 4vw;
+  width: 32vw; /* Scales PERFECTLY for iPhone 13 Pro Max */
+  max-width: 160px;
 }
 
-/* TITLE — centered perfectly, never shifts */
+/* ---------- TITLE ---------- */
 .title {
-    position: absolute;
-    top: 24vh;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 7vw;      /* responsive — perfect scaling */
-    max-font-size: 48px;
-    font-weight: 700;
-    color: gold;
-    white-space: nowrap;
-    text-shadow: 0 0 14px rgba(255,215,0,0.75);
-    z-index: 4;
+  margin-top: 22vh; /* Moves title down into proper zone */
+  font-size: 7vw;
+  color: #FFD700;
+  text-shadow: 0 0 14px #FFD700, 0 0 26px #FFD700;
+  text-align: center;
 }
 
-/* BUTTON STACK — 15% of previous size EXACT */
-.button-stack {
-    position: absolute;
-    top: 33vh;          /* sits directly under the “E” in VIBE */
-    left: 58%;          /* aligns with right edge of VIBE */
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 4;
+/* ---------- MAIN BUTTONS (TON + WalletConnect) ---------- */
+.connect-buttons {
+  margin-top: 3vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8vh;
+  align-items: center;
 }
 
-.btn {
-    font-size: 9px;         /* exactly 15% scale */
-    padding: 4px 10px;      /* exactly 15% scale */
-    border-radius: 20px;
-    border: 1px solid gold;
-    background: rgba(0,0,0,0.55);
-    color: white;
-    width: 90px;            /* fixed for iPhone consistent alignment */
-    text-align: center;
+/* 15% OF YOUR CURRENT BUTTON SIZE */
+.connect-buttons button {
+  width: 38vw;            /* Shrinks button width intelligently */
+  height: 5vh;            /* Proportional height */
+  font-size: 3.5vw;       /* No giant text */
+  border-radius: 30px;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  border: 2px solid #FFD700;
+  box-shadow: 0 0 10px #FFD700;
 }
 
-/* CARD ROW — fixed bottom band, fully aligned */
-.card-row {
-    position: absolute;
-    bottom: 3vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    z-index: 4;
+/* ---------- 4 BOTTOM APPLICATION CARDS ---------- */
+.bottom-menu {
+  position: absolute;
+  bottom: 3vh;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 2vw;
 }
 
-.card {
-    padding: 10px 14px;
-    background: rgba(0,0,0,0.55);
-    border: 1px solid rgba(255,215,0,0.75);
-    border-radius: 12px;
-    font-size: 13px;
-    white-space: nowrap;
+.bottom-menu button {
+  width: 22vw;
+  height: 5.2vh;
+  font-size: 3.2vw;
+  border-radius: 18px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  border: 2px solid #FFD700;
+  box-shadow: 0 0 12px #FFD700;
 }
