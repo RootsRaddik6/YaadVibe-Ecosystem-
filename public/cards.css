@@ -26,32 +26,34 @@
     justify-content: flex-end;
 }
 
-/* YAADVIBE */
-.app-card.yaadvibe {
-    background-image: url('/images/DCE3C919-9E51-49D6-8E7x-xxxx.jpeg');
-    background-size: cover;
-    background-position: center;
+/.card-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
 }
 
-/* YAADLIFE LITE */
-.app-card.yaadlife {
-    background-image: url('/images/C9577413-ED2C-4C08-BFCx-xxxx.jpeg');
-    background-size: cover;
-    background-position: center;
+.app-card {
+    width: 180px;
+    background: rgba(0,0,0,0.6);
+    border: 1px solid #ffcc00;
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
 }
 
-/* PURVIBE */
-.app-card.purvibe {
-    background-image: url('/images/A10813F1-F3F5-4EB1-8BD5-04E1119116BE.png');
-    background-size: cover;
-    background-position: center;
+.app-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
-/* IRIEVIBE */
-.app-card.irievibe {
-    background-image: url('/images/A10813F1-F3F5-4EB1-8BD5-xxxx.jpeg');
-    background-size: cover;
-    background-position: center;
+.app-card h3 {
+    margin-top: 10px;
+    color: #ffcc00;
+    font-family: 'Cinzel', serif;
 }
 
 /* --- TEXT --- */
