@@ -9,85 +9,97 @@ body {
     position: relative;
 }
 
-/* DARK OVERLAY – deeper & richer */
+/* DARK OVERLAY */
 .overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.65);
-    backdrop-filter: blur(2px);
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(1.6px);
     z-index: 1;
 }
 
-/* FLAG – richer presence */
+/* FLAG — glow boost */
 .flag {
     position: absolute;
     top: 40px;
     left: 25px;
-    width: 135px;                /* slightly bigger */
-    filter: drop-shadow(0 0 12px rgba(255,255,255,0.25));
-    z-index: 4;
+    width: 125px;
+    z-index: 3;
+    filter: drop-shadow(0px 0px 14px rgba(0,255,70,0.85));
 }
 
-/* TITLE – stronger gold pop, glow & weight */
+/* TITLE — Neon Strong Gold Glow */
 .title {
     position: absolute;
-    top: 24vh;
+    top: 26vh;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 58px;             /* bigger like example */
+    font-size: 44px;
     font-weight: 700;
-    letter-spacing: 2px;
     color: #FFD700;
-    text-shadow:
-        0 0 18px rgba(255,215,0,0.9),
-        0 0 28px rgba(255,215,0,0.7),
-        0 0 42px rgba(255,215,0,0.4);
-    z-index: 4;
     white-space: nowrap;
+    z-index: 4;
+
+    /* NEON GOLD */
+    text-shadow:
+        0 0 8px #FFD700,
+        0 0 14px #FFEA00,
+        0 0 28px rgba(255,235,0,0.9),
+        0 0 42px rgba(255,235,0,0.75);
 }
 
-/* BUTTON STACK – wide pill buttons like sample */
+/* BUTTON STACK (20% smaller, centered under “E”) */
 .button-stack {
     position: absolute;
-    top: 38vh;
-    left: 50%;
+    top: 36vh;
+    left: 57%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
     z-index: 4;
 }
 
+/* BUTTON STYLE — FULL NEON GOLD RING LIKE EXAMPLE */
 .btn {
-    width: 240px;                /* wide pill buttons */
-    padding: 12px 0;
-    font-size: 16px;
-    border-radius: 40px;
-    border: 1.5px solid gold;
-    background: rgba(0,0,0,0.55);
+    font-size: 12px;
+    padding: 8px 22px;
+    border-radius: 50px;
+    background: rgba(0, 0, 0, 0.45);
     color: white;
-    text-shadow: 0 0 8px rgba(255,215,0,0.5);
-    box-shadow: 0 0 14px rgba(255,215,0,0.35);
+    border: 2px solid rgba(255,215,0,0.9);
+
+    /* glow ring */
+    box-shadow:
+        0 0 6px rgba(255,215,0,0.9),
+        0 0 12px rgba(255,215,0,0.75),
+        inset 0 0 8px rgba(255,215,0,0.35);
+
+    backdrop-filter: blur(3px);
 }
 
-/* CARD ROW – gold stroke, spaced, lifted */
+/* CARD ROW — aligned, neon gold borders */
 .card-row {
-    position: absolute;
-    bottom: 32px;
-    width: 100%;
+    position: relative;
+    margin-top: 70vh;
     display: flex;
     justify-content: center;
     gap: 14px;
+    padding-bottom: 40px;
     z-index: 4;
 }
 
 .card {
     padding: 12px 18px;
-    background: rgba(0,0,0,0.55);
-    border: 1.3px solid rgba(255,215,0,0.65);
+    background: rgba(0,0,0,0.58);
     border-radius: 12px;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    color: white;
-    box-shadow: 0 0 12px rgba(255,215,0,0.35);
+
+    /* strong neon gold frame */
+    border: 2px solid rgba(255,215,0,0.85);
+    box-shadow:
+        0 0 6px rgba(255,215,0,0.7),
+        0 0 14px rgba(255,215,0,0.55);
+
+    font-size: 13px;
+    white-space: nowrap;
 }
