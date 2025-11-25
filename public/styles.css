@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     background: url('IMG_0039.jpeg') no-repeat center center/cover;
     height: 100vh;
     color: white;
@@ -19,37 +19,53 @@ body {
     z-index: 1;
 }
 
-/* Flag */
+/* Flag — beside title */
 .flag {
-    width: 140px;
+    width: 125px;
     position: absolute;
-    top: 15px;
-    left: 15px;
-    z-index: 3;
+    top: 22px;
+    left: 26px;
+    z-index: 4;
 }
 
 /* Title */
 .title {
-    font-family: 'Rock Salt', cursive;
-    font-size: 46px;
-    color: gold;
-    text-shadow: 0px 0px 18px rgba(255, 210, 60, 0.9);
-    text-align: center;
-    margin-top: 120px;
-    z-index: 3;
     position: relative;
+    z-index: 5;
+    margin-top: 110px;
+    text-align: center;
+    line-height: 1.05;
 }
 
-/* BUTTON STACK — aligned under the “E” of VIBE */
+.title-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 700;
+    color: #FED141;
+    text-shadow: 0 0 22px rgba(255, 215, 0, 0.85);
+    display: block;
+}
+
+.title-sub {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 46px;
+    color: white;
+    letter-spacing: 2px;
+    text-shadow: 0 0 16px rgba(0,0,0,0.6);
+    display: block;
+}
+
+/* BUTTON STACK — aligned under “E” of VIBE */
 .button-stack {
     position: absolute;
-    top: 245px;
+    top: 255px;
     left: 54%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    z-index: 5;
+    z-index: 10;
 }
 
 .btn {
@@ -64,12 +80,14 @@ body {
     transition: 0.2s;
 }
 
+/* TON */
 .primary {
     background: rgba(255, 215, 0, 0.18);
     border: 1px solid rgba(255, 215, 0, 0.4);
     color: white;
 }
 
+/* WalletConnect */
 .secondary {
     background: rgba(30, 30, 30, 0.42);
     border: 1px solid rgba(255, 215, 0, 0.3);
@@ -82,7 +100,7 @@ body {
 .secondary .dot {
     width: 16px;
     height: 16px;
-    background: gold;
+    background: #FED141;
     border-radius: 50%;
     margin-right: 8px;
 }
@@ -104,8 +122,8 @@ body {
     padding: 12px 18px;
     border-radius: 14px;
     font-size: 18px;
-    font-family: 'Rock Salt', cursive;
-    color: gold;
-    text-shadow: 0 0 8px rgba(255,215,0,0.6);
+    font-family: 'Playfair Display', serif;
+    color: #FED141;
+    text-shadow: 0 0 10px rgba(255,215,0,0.7);
     backdrop-filter: blur(3px);
 }
