@@ -5,9 +5,10 @@
     box-sizing: border-box;
 }
 
+/* BACKGROUND */
 body {
     font-family: 'Playfair Display', serif;
-    background: url('IMG_0039.jpeg') center/cover no-repeat;
+    background: url('IMG_0039.jpeg') center/cover no-repeat fixed;
     height: 100vh;
     overflow-x: hidden;
     position: relative;
@@ -22,78 +23,82 @@ body {
     z-index: 1;
 }
 
-/* FLAG – FIXED SIZE, MOBILE SAFE */
+/* FLAG (same size + correct alignment) */
 .flag {
     position: absolute;
-    top: 6vh;
-    left: 4vw;
-    width: 34vw;
-    max-width: 170px;
+    top: 8vh;
+    left: 5vw;
+    width: 32vw;
+    max-width: 160px;
     z-index: 3;
 }
 
-/* TITLE – SAME GLOW, CENTERED PERFECTLY */
+/* TITLE — 15% LESS GLOW + SUBTLE RED */
 .title {
     position: absolute;
-    top: 18vh;
+    top: 21vh;
     left: 50%;
     transform: translateX(-50%);
-    font-size: clamp(28px, 6vw, 50px);
+    font-size: 6.2vw;
+    max-font-size: 46px;
     color: #FFD700;
     font-weight: 700;
     white-space: nowrap;
     text-shadow:
-        0 0 10px #FFD700,
-        0 0 18px #FFD700,
-        0 0 26px rgba(255,215,0,0.9);
+        0 0 6px #FFD700,
+        0 0 12px rgba(255, 215, 0, 0.85),
+        0 0 18px rgba(255, 180, 60, 0.55),
+        0 0 22px rgba(255, 70, 20, 0.30);  /* warm red tint */
     z-index: 4;
 }
 
-/* BUTTON STACK – EXACTLY UNDER THE “E” */
+/* BUTTON STACK — CORRECTLY ALIGNED UNDER THE “E” */
 .button-stack {
     position: absolute;
-    top: 32vh;
-    left: 50%;
+    top: 33vh;
+    left: 62%;     /* ← EXACT placement matching your reference screenshot */
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
     z-index: 4;
 }
 
-/* BUTTONS – FULL CONSISTENT SIZING */
+/* BUTTONS — ORIGINAL GOLD STYLE */
 .btn {
-    font-size: 14px;
-    padding: 10px 26px;
+    font-size: 12px;
+    padding: 8px 22px;
     border-radius: 40px;
     border: 1px solid gold;
     background: rgba(0,0,0,0.45);
     color: white;
     text-align: center;
-    min-width: 150px;
+    min-width: 130px;
+    box-shadow: 
+        0 0 5px rgba(255,215,0,0.35),
+        0 0 10px rgba(255,215,0,0.40);
 }
 
-/* CARD ROW AT BOTTOM ALWAYS */
+/* CARD ROW AT BOTTOM — UNCHANGED */
 .card-row {
     position: absolute;
     bottom: 4vh;
-    left: 50%;
-    transform: translateX(-50%);
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 12px;
-    padding: 0 12px;
+    gap: 14px;
     z-index: 4;
 }
 
 .card {
-    padding: 10px 16px;
+    padding: 10px 14px;
     background: rgba(0,0,0,0.65);
     border: 1px solid rgba(255,215,0,0.7);
     border-radius: 12px;
     color: white;
     white-space: nowrap;
     font-size: 13px;
-    text-shadow: 0 0 10px #FFD700;
+    text-shadow: 
+        0 0 6px #FFD700,
+        0 0 10px rgba(255,215,0,0.6);
 }
