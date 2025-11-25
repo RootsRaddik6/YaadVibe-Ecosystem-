@@ -1,6 +1,6 @@
 /* ==========================
    1DROP YAADVIBE - styles.css
-   Full replacement - paste entire file
+   FULL CSS WITH FIXED BUTTON POSITIONING
    ========================== */
 
 /* RESET */
@@ -16,7 +16,7 @@ body {
   overflow-x: hidden;
 }
 
-/* DARK OVERLAY to preserve contrast */
+/* DARK OVERLAY */
 .overlay {
   position: absolute;
   inset: 0;
@@ -25,17 +25,16 @@ body {
   z-index: 1;
 }
 
-/* HEADER CONTAINER - holds flag + title */
+/* HEADER */
 .header-container {
   position: relative;
   width: 100%;
   z-index: 4;
-  display: block;
-  padding-left: 5.5vw;   /* shifts everything left as requested */
-  padding-top: 3.8vh;    /* keeps top gap consistent */
+  padding-left: 5.5vw;
+  padding-top: 3.8vh;
 }
 
-/* FLAG - stable for mobile and desktop */
+/* FLAG */
 .flag {
   position: absolute;
   top: 4.6vh;
@@ -43,46 +42,45 @@ body {
   width: 140px;
   height: auto;
   z-index: 5;
-  image-rendering: auto;
 }
 
-/* TITLE - moved left and closer to flag */
+/* TITLE */
 .title {
   display: inline-block;
   position: absolute;
-  top: 22.5vh;            /* vertical placement (adjusted for mobile) */
-  left: calc(5.5vw + 160px); /* position just to the right of flag */
+  top: 22.5vh;
+  left: calc(5.5vw + 160px);
   transform: translateY(-6%);
-  font-size: 4.2rem;      /* large on desktop */
+  font-size: 4.2rem;
   line-height: 1;
-  color: #ffd200;         /* primary gold color */
+  color: #ffd200;
   font-weight: 700;
   white-space: nowrap;
   z-index: 5;
 
-  /* Golden glow reduced ~15% + slight red tint */
   text-shadow:
     0 0 8px rgba(255,215,0,0.62),
     0 0 14px rgba(255,215,0,0.48),
     0 0 22px rgba(255,40,0,0.18);
 }
 
-/* BUTTON WRAPPER - position relative to visual "E" in VIBE */
+/* ==========================
+   FIXED BUTTON PLACEMENT
+   — Centered below the "E"
+   ========================== */
 .button-wrapper {
   position: absolute;
-  top: 43.5vh;            /* pushes buttons downward (desktop baseline) */
-  left: 52.5%;            /* nudges slightly right so the stack sits under "E" */
-  transform: translateX(-50%);
+  top: calc(22.5vh + 120px); /* EXACTLY under the title on desktop */
+  left: calc(5.5vw + 260px); /* aligns directly under the E */
   display: flex;
   flex-direction: column;
   gap: 12px;
-  align-items: center;
   z-index: 5;
 }
 
-/* ACTION BUTTONS - 15% smaller than earlier size */
+/* BUTTONS (15% smaller) */
 .action-btn {
-  width: 180px;           /* reduced size (desktop) */
+  width: 180px;
   padding: 10px 16px;
   border-radius: 36px;
   border: 2px solid #ffd200;
@@ -93,32 +91,25 @@ body {
   text-align: center;
   cursor: pointer;
 
-  /* subtle neon + inner warmth */
   box-shadow:
     0 0 6px rgba(255,215,0,0.32),
     0 0 12px rgba(255,40,0,0.12),
     inset 0 -6px 18px rgba(0,0,0,0.18);
 }
 
-/* Secondary variant if needed */
-.action-btn.secondary {
-  background: rgba(18,18,18,0.6);
-}
-
-/* CARD ROW - fixed at bottom, shifted left slightly */
+/* CARD ROW */
 .card-row {
   position: absolute;
   bottom: 4.5vh;
-  left: 2.5%;             /* nudge entire row to the left */
+  left: 2.5%;
   width: 95%;
   display: flex;
   justify-content: center;
   gap: 18px;
   z-index: 5;
-  pointer-events: auto;
 }
 
-/* Individual card style */
+/* CARD BUTTONS */
 .card-btn {
   display: inline-flex;
   align-items: center;
@@ -137,29 +128,34 @@ body {
     0 0 10px rgba(255,215,0,0.18) inset;
 }
 
-/* SMALLER VIEWPORT (phones incl. iPhone 13 Pro Max) */
+/* ==========================
+   MOBILE FIXES
+   ========================== */
 @media (max-width: 430px) {
 
-  .flag { width: 115px; left: 6vw; top: 5vh; }
-
-  .title {
-    font-size: 2.4rem;            /* smaller on phone */
-    left: calc(6vw + 125px);      /* keep it near flag */
-    top: 28vh;                    /* adjust vertical specifically for mobile */
-    transform: translateY(-10%);
-    text-shadow:
-      0 0 6px rgba(255,215,0,0.58),
-      0 0 10px rgba(255,40,0,0.14);
+  .flag {
+    width: 115px;
+    left: 6vw;
+    top: 5vh;
   }
 
+  .title {
+    font-size: 2.4rem;
+    left: calc(6vw + 125px);
+    top: 28vh;
+    transform: translateY(-10%);
+  }
+
+  /* MOBILE BUTTON FIX - now aligned AND visible */
   .button-wrapper {
-    top: 50vh;                    /* lower on small screens so buttons are visible */
-    left: 57%;                    /* move slightly to align under E on mobile */
+    top: 50vh;
+    left: 50%;
+    transform: translateX(-50%);
     gap: 10px;
   }
 
   .action-btn {
-    width: 145px;                 /* ~15% smaller in mobile context */
+    width: 145px;
     padding: 8px 12px;
     font-size: 13px;
     border-radius: 28px;
@@ -179,8 +175,14 @@ body {
   }
 }
 
-/* Extra desktop tweak for very wide screens to keep button cluster sane */
+/* WIDE DESKTOP */
 @media (min-width: 1400px) {
-  .title { font-size: 5.2rem; left: calc(5.5vw + 170px); }
-  .action-btn { width: 200px; font-size: 16px; }
+  .title {
+    font-size: 5.2rem;
+    left: calc(5.5vw + 170px);
+  }
+  .action-btn {
+    width: 200px;
+    font-size: 16px;
+  }
 }
