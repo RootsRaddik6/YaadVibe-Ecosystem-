@@ -126,6 +126,42 @@ body {
         0 0 8px rgba(255, 215, 0, 0.65),
         0 0 10px rgba(255, 80, 80, 0.25);
 }
+/* 3D FLAG WRAPPER */
+.flag-3d-wrapper {
+    position: relative;
+    width: 260px;
+    margin: 0 auto;
+    perspective: 1000px;
+}
 
+/* Base flag */
+.flag.base-layer {
+    width: 100%;
+    display: block;
+    transform: translateZ(0px);
+}
+
+/* Hologram Overlay */
+.flag.holo-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0.28;
+    mix-blend-mode: screen;
+    transform: translateZ(40px) rotateY(6deg);
+    filter: drop-shadow(0 0 22px rgba(0, 255, 255, 0.45));
+    pointer-events: none;
+}
+
+/* Mobile scaled effect */
+@media (max-width: 768px) {
+    .flag-3d-wrapper {
+        width: 180px;
+    }
+    .flag.holo-layer {
+        transform: translateZ(30px) rotateY(4deg);
+    }
+}
 
 }
