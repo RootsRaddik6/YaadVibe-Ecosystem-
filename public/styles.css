@@ -2,151 +2,129 @@
 
 * { margin:0; padding:0; box-sizing:border-box; }
 body { overflow:hidden; height:100vh; background:#000; }
+/* ---------------------------
+   GLOBAL RESET
+--------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* HERO BACKGROUND */
-.hero {
-  position:relative;
-  top:120px;
-  width:100%;
-  height:100vh;
+body {
+  font-family: 'Playfair Display', serif;
+  background: black;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ---------------------------
+   PAGE CONTAINER
+--------------------------- */
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* ---------------------------
+   PAGE TITLE + FLAG
+--------------------------- */
+.cards-header {
   text-align: center;
-  z-index: 3;
-  background-image: url('/IMG_1125.jpeg');
-  background-size: cover;
-  background-position: center 30%;
+  margin-bottom: 2rem;
 }
 
-/* MOBILE BACKGROUND (portrait image) */
-@media (max-width: 768px) {
-  .hero {
-    background-image: url('/bkmobile.jpeg');
-    background-position: top center;
-  }
+.cards-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.4rem;
+  color: #FFD700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
 }
 
-/* FLAG */
-.flag {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  width: clamp(90px, 15vw, 160px);
+.cards-flag {
+  width: 85px;
+  height: auto;
+  display: block;
+  margin: 0.6rem auto 0 auto;
+  filter: drop-shadow(0px 0px 4px rgba(255,255,255,0.5));
 }
 
-/* GOLD GLOW TITLE */
-.title {
-  position:absolute;
-  top:42%;
-  left:50%;
-  transform:translate(-50%, -50%);
-  font-family:'Cinzel', serif;
-  font-weight:900;
-  font-size: clamp(2.8rem, 9vw, 7rem);
-  white-space:nowrap;
-  color:#FFD700;
-  letter-spacing:12px;
-
-  text-shadow:
-    0 0 40px #FFD700,
-    0 0 80px #FFD700,
-    0 0 120px rgba(255,215,0,0.8),
-    0 0 160px rgba(255,215,0,0.6),
-    0 0 200px rgba(255,215,0,0.5);
+/* ---------------------------
+   CARD GRID
+--------------------------- */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.6rem;
 }
 
-/* MOBILE TITLE */
-@media (max-width: 768px) {
-  .title {
-    top:34%;
-    font-size: clamp(2rem, 8vw, 3.5rem);
-    letter-spacing: 6px;
-  }
+/* ---------------------------
+   CARD ITEM
+--------------------------- */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 14px;
+  padding: 1rem;
+  backdrop-filter: blur(6px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-decoration: none;
+  color: white;
 }
 
-/* BUTTONS */
-.btn-stack {
-  position:absolute;
-  right:50px;
-  top:56%;
-  transform:translateY(-50%);
-  display:flex;
-  flex-direction:column;
-  gap:18px;
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
 }
 
-.btn {
-  padding:10px 30px;
-  background:transparent;
-  color:#FFD700;
-  border:3px solid #FFD700;
-  border-radius:40px;
-  font-size:1rem;
-  text-decoration:none;
-  font-family:'Montserrat', sans-serif;
-  transition:0.3s ease;
+/* ---------------------------
+   CARD IMAGE
+--------------------------- */
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
-.btn:hover {
-  background:#FFD700;
-  color:#000;
-}
-
-/* MOBILE BUTTONS */
-@media (max-width: 768px) {
-  .btn-stack {
-    right:30px;
-    top:52%;
-  }
-}
-.about-btn {
-  position: absolute;
-  top: 5rem;
-  left: 50%;
-  transform: translateX(-50%);
+/* ---------------------------
+   CARD TITLE
+--------------------------- */
+.card-title {
   font-family: 'Cinzel', serif;
   font-size: 1.3rem;
+  margin-top: 0.8rem;
   color: #FFD700;
-  text-decoration: none;
-  padding: 10px 26px;
-  border: 2px solid #FFD700;
-  border-radius: 30px;
-  background: rgba(0,0,0,0.4);
-  backdrop-filter: blur(4px);
+  text-align: center;
 }
 
-.about-btn:hover {
-  background: #FFD700;
-  color: black;
-}
-/* 4 APP CARDS */
-.app-cards {
-  position:absolute;
-  bottom:40px;
-  left:50%;
-  transform:translateX(-50%);
-  display:flex;
-  gap:22px;
+/* ---------------------------
+   CARD TEXT
+--------------------------- */
+.card-desc {
+  font-size: 0.95rem;
+  margin-top: 0.4rem;
+  line-height: 1.45;
+  text-align: center;
+  opacity: 0.9;
 }
 
-.card {
-  padding:14px 22px;
-  border:2px solid #FFD700;
-  border-radius:14px;
-  background:rgba(0,0,0,0.45);
-  backdrop-filter:blur(4px);
-  color:#FFD700;
-  font-family:'Montserrat', sans-serif;
-  font-size:1rem;
-}
-
-/* MOBILE CARDS */
-@media (max-width: 768px) {
-  .app-cards {
-    gap:12px;
-    bottom:25px;
+/* ---------------------------
+   MOBILE FIXES
+--------------------------- */
+@media (max-width: 600px) {
+  .cards-title {
+    font-size: 1.8rem;
   }
 
-  .card {
-    padding:10px 16px;
-    font-size:0.85rem;
+  .cards-flag {
+    width: 70px;
+  }
+
+  .card img {
+    height: 170px;
   }
 }
