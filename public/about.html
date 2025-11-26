@@ -1,42 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>About — Ecosystems</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About</title>
 
-  <!-- Keep your exact Google fonts and weights -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts (unchanged) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 
-  <!-- Local stylesheet -->
-  <link rel="stylesheet" href="/about.css">
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="about.css" />
 </head>
+
 <body>
 
-  <main class="about-hero" id="hero">
+    <!-- Background -->
+    <div class="bg-overlay"></div>
 
-    <!-- Flag / always on top -->
-    <img src="/IMG_0454.png" alt="Jamaican Flag" class="flag" id="flag">
+    <!-- Back Button -->
+    <a href="index.html" class="back-btn">← HOME</a>
 
-    <!-- Title (glow) -->
-    <h1 class="about-title" id="aboutTitle">ABOUT</h1>
+    <!-- Header Flag -->
+    <img src="img/jamaica-flag.png" alt="Jamaica Flag" class="header-flag">
 
-    <!-- Content card -->
-    <section class="about-card" id="aboutCard">
-      <div class="about-card-inner">
-        <h2 class="about-subtitle" id="aboutSubtitle">Loading…</h2>
-        <p class="about-text" id="aboutText">Please wait.</p>
-      </div>
-    </section>
+    <!-- Container -->
+    <div class="about-container">
 
-    <!-- Buttons row -->
-    <nav class="about-controls">
-      <a class="about-btn" id="appsBtn" href="/cards.html">APPS</a>
-      <a class="back-btn" id="backBtn" href="index.html">Back Home</a>
-    </nav>
+        <h1 class="glow-title" id="aboutTitle"></h1>
+        <p class="about-text" id="aboutParagraph1"></p>
+        <p class="about-text" id="aboutParagraph2"></p>
 
-  </main>
+    </div>
 
-  <script src="/about.js"></script>
+    <!-- Local JS -->
+    <script src="about.js"></script>
+
 </body>
 </html>
