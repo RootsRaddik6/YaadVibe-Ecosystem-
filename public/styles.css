@@ -97,7 +97,26 @@ body { overflow:hidden; height:100vh; background:#000; }
     top:52%;
   }
 }
+.about-btn {
+  position: absolute;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  color: #FFD700;
+  text-decoration: none;
+  padding: 10px 26px;
+  border: 2px solid #FFD700;
+  border-radius: 30px;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+}
 
+.about-btn:hover {
+  background: #FFD700;
+  color: black;
+}
 /* 4 APP CARDS */
 .app-cards {
   position:absolute;
