@@ -20,34 +20,34 @@ console.log("About page loaded");
   // Map of app -> { title, subtitle, text, bg }
   const content = {
     ecosystem: {
-      title: 'ABOUT - Ecosystems',
+      title: 'About - Ecosystems',
       subtitle: 'The 1Drop Ecosystems',
       text: `YaadVibe is a Jamaican-born digital ecosystem that returns control, culture and much more of tourism value back to local communities. 
 This platform blends immersive experiences, web-wallet flows, and content channels to help Jamaicans capture more direct value while delivering visitors an authentic, reliable experience.`,
       bg: '/IMG_1125.jpeg'
     },
     yaadvibe: {
-      title: 'ABOUT YaadVibe',
+      title: 'YaadVibe',
       subtitle: 'YaadVibe — flagship DApp',
       text: `YaadVibe is the flagship immersive Jamaican booking experience. It combines curated stays, local services, and cultural programming into one DApp.
 Built to help communities keep more tourism revenue locally, YaadVibe connects travelers to real providers, curated guides, and tailored experiences — while keeping user privacy and local ownership in mind.`,
       bg: '/images/A10813F1-F3F5-4EB1-8BD5-04E1119116BE.jpeg'
     },
     yaadlife: {
-      title: 'ABOUT YaadLife Lite',
+      title: 'YaadLife Lite',
       subtitle: 'YaadLife Lite — fast TON access',
       text: `YaadLife Lite is a fast, mobile-first version built for quick access and transactions on TON. It keeps core features compact — payments, light profiles, and instant confirmations — ideal for fast check-ins and low-bandwidth environments.`,
       bg: '/images/C9577413-ED2C-4C08-BFCB-9294F736F211.jpeg'
     },
     purvibe: {
-      title: 'ABOUT PurVibe',
+      title: 'PurVibe',
       subtitle: 'PurVibe — Content Channel Curator',
       text: `PurVibe is a curator of content channel — playlists, releases, and scheduled programming that feel like a broadcast channel for your tastes. 
 It’s designed to let users control scheduling content while it streams from your subscriptions.`,
       bg: '/images/DCE3C919-9E51-49D6-8E7F-51B1F080CA31.jpeg'
     },
     irievibe: {
-      title: 'ABOUT IrieVibe',
+      title: 'IrieVibe',
       subtitle: 'IrieVibe — local flava',
       text: `IrieVibe supports on-the-ground discovery: food, rides, reservations, and local tips tailored to nearby users. It focuses on practical, mobile-first bookings and real-time availability to help communities offer better local services.`,
       bg: '/images/cards/irievibe.jpeg'
