@@ -33,28 +33,30 @@ body { overflow:hidden; height:100vh; background:#000; }
 /* Pure glowing gold title – no background clip */
 .title {
   position: absolute;
-  top: 42%;      /* moves it above the buttons */
+  top: 36%;                        /* moves title above the moon */
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'Cinzel', serif;
   font-weight: 900;
 
-  white-space: nowrap; 
-  font-size: clamp(2.8rem, 9vw, 10rem);
+  white-space: nowrap;
+
+  /* Fully responsive title sizing */
+  font-size: clamp(1.8rem, 6vw, 6rem);   
   line-height: 1;
 
   color: #FFD700;
-  letter-spacing: 12px;
-  text-align: center;
-  text-shadow: 
+  letter-spacing: clamp(6px, 1vw, 12px);
+
+  text-shadow:
     0 0 40px #FFD700,
     0 0 80px #FFD700,
     0 0 120px rgba(255,215,0,0.8),
     0 0 160px rgba(255,215,0,0.6),
     0 0 200px rgba(0,100,0,0.6);
+
   z-index: 5;
 }
-
 /* Luxury gold buttons */
 .btn-stack {
   position: absolute;
