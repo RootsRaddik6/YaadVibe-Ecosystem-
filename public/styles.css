@@ -116,7 +116,17 @@ body {
    MOBILE FIXES
 --------------------------- */
 @media (max-width: 600px) {
-  .cards-title {
+
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto;
+    height: auto;
+  }
+.hero {
+  min-height: 100svh; /* more stable than 100vh */
+}   
+   
+   .cards-title {
     font-size: 1.8rem;
   }
 
