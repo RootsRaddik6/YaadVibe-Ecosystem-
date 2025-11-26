@@ -147,4 +147,24 @@ body { overflow:hidden; height:100vh; background:#000; }
     background-size: cover;
     background-position: center top;
   }
+.app-cards {
+  position: absolute;
+  bottom: 40px;       /* sits above footer */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  z-index: 20;
+}
+
+.card {
+  padding: 14px 22px;
+  border: 2px solid #FFD700;
+  border-radius: 14px;
+  color: #FFD700;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(4px);
 }
