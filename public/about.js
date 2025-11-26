@@ -1,8 +1,16 @@
 // You can add interactive or animated features later.
 // For now, this keeps about.js valid and ready.
 console.log("About page loaded");
+// You can add interactive or animated features later.
+// For now, this keeps about.js valid and ready.
+console.log("About page loaded");
+
 /* about.js - central about loader
-   Usage: /about.html?app=yaadvibe  OR ?app=yaadlife ?app=purvibe ?app=irievibe ?app=ecosystem
+   Usage example: /about.html?app=yaadvibe
+                   ?app=yaadlife
+                   ?app=purvibe
+                   ?app=irievibe
+                   ?app=ecosystem
 */
 
 (() => {
@@ -46,7 +54,10 @@ It’s designed to let users control scheduling content while it streams from yo
     }
   };
 
+  // Select app content
   const sel = content[app] || content.ecosystem;
+
+  // Elements
   const hero = document.getElementById('hero');
   const titleEl = document.getElementById('aboutTitle');
   const subtitleEl = document.getElementById('aboutSubtitle');
@@ -54,27 +65,27 @@ It’s designed to let users control scheduling content while it streams from yo
   const appsBtn = document.getElementById('appsBtn');
   const backBtn = document.getElementById('backBtn');
 
-  // Set background (leave image alone as requested)
+  // Set page hero background without modifying your images
   if (hero && sel.bg) {
     hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('${sel.bg}')`;
     hero.style.backgroundSize = 'cover';
     hero.style.backgroundPosition = 'center';
   }
 
-  // Set copy (title/subtitle/text)
+  // Insert text content exactly as provided
   if (titleEl) titleEl.textContent = sel.title;
   if (subtitleEl) subtitleEl.textContent = sel.subtitle;
   if (textEl) textEl.textContent = sel.text;
 
-  // If we want Apps button to go to cards.html, keep default.
-  // Back button: prefer history.back() when available to preserve UX
-  backBtn.addEventListener('click', (e) => {
-    // if there's a real history entry, go back, else go home
-    if (history.length > 1) {
-      e.preventDefault();
-      history.back();
-    } // otherwise link's href will work (index.html)
-  });
+  // Back button → uses history when possible
+  if (backBtn) {
+    backBtn.addEventListener('click', (e) => {
+      if (history.length > 1) {
+        e.preventDefault();
+        history.back();
+      }
+      // otherwise, the button's href fallback works (index.html)
+    });
+  }
 
-  // Small enhancement: set 'apps' button visible (already linked in HTML)
 })();
