@@ -31,16 +31,45 @@ body { overflow:hidden; height:100vh; background:#000; }
 }
 
 /* TITLE */
+/* GOLD GLOW TITLE — FULL RESTORE */
 .title {
     position: absolute;
-    top: 28vh;
+    top: 42%; /* adjust as needed */
     left: 50%;
-    transform: translateX(-50%);
-    font-size: clamp(2rem, 6vw, 6rem); /* Desktop + Mobile adaptive */
-    font-family: "Playfair Display", serif;
-    color: #f5d200;
-    text-shadow: 0 0 12px rgba(0,0,0,0.7);
+    transform: translate(-50%, -50%);
+    
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
     white-space: nowrap;
+
+    /* Adaptive size */
+    font-size: clamp(2rem, 6vw, 6rem);
+    line-height: 1;
+
+    /* PURE gold */
+    color: #FFD700;
+
+    letter-spacing: 10px;
+    text-align: center;
+
+    /* GOLD GLOW — original strength restored */
+    text-shadow:
+        0 0 15px #FFD700,
+        0 0 30px #FFD700,
+        0 0 45px rgba(255,215,0,0.9),
+        0 0 60px rgba(255,215,0,0.8),
+        0 0 90px rgba(255,215,0,0.7);
+
+    z-index: 5;
+}
+
+/* MOBILE TITLE — slightly smaller + slightly higher */
+@media (max-width: 768px) {
+    .title {
+        font-size: clamp(1.6rem, 8vw, 4rem);
+        top: 34%; /* pushes it ABOVE the buildings + moon */
+        letter-spacing: 6px;
+    }
 }
 
 /* BUTTON GROUP (always right-aligned) */
