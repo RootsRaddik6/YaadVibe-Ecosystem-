@@ -1,103 +1,62 @@
-/* --- GRID --- */
-.card-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 20px;
-}
 
-@media (min-width: 768px) {
-    .card-grid {
-        grid-template-columns: repeat(4, 1fr);
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { 
+      background:#000; 
+      min-height:100vh; 
+      display:flex; 
+      flex-direction:column; 
+      font-family:'Montserrat',sans-serif; 
+      color:#FFD700;
     }
-}
 
-/* --- FULL IMAGE CARDS (original) --- */
-.app-card {
-    position: relative;
-    padding: 20px;
-    border-radius: 20px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    color: #fff;
-    min-height: 420px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
+    .cards-container {
+      margin-top: auto;
+      padding: 80px 20px 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-/* ---- APP CARD BACKGROUND IMAGES ---- */
-.card-yaadvibe {
-    background-image: url("/images/DCE3C919-9E51-49D6-8E7x-xxxx.jpeg");
-}
+    .card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+      transition: transform 0.4s ease;
+    }
+    .card:hover { 
+      transform: translateY(-16px) scale(1.02); 
+    }
 
-.card-yaadlife {
-    background-image: url("/images/C9577413-ED2C-4C08-BFCx-xxxx.jpeg");
-}
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      min-height: 360px;
+    }
 
-.card-purvibe {
-    background-image: url("/images/A10813F1-F3F5-4EB1-8BD5-04E1119116BE.jpeg");
-}
-
-.card-irievibe {
-    background-image: url("/images/81EF35A3-E5BA-4AF4-8A78-B93B47C461F3.jpeg");
-}
-
-/* ---- FIXED: Corrected selector ---- */
-.card-container {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 40px;
-    flex-wrap: wrap;
-}
-
-/* --- NEW CLASS to avoid overwriting main .app-card --- */
-.app-card-box {
-    width: 180px;
-    background: rgba(0,0,0,0.6);
-    border: 1px solid #ffcc00;
-    border-radius: 12px;
-    padding: 12px;
-    text-align: center;
-}
-
-/* --- IMAGE INSIDE SMALL CARDS --- */
-.app-card-box img {
-    width: 100%;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-/* --- TEXT --- */
-.app-card h2 {
-    font-size: 1.8rem;
-    margin-bottom: 8px;
-    font-weight: 700;
-    color: #f7d776;
-}
-
-.app-card p {
-    font-size: 1rem;
-    line-height: 1.4rem;
-}
-
-/* --- ABOUT BUTTONS --- */
-.about-btn {
-    margin-top: 15px;
-    padding: 10px 16px;
-    border: none;
-    border-radius: 12px;
-    background: rgba(0,0,0,0.55);
-    color: #f7d776;
-    font-size: 1rem;
-    cursor: pointer;
-    backdrop-filter: blur(4px);
-}
-
-.about-btn:hover {
-    background: rgba(0,0,0,0.75);
-}
+    .about-btn {
+      margin: 60px auto 40px;
+      display: block;
+      width: fit-content;
+      padding: 18px 56px;
+      background: transparent;
+      color: #FFD700;
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      border: 3px solid #FFD700;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.4s ease;
+    }
+    .about-btn:hover {
+      background: #FFD700;
+      color: #000;
+      transform: scale(1.05);
+    }
