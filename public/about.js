@@ -41,8 +41,8 @@ It’s designed to let users control scheduling content while it streams from yo
       bg: '/images/cards/irievibe.jpeg'
     }
   };
-
   const sel = content[app] || content.ecosystem;
+
   const hero = document.getElementById('hero');
   const titleEl = document.getElementById('aboutTitle');
   const subtitleEl = document.getElementById('aboutSubtitle');
@@ -50,27 +50,68 @@ It’s designed to let users control scheduling content while it streams from yo
   const appsBtn = document.getElementById('appsBtn');
   const backBtn = document.getElementById('backBtn');
 
-  // Set hero background (DO NOT change images)
+
+
+  /* ---------------------------------------------------
+     HERO & IMAGE HANDLING (with golden glow enabled)
+  --------------------------------------------------- */
   if (hero && sel.bg) {
-    hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('${sel.bg}')`;
+    hero.style.backgroundImage =
+      `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('${sel.bg}')`;
     hero.style.backgroundSize = 'cover';
     hero.style.backgroundPosition = 'center';
+
+    // Add hero glow class
+    hero.classList.add('hero-gold-glow');
   }
 
-  // Inject text (exact, untouched)
+
+
+  /* ---------------------------------------------------
+     SET TEXT (EXACT — NO EDITING)
+  --------------------------------------------------- */
   if (titleEl) titleEl.textContent = sel.title;
   if (subtitleEl) subtitleEl.textContent = sel.subtitle;
   if (textEl) textEl.textContent = sel.text;
 
-  // Back button fix: always works
-  backBtn.addEventListener('click', (e) => {
-    if (history.length > 1) {
-      e.preventDefault();
-      history.back();
-    } else {
-      location.href = "/index.html";
-    }
-  });
 
-  console.log("About page loaded");
+
+  /* ---------------------------------------------------
+     BACK BUTTON FAIL-SAFE
+  --------------------------------------------------- */
+  if (backBtn) {
+    backBtn.addEventListener('click', (e) => {
+      if (history.length > 1) {
+        e.preventDefault();
+        history.back();
+      } else {
+        location.href = "/index.html";
+      }
+    });
+  }
+
+
+
+  /* ---------------------------------------------------
+     BUTTON GOLD GLOW HANDLING
+  --------------------------------------------------- */
+  if (appsBtn) appsBtn.classList.add('gold-glow');
+  if (backBtn) backBtn.classList.add('gold-glow');
+
+
+
+  /* ---------------------------------------------------
+     SCROLL BEHAVIOR (Desktop = no scroll, Mobile = scroll)
+  --------------------------------------------------- */
+  const isMobile = /iPhone|Android|Mobile|iPad/i.test(navigator.userAgent);
+
+  if (!isMobile) {
+    // Desktop — freeze scrolling
+    document.body.style.overflow = 'hidden';
+  } else {
+    // Mobile — allow normal scrolling
+    document.body.style.overflow = 'auto';
+  }
+
+  console.log("About page loaded with gold glow + scroll logic");
 })();
