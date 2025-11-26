@@ -12,10 +12,10 @@ console.log("About page loaded");
   // Map of app -> { title, subtitle, text, bg }
   const content = {
     ecosystem: {
-      title: 'ABOUT 1Drop Ecosystem',
-      subtitle: 'The 1Drop Ecosystem',
-      text: `1Drop (YaadVibe family) is a Jamaican-born digital ecosystem that returns control, culture and much more of tourism value back to local communities. 
-This platform blends immersive experiences, lightweight wallet flows, and content channels to help Jamaicans capture more direct value while delivering visitors an authentic, reliable experience.`,
+      title: 'ABOUT - Ecosystems',
+      subtitle: 'The 1Drop Ecosystems',
+      text: `YaadVibe is a Jamaican-born digital ecosystem that returns control, culture and much more of tourism value back to local communities. 
+This platform blends immersive experiences, web-wallet flows, and content channels to help Jamaicans capture more direct value while delivering visitors an authentic, reliable experience.`,
       bg: '/IMG_1125.jpeg'
     },
     yaadvibe: {
@@ -33,14 +33,14 @@ Built to help communities keep more tourism revenue locally, YaadVibe connects t
     },
     purvibe: {
       title: 'ABOUT PurVibe',
-      subtitle: 'PurVibe — content & creator channel',
-      text: `PurVibe is a curated channel for creators and channels — playlists, releases, and scheduled programming that feel like a broadcast channel for your tastes. 
-It’s designed to let creators control drops and playlists while audiences discover and follow curated streams.`,
+      subtitle: 'PurVibe — Content Channel Curator',
+      text: `PurVibe is a curator of content channel — playlists, releases, and scheduled programming that feel like a broadcast channel for your tastes. 
+It’s designed to let users control scheduling content while it streams from your subscriptions.`,
       bg: '/images/DCE3C919-9E51-49D6-8E7F-51B1F080CA31.jpeg'
     },
     irievibe: {
       title: 'ABOUT IrieVibe',
-      subtitle: 'IrieVibe — local services & beacons',
+      subtitle: 'IrieVibe — local flava',
       text: `IrieVibe supports on-the-ground discovery: food, rides, reservations, and local tips tailored to nearby users. It focuses on practical, mobile-first bookings and real-time availability to help communities offer better local services.`,
       bg: '/images/cards/irievibe.jpeg'
     }
