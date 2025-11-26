@@ -3,27 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>1Drop Ecosystems</title>
+  <title>1Drop Ecosystems — Apps</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: black;
+      font-family: Montserrat, sans-serif;
+      margin: 0;
+      padding: 30px 10px;
+      text-align: center;
+      color: white;
+    }
+
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      justify-items: center;
+      margin-top: 20px;
+    }
+
+    .card {
+      width: 260px;
+      height: 260px;
+      border: 3px solid #ffde59;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-btn {
+      margin-top: 40px;
+      display: inline-block;
+      padding: 10px 30px;
+      border: 2px solid #ffde59;
+      color: #ffde59;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 18px;
+    }
+  </style>
+
 </head>
 <body>
 
+  <h1 style="font-family: Cinzel; color: #ffde59; font-size: 38px; letter-spacing: 2px;">
+    1DROP ECOSYSTEMS — APPS
+  </h1>
+
   <div class="cards-container">
+
     <div class="card">
-      <img src="/A10813F1-F3F5-4EB1-8BD5-..." alt="YaadVibe">
+       <img src="/A10813F1-F3F5-4EB1-8BD5-..." alt="YaadVibe">
     </div>
+
     <div class="card">
-      <img src="/C9577413-ED2C-4C08-BFC..." alt="YaadLife Lite">
+   <img src="/C9577413-ED2C-4C08-BFC..." alt="YaadLife Lite">
     </div>
+
     <div class="card">
-      <img src="/DCE3C919-9E51-49D6-8E7..." alt="PurVibe">
+        <img src="/DCE3C919-9E51-49D6-8E7..." alt="PurVibe">
     </div>
+
     <div class="card">
-      <img src="public/images/background/IMG_0039.jpeg" alt="IrieVibe">
+      <img src="/images/cards/irievibe.jpeg" alt="IrieVibe">
     </div>
+
   </div>
 
-  <a href="about.html" class="about-btn">About</a>
+  <a href="index.html" class="about-btn">Back Home</a>
 
 </body>
 </html>
+  
