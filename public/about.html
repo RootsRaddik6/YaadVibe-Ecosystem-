@@ -1,39 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Ecosystems</title>
 
-    <!-- Google Fonts (unchanged) -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts (unchanged as requested) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Local CSS -->
-    <link rel="stylesheet" href="about.css" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="/about.css">
 </head>
 
 <body>
 
-    <!-- Background -->
-    <div class="bg-overlay"></div>
+    <!-- Top Flag Bar -->
+    <div class="flag-bar"></div>
 
-    <!-- Back Button -->
-    <a href="index.html" class="back-btn">← HOME</a>
+    <!-- Hero Section (background swapped dynamically by about.js) -->
+    <section id="hero" class="hero">
+        <div class="hero-overlay">
+            <h1 id="aboutTitle"></h1>
+            <h2 id="aboutSubtitle"></h2>
+        </div>
+    </section>
 
-    <!-- Header Flag -->
-    <img src="img/jamaica-flag.png" alt="Jamaica Flag" class="header-flag">
+    <!-- Main About Container -->
+    <section class="about-section">
+        <p id="aboutText" class="about-text"></p>
 
-    <!-- Container -->
-    <div class="about-container">
+        <div class="button-row">
+            <a id="appsBtn" class="glow-button" href="/index.html#apps">Apps</a>
+            <a id="backBtn" class="glow-button" href="/index.html">Back</a>
+        </div>
+    </section>
 
-        <h1 class="glow-title" id="aboutTitle"></h1>
-        <p class="about-text" id="aboutParagraph1"></p>
-        <p class="about-text" id="aboutParagraph2"></p>
-
-    </div>
-
-    <!-- Local JS -->
-    <script src="about.js"></script>
-
+    <script src="/about.js"></script>
 </body>
 </html>
