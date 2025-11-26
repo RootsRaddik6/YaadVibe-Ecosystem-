@@ -45,8 +45,8 @@ body {
 /* FLAG (upper-left) */
 .flag {
   position: absolute;
-  top: 28px;
-  left: 28px;
+  top: 24px;
+  left: 24px;
   width: clamp(80px, 14vw, 160px);
   z-index: 6;
   filter: drop-shadow(0 6px 18px rgba(0,0,0,0.7));
@@ -55,7 +55,7 @@ body {
 /* ---------- TITLE: 1DROP YAADVIBE (gold glow) ---------- */
 .title {
   position: absolute;
-  top: 30%;                        /* desktop baseline */
+  top: 25%;                        /* desktop baseline */
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
