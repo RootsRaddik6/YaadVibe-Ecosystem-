@@ -4,14 +4,21 @@
 body { overflow:hidden; height:100vh; background:#000; }
 
 /* Fullscreen layout */
+/* Default background — desktop/laptop widescreen */
 .hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background-image: url("/IMG_1125.jpeg");
+    background-image: url('/IMG_1125.jpeg'); /* your main landscape version */
     background-size: cover;
-    background-position: center;
-    overflow: hidden;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+/* Mobile override — portrait screens */
+@media (max-width: 768px) {
+    .hero {
+        background-image: url('/bkmobile.jpeg'); /* portrait version */
+        background-size: cover;
+        background-position: top center;
+    }
 }
 
 /* FLAG */
