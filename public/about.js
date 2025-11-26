@@ -43,7 +43,6 @@ It’s designed to let users control scheduling content while it streams from yo
       bg: '/images/cards/irievibe.jpeg'
     }
   };
-    
 
   const sel = content[app] || content.ecosystem;
 
@@ -54,38 +53,26 @@ It’s designed to let users control scheduling content while it streams from yo
   const appsBtn = document.getElementById('appsBtn');
   const backBtn = document.getElementById('backBtn');
 
-  /* ----------------------------------------------
-     FIX 1 — HERO IMAGE + GOLDEN GLOW
-     (Also forces hero to always show title block)
-  ----------------------------------------------- */
+  /* HERO */
   if (hero && sel.bg) {
     hero.style.backgroundImage =
       `linear-gradient(rgba(0,0,0,0.40), rgba(0,0,0,0.40)), url('${sel.bg}')`;
     hero.style.backgroundSize = 'cover';
     hero.style.backgroundPosition = 'center top';
-    hero.style.display = 'flex';
-    hero.style.alignItems = 'flex-end';
-    hero.style.paddingBottom = '32px';
 
-    hero.classList.add('hero-gold-glow');
+    hero.classList.add('hero-gold-glow'); // FIX 1
   }
 
-  /* ----------------------------------------------
-     FIX 2 — SET TEXT EXACTLY (NO EDITING)
-  ----------------------------------------------- */
+  /* TEXT (UNCHANGED) */
   if (titleEl) titleEl.textContent = sel.title;
   if (subtitleEl) subtitleEl.textContent = sel.subtitle;
   if (textEl) textEl.textContent = sel.text;
 
-  /* ----------------------------------------------
-     FIX 3 — GOLD GLOW BUTTONS
-  ----------------------------------------------- */
+  /* GOLD BUTTONS */
   if (appsBtn) appsBtn.classList.add('gold-glow');
   if (backBtn) backBtn.classList.add('gold-glow');
 
-  /* ----------------------------------------------
-     FIX 4 — BACK BUTTON
-  ----------------------------------------------- */
+  /* BACK BUTTON LOGIC */
   if (backBtn) {
     backBtn.addEventListener('click', (e) => {
       if (history.length > 1) {
@@ -97,16 +84,9 @@ It’s designed to let users control scheduling content while it streams from yo
     });
   }
 
-  /* ---------------------------------------------------
-     FIX 5 — SCROLLING: Desktop OFF, Mobile ON
-  --------------------------------------------------- */
+  /* SCROLL LOGIC */
   const isMobile = /iPhone|Android|Mobile|iPad/i.test(navigator.userAgent);
+  document.body.style.overflow = isMobile ? 'auto' : 'hidden';
 
-  if (!isMobile) {
-    document.body.style.overflow = 'hidden';   // freeze
-  } else {
-    document.body.style.overflow = 'auto';     // normal
-  }
-
-  console.log("About page loaded with fixed hero, glow, and scroll logic");
+  console.log("About page loaded with all fixes applied.");
 })();
