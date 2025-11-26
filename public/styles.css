@@ -1,156 +1,209 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@900&family=Montserrat:wght@600;700&display=swap');
+/* Fonts: your HTML already loads Google fonts; this is safe if duplicated */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@500;700&display=swap');
 
 * { margin:0; padding:0; box-sizing:border-box; }
 
-/* ---------- PAGE BASE & BACKGROUND (left as-is) ---------- */
+/* ---------- PAGE BASE & BACKGROUND ---------- */
+html, body {
+  height: 100%;
+}
+
 body {
-  font-family: 'Playfair Display', serif;
-  background: url('/IMG_1125.jpeg') center/cover no-repeat; /* desktop background - left alone */
-  color: white;
+  font-family: 'Montserrat', sans-serif;
+  background: url('/IMG_1125.jpeg') center/cover no-repeat; /* desktop BG - left alone */
+  color: #fff;
   overflow-x: hidden;
-  /* desktop hero locking (if you intentionally want no scroll on desktop) */
-  /* If you want scrolling on desktop remove the next 2 lines */
+
+  /* desktop hero locking (if you intentionally want no scroll on desktop)
+     Keep this if you want the hero fullscreen locked on desktop.
+     Remove if you prefer desktop scroll. */
   overflow-y: hidden;
   height: 100vh;
 }
 
-/* Mobile override for portrait background (keeps your mobile composition) */
+/* Mobile override for portrait background and scroll */
 @media (max-width: 768px) {
   body {
-    background: url('/bkmobile.jpeg') center/cover no-repeat; /* mobile portrait background - left alone */
-    overflow-y: auto;    /* allow scrolling on mobile */
+    background: url('/bkmobile.jpeg') center/cover no-repeat;
+    background-size: cover;
+    overflow-y: auto;
     height: auto;
   }
 }
 
-/* ---------------------------
-   PAGE CONTAINER
---------------------------- */
-.page-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem;
-}
-
-/* Accept either selector used in your HTML */
-.cards-container,
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.6rem;
-  justify-items: center;
-}
-
-/* ---------------------------
-   PAGE TITLE + FLAG
---------------------------- */
-.cards-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.cards-title {
-  font-family: 'Cinzel', serif;
-  font-size: 2.4rem;
-  color: #FFD700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  margin-bottom: 0.6rem;
-  text-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
-}
-
-.cards-flag {
-  width: 85px;
-  height: auto;
-  display: block;
-  margin: 0.6rem auto 0 auto;
-  filter: drop-shadow(0px 0px 4px rgba(255,255,255,0.5));
-}
-
-/* ---------------------------
-   CARD ITEM
---------------------------- */
-.card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 215, 0, 0.2);
-  border-radius: 14px;
-  padding: 1rem;
-  backdrop-filter: blur(6px);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  text-decoration: none;
-  color: white;
-  width: 260px;     /* keeps consistent sizing as before */
-  height: 260px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
-}
-
-/* ---------------------------
-   CARD IMAGE
---------------------------- */
-.card img {
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
   width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
+  height: 100vh;
+  text-align: center;
+  overflow: visible;
+  /* make sure hero content stacks above background */
+  z-index: 1;
 }
 
-/* ---------------------------
-   CARD TITLE + DESC (optional; safe if present)
---------------------------- */
-.card-title {
-  font-family: 'Cinzel', serif;
-  font-size: 1.3rem;
-  margin-top: 0.8rem;
+/* FLAG (upper-left) */
+.flag {
+  position: absolute;
+  top: 28px;
+  left: 28px;
+  width: clamp(80px, 14vw, 160px);
+  z-index: 6;
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.7));
+}
+
+/* ---------- TITLE: 1DROP YAADVIBE (gold glow) ---------- */
+.title {
+  position: absolute;
+  top: 36%;                        /* desktop baseline */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-family: 'Cinzel', serif;    /* your title font */
+  font-weight: 900;
+  white-space: nowrap;
+  letter-spacing: 10px;
+  text-align: center;
+
+  /* adaptive sizing */
+  font-size: clamp(2.8rem, 9vw, 6.5rem);
+  line-height: 1;
+
+  /* gold color */
   color: #FFD700;
-  text-align: center;
+
+  /* multi-layer gold glow */
+  text-shadow:
+    0 0 18px rgba(255,215,0,0.9),
+    0 0 44px rgba(255,215,0,0.8),
+    0 0 88px rgba(255,215,0,0.6),
+    0 0 140px rgba(255,215,0,0.35);
+  z-index: 5;
 }
 
-.card-desc {
-  font-size: 0.95rem;
-  margin-top: 0.4rem;
-  line-height: 1.45;
-  text-align: center;
-  opacity: 0.9;
+/* Desktop tweak: nudge up slightly on larger screens so the 'Y' doesn't cover the moon */
+@media (min-width: 1200px) {
+  .title { top: 32%; }
 }
 
-/* ---------------------------
-   MOBILE FIXES
---------------------------- */
-@media (max-width: 600px) {
-  .cards-title {
-    font-size: 1.8rem;
-  }
-
-  .cards-flag {
-    width: 70px;
-  }
-
-  .card img {
-    height: 170px;
-  }
-
-  /* ensure container padding on small screens */
-  .page-container {
-    padding: 1rem;
-  }
-}
-
-/* additional tablet breakpoint (keeps earlier behavior) */
+/* MOBILE: smaller, higher, less letter-spacing so it doesn't block the moon */
 @media (max-width: 768px) {
-  .card {
-    width: 220px;
-    height: 220px;
+  .title {
+    top: 28%;
+    font-size: clamp(1.8rem, 10vw, 3.6rem);
+    letter-spacing: 6px;
+    white-space: normal; /* allow wrapping if needed */
+    padding: 0 12px;
   }
+}
 
-  .card img {
-    height: 160px;
+/* ---------- BUTTONS (right, stacked) ---------- */
+.btn-stack {
+  position: absolute;
+  right: clamp(20px, 5vw, 60px);   /* nudged to align with 'E' in VIBE */
+  top: 56%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 6;
+}
+
+.btn {
+  padding: 8px 26px;               /* reduced size */
+  background: transparent;
+  color: #FFD700;
+  border: 3px solid #FFD700;
+  border-radius: 40px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: transform 0.25s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 10px rgba(255,215,0,0.06);
+}
+
+.btn:hover {
+  background: #FFD700;
+  color: #000;
+  transform: scale(1.08);
+  box-shadow: 0 8px 40px rgba(255,215,0,0.45);
+}
+
+/* MOBILE buttons tweak */
+@media (max-width: 768px) {
+  .btn-stack {
+    right: 20px;
+    top: 52%;
   }
+  .btn {
+    padding: 9px 28px;
+    font-size: 1rem;
+  }
+}
+
+/* ---------- APPS (about) BUTTON centered in hero ---------- */
+.about-btn {
+  position: absolute;
+  top: calc(50% + 28vh); /* places below title; fine-tune if needed */
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  color: #FFD700;
+  text-decoration: none;
+  padding: 10px 26px;
+  border: 2px solid #FFD700;
+  border-radius: 30px;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(4px);
+  z-index: 6;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.about-btn:hover {
+  background: #FFD700;
+  color: #000;
+  transform: translateX(-50%) scale(1.03);
+}
+
+/* mobile about button tweak */
+@media (max-width: 768px) {
+  .about-btn {
+    top: calc(50% + 22vh);
+    font-size: 0.95rem;
+    padding: 8px 20px;
+  }
+}
+
+/* ---------- OPTIONAL 4 APP CARDS (keeps them visible if present) ---------- */
+.app-cards {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 18px;
+  z-index: 6;
+}
+
+.app-cards .card {
+  padding: 12px 18px;
+  border: 2px solid #FFD700;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.45);
+  color: #FFD700;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+}
+
+/* mobile cards small */
+@media (max-width: 768px) {
+  .app-cards {
+    gap: 12px;
+    bottom: 22px;
+  }
+  .app-cards .card { padding: 10px 14px; font-size: 0.85rem; }
 }
