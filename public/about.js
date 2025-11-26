@@ -5,7 +5,9 @@
   const params = new URLSearchParams(location.search);
   const app = (params.get('app') || 'ecosystem').toLowerCase();
 
-  // Map of app -> { title, subtitle, text, bg }
+  // -----------------------------
+  // CONTENT — TEXT UNTOUCHED
+  // -----------------------------
   const content = {
     ecosystem: {
       title: 'ABOUT - Ecosystems',
@@ -41,6 +43,8 @@ It’s designed to let users control scheduling content while it streams from yo
       bg: '/images/cards/irievibe.jpeg'
     }
   };
+    
+
   const sel = content[app] || content.ecosystem;
 
   const hero = document.getElementById('hero');
@@ -50,35 +54,38 @@ It’s designed to let users control scheduling content while it streams from yo
   const appsBtn = document.getElementById('appsBtn');
   const backBtn = document.getElementById('backBtn');
 
-
-
-  /* ---------------------------------------------------
-     HERO & IMAGE HANDLING (with golden glow enabled)
-  --------------------------------------------------- */
+  /* ----------------------------------------------
+     FIX 1 — HERO IMAGE + GOLDEN GLOW
+     (Also forces hero to always show title block)
+  ----------------------------------------------- */
   if (hero && sel.bg) {
     hero.style.backgroundImage =
-      `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('${sel.bg}')`;
+      `linear-gradient(rgba(0,0,0,0.40), rgba(0,0,0,0.40)), url('${sel.bg}')`;
     hero.style.backgroundSize = 'cover';
-    hero.style.backgroundPosition = 'center';
+    hero.style.backgroundPosition = 'center top';
+    hero.style.display = 'flex';
+    hero.style.alignItems = 'flex-end';
+    hero.style.paddingBottom = '32px';
 
-    // Add hero glow class
     hero.classList.add('hero-gold-glow');
   }
 
-
-
-  /* ---------------------------------------------------
-     SET TEXT (EXACT — NO EDITING)
-  --------------------------------------------------- */
+  /* ----------------------------------------------
+     FIX 2 — SET TEXT EXACTLY (NO EDITING)
+  ----------------------------------------------- */
   if (titleEl) titleEl.textContent = sel.title;
   if (subtitleEl) subtitleEl.textContent = sel.subtitle;
   if (textEl) textEl.textContent = sel.text;
 
+  /* ----------------------------------------------
+     FIX 3 — GOLD GLOW BUTTONS
+  ----------------------------------------------- */
+  if (appsBtn) appsBtn.classList.add('gold-glow');
+  if (backBtn) backBtn.classList.add('gold-glow');
 
-
-  /* ---------------------------------------------------
-     BACK BUTTON FAIL-SAFE
-  --------------------------------------------------- */
+  /* ----------------------------------------------
+     FIX 4 — BACK BUTTON
+  ----------------------------------------------- */
   if (backBtn) {
     backBtn.addEventListener('click', (e) => {
       if (history.length > 1) {
@@ -90,28 +97,16 @@ It’s designed to let users control scheduling content while it streams from yo
     });
   }
 
-
-
   /* ---------------------------------------------------
-     BUTTON GOLD GLOW HANDLING
-  --------------------------------------------------- */
-  if (appsBtn) appsBtn.classList.add('gold-glow');
-  if (backBtn) backBtn.classList.add('gold-glow');
-
-
-
-  /* ---------------------------------------------------
-     SCROLL BEHAVIOR (Desktop = no scroll, Mobile = scroll)
+     FIX 5 — SCROLLING: Desktop OFF, Mobile ON
   --------------------------------------------------- */
   const isMobile = /iPhone|Android|Mobile|iPad/i.test(navigator.userAgent);
 
   if (!isMobile) {
-    // Desktop — freeze scrolling
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';   // freeze
   } else {
-    // Mobile — allow normal scrolling
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = 'auto';     // normal
   }
 
-  console.log("About page loaded with gold glow + scroll logic");
+  console.log("About page loaded with fixed hero, glow, and scroll logic");
 })();
