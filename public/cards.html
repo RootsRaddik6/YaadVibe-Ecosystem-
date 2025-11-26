@@ -1,27 +1,92 @@
-<main class="card-grid">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>1Drop Ecosystems</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { 
+      background:#000; 
+      min-height:100vh; 
+      display:flex; 
+      flex-direction:column; 
+      font-family:'Montserrat',sans-serif; 
+      color:#FFD700;
+    }
 
-    <div class="app-card yaadvibe" onclick="openApp('YAADVIBE')">
-    <h2>YaadVibe</h2>
-    <p>A flagship immersive Jamaican booking experience tailored to you.</p>
-    <button class="about-btn" onclick="event.stopPropagation(); openAbout('YAADVIBE');">About</button>
-</div>
+    .cards-container {
+      margin-top: auto;
+      padding: 80px 20px 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-<div class="app-card yaadlife" onclick="openApp('YAADLIFE')">
-    <h2>YaadLife Lite</h2>
-    <p>Fast, TON version in Lite full access DApp.</p>
-    <button class="about-btn" onclick="event.stopPropagation(); openAbout('YAADLIFE');">About</button>
-</div>
+    .card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+      transition: transform 0.4s ease;
+    }
+    .card:hover { 
+      transform: translateY(-16px) scale(1.02); 
+    }
 
-<div class="app-card purvibe" onclick="openApp('PURVIBE')">
-    <h2>PurVibe</h2>
-    <p>Channel Content Curator for Pur-digital vibes.</p>
-    <button class="about-btn" onclick="event.stopPropagation(); openAbout('PURVIBE');">About</button>
-</div>
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      min-height: 360px;
+    }
 
-<div class="app-card irievibe" onclick="openApp('IRIEVIBE')">
-    <h2>IrieVibe</h2>
-    <p>Mobile superpowered lifestyle curator food, restaurants accommodations all geared to local lifestyle.</p>
-    <button class="about-btn" onclick="event.stopPropagation(); openAbout('IRIEVIBE');">About</button>
-</div>
+    .about-btn {
+      margin: 60px auto 40px;
+      display: block;
+      width: fit-content;
+      padding: 18px 56px;
+      background: transparent;
+      color: #FFD700;
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      border: 3px solid #FFD700;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.4s ease;
+    }
+    .about-btn:hover {
+      background: #FFD700;
+      color: #000;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
 
-</main>
+  <div class="cards-container">
+    <div class="card">
+      <img src="public/images/A10813F1-F3F5-4EB1-8BD5-..." alt="YaadVibe">
+    </div>
+    <div class="card">
+      <img src="public/images/C9577413-ED2C-4C08-BFC..." alt="YaadLife Lite">
+    </div>
+    <div class="card">
+      <img src="public/images/DCE3C919-9E51-49D6-8E7..." alt="PurVibe">
+    </div>
+    <div class="card">
+      <img src="public/images/[REPLACE_WITH_FOURTH_FILENAME]" alt="IrieVibe">
+    </div>
+  </div>
+
+  <a href="about.html" class="about-btn">About</a>
+
+</body>
+</html>
