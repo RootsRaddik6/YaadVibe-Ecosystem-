@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background: url('IMG_0039.jpeg') center/cover no-repeat;
     height: 100vh;
     color: white;
@@ -14,8 +14,8 @@ body {
 .overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.5);
-    backdrop-filter: blur(1px);
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(1.5px);
 }
 
 /* FLAG */
@@ -27,31 +27,41 @@ body {
     z-index: 3;
 }
 
-/* TITLE */
+/* TITLE — matches hero style exactly */
 .title {
-    font-family: 'Rock Salt', cursive;
-    font-size: 40px;
-    color: gold;
-    text-shadow: 0 0 18px rgba(255, 215, 0, 0.8);
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: 42px;
+
+    color: #FFD700;
+    text-shadow:
+        0 0 10px rgba(255, 215, 0, 0.8),
+        0 0 20px rgba(255, 215, 0, 0.6),
+        0 0 30px rgba(255, 215, 0, 0.4);
+
     text-align: center;
     margin-top: 120px;
     position: relative;
     z-index: 3;
 }
 
-/* CONTENT BOX */
+/* CONTENT BOX — matches card glow language */
 .about-box {
     width: 85%;
     max-width: 750px;
+
     background: rgba(0,0,0,0.55);
     border-radius: 20px;
-    border: 1px solid rgba(255,215,0,0.3);
+    border: 1px solid rgba(255,215,0,0.35);
+
     padding: 25px;
     margin: 40px auto;
-    backdrop-filter: blur(3px);
 
+    backdrop-filter: blur(4px);
+
+    font-family: 'Montserrat', sans-serif;
     font-size: 18px;
-    line-height: 1.55;
+    line-height: 1.6;
 
     position: relative;
     z-index: 3;
