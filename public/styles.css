@@ -17,7 +17,7 @@ body {
   /* desktop hero locking (if you intentionally want no scroll on desktop)
      Keep this if you want the hero fullscreen locked on desktop.
      Remove if you prefer desktop scroll. */
-  overflow-y: hidden;
+  overflow-y: auto;
   height: 100vh;
 }
 
@@ -34,7 +34,7 @@ body {
 /* ---------- HERO ---------- */
 .hero {
   position: relative;
-  width: 100%;
+  width: 90%;
   height: 100vh;
   text-align: center;
   overflow: visible;
@@ -55,7 +55,7 @@ body {
 /* ---------- TITLE: 1DROP YAADVIBE (gold glow) ---------- */
 .title {
   position: absolute;
-  top: 36%;                        /* desktop baseline */
+  top: 30%;                        /* desktop baseline */
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
