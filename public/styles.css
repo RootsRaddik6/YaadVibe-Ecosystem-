@@ -32,11 +32,16 @@ body { overflow:hidden; height:100vh; background:#000; }
 /* Pure glowing gold title – no background clip */
 .title {
   position: absolute;
-  top:50%; left:50%;
+  top: 42%;      /* moves it above the buttons */
+  left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'Cinzel', serif;
   font-weight: 900;
-  font-size: clamp(5rem, 14vw, 15rem);
+
+  white-space: nowrap; 
+  font-size: clamp(2.8rem, 9vw, 10rem);
+  line-height: 1;
+
   color: #FFD700;
   letter-spacing: 12px;
   text-align: center;
