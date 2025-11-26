@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@900&family=Montserrat:wght@600;700&display=swap');
 
 * { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Playfair Display', serif;
+  background: url('IMG_1125.jpeg') center/cover no-repeat fixed;
+  color: white;
+  overflow-x: hidden;
+}
 body { overflow:hidden; height:100vh; background:#000; }
 /* ---------------------------
    GLOBAL RESET
