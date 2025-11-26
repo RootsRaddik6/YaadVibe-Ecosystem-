@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>1Drop Ecosystems</title>
 
-    <!-- KEEPING YOUR ORIGINAL PLAYFAIR DISPLAY FONT -->
+    <!-- YOUR ORIGINAL PLAYFAIR DISPLAY FONT -->
     <link 
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap"
         rel="stylesheet"
@@ -16,32 +16,29 @@
 
 <body>
 
-    <!-- BACKGROUND -->
+    <!-- BACKGROUND IMAGE -->
     <div class="background"></div>
     <div class="overlay"></div>
 
-<!-- FLAG HOLOGRAM -->
-<div class="flag-3d-wrapper">
-    <img src="IMG_0454.png" class="flag base-layer" alt="Flag">
-    <img src="IMG_0454.png" class="flag holo-layer" alt="Flag Holo">
-</div>
-    <!-- TITLE BLOCK -->
-    <div class="title-block">
-        <h1 class="title">1DROP</h1>
-        <h1 class="title sub">YAADVIBE</h1>
+    <!-- FLAG (top-left) -->
+    <img src="IMG_0454.jpeg" alt="Flag" class="flag-img" />
 
-        <p class="subtitle">
-            A new dimension of lifestyle, culture &<br>
-            immersive digital experience.
-        </p>
-    </div>
+    <!-- TITLE -->
+    <h1 class="title">1DROP YAADVIBE</h1>
 
-    <!-- BUTTON STACK -->
+    <!-- BUTTON STACK (RIGHT-ALIGNED under the “E”) -->
     <div class="button-stack">
-        <button class="btn ton" onclick="openTon()">TON</button>
-        <button class="btn wc" onclick="openWalletConnect()">WalletConnect</button>
+        <a href="TON_URL" class="btn">TON</a>
+        <a href="WalletConnect_URL" class="btn">WalletConnect</a>
     </div>
 
-    <script src="script.js"></script>
+    <!-- FOUR CARDS (near footer) -->
+    <div class="cards">
+        <div class="card">YaadVibe</div>
+        <div class="card">YaadLife Lite</div>
+        <div class="card">PurVibe</div>
+        <div class="card">IrieVibe</div>
+    </div>
+
 </body>
 </html>
