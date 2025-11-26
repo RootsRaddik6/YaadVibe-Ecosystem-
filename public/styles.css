@@ -24,7 +24,7 @@ body {
 /* Mobile override for portrait background and scroll */
 @media (max-width: 768px) {
   body {
-    background: url('/bkmobile.jpeg') center/cover no-repeat;
+    background: url('/bkimage2.jpeg') center/cover no-repeat;
     background-size: cover;
     overflow-y: auto;
     height: auto;
