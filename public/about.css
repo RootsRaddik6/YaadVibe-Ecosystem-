@@ -93,7 +93,18 @@ body {
     font-size: 17px;
     color: #e6e6e6;
 }
-
+/* ---------- GOLD BOX (about content container) ---------- */
+.gold-box {
+    background: rgba(255, 215, 0, 0.04);             /* faint gold film */
+    border: 1px solid rgba(255, 215, 0, 0.18);
+    padding: 22px;
+    margin: 20px;
+    border-radius: 12px;
+    box-shadow:
+        0 0 14px rgba(255, 215, 0, 0.18),
+        0 0 28px rgba(255, 215, 0, 0.12);
+    color: #eaeaea;
+}
 /* Buttons */
 .glow-button {
     display: inline-block;
