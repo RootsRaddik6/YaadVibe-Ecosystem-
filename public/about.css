@@ -1,213 +1,63 @@
-/* about.css */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@500;700&display=swap');
 
-/* APP TITLE (for IrieVibe, PurVibe, YaadLife, etc.) */
-.app-title {
-    font-family: 'Playfair Display', serif;
-    color: #FFD700;
-    font-size: 2.2rem;          /* adjust for desktop if needed */
-    text-align: center;
-    margin: 20px 0 8px 0;
-    text-shadow:
-        0 0 6px #FFD700,
-        0 0 10px #E8B400,
-        0 0 14px rgba(255, 215, 0, 0.75);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-/* GLOBAL / DESKTOP */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Outfit', sans-serif;
-    background-color: #000;
-    color: #fff;
-    overflow: hidden; /* NO SCROLL ON DESKTOP */
-}
-/* MOBILE OVERRIDE */
-@media (max-width: 768px) {
-    body {
-        overflow-y: auto; /* SCROLLING ONLY ON MOBILE */
-    }
+  margin:0;
+  padding:0;
+  background:#000;
+  color:#fff;
+  font-family:'Outfit', sans-serif;
+  overflow:hidden; /* desktop locked */
 }
 
-/* Jamaican Flag Bar */
-.flag-bar {
-    width: 100%;
-    height: 6px;
-    background: linear-gradient(to right, #009B3A, #FED100, #000000, #FED100, #009B3A);
+@media(max-width:768px){
+  body { overflow-y:auto; }
 }
 
-/* Hero Section */
-.hero {
-    width: 100%;
-    min-height: 45vh;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-    padding: 40px 28px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-/* FIX 2 — Ensure overlay layers above dark gradient */
-.hero-overlay {
-    position: relative;
-    z-index: 10;
-}
-
-/* GOLD GLOW TITLES */
-.hero-overlay h1 {
-    margin: 0;
-    font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    font-weight: 700;
-    text-shadow:
-        0 0 6px #FFD700,
-        0 0 10px #E8B400,
-        0 0 14px rgba(255, 215, 0, 0.75);
-}
-
-.hero-overlay h2 {
-    margin: 4px 0 0;
-    font-family: 'Outfit', sans-serif;
-    font-size: 20px;
-    letter-spacing: 0.5px;
-    opacity: 0.88;
-    text-shadow:
-        0 0 4px #FFD700,
-        0 0 8px #E8B400;
-}
-
-/* Main About Section */
-.about-section {
-    padding: 28px;
-    line-height: 1.6;
-}
-
-.about-text {
-    margin-bottom: 40px;
-    white-space: pre-line;
-    font-size: 17px;
-    color: #e6e6e6;
-}
-/* ---------- GOLD BOX (about content container) ---------- */
-.gold-box {
-    background: rgba(255, 215, 0, 0.04);             /* faint gold film */
-    border: 1px solid rgba(255, 215, 0, 0.18);
-    padding: 22px;
-    margin: 20px;
-    border-radius: 12px;
-    box-shadow:
-        0 0 14px rgba(255, 215, 0, 0.18),
-        0 0 28px rgba(255, 215, 0, 0.12);
-    color: #eaeaea;
-}
-/* Buttons */
-.glow-button {
-    display: inline-block;
-    padding: 14px 28px;
-    margin-right: 14px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-    letter-spacing: 0.5px;
-
-    background-color: rgba(0, 155, 58, 0.22);
-    color: #fff;
-    border: 1px solid #009B3A;
-    box-shadow: 0 0 10px rgba(0, 155, 58, 0.55), 
-                0 0 18px rgba(0, 155, 58, 0.35);
-    transition: 0.2s ease;
-}
-
-.glow-button:hover {
-    background-color: rgba(0, 155, 58, 0.32);
-    box-shadow: 0 0 16px rgba(0, 155, 58, 0.75), 
-                0 0 32px rgba(0, 155, 58, 0.55);
-    transform: translateY(-2px);
-}
-
-.button-row {
-    display: flex;
-    gap: 16px;
-}
-
-/* FIX 1 — Hero golden inner glow */
-.hero-gold-glow {
-    box-shadow: inset 0 0 60px rgba(255, 215, 0, 0.25);
-}
-
-/* FIX 1 — Button gold glow */
-.gold-glow {
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.55),
-                0 0 18px rgba(255, 200, 0, 0.35);
-}
-/* --- IRIEVIBE ABOUT PAGE REQUIRED STYLES --- */
-
+/* Header */
 .top-header {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 20px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:20px;
 }
 
 .flag {
-    width: 70px;
-    height: auto;
-    border-radius: 6px;
+  width:70px;
+  border-radius:6px;
 }
 
 .title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    color: #FFD700;
-    text-shadow:
-        0 0 6px #FFD700,
-        0 0 10px #E8B400;
-    margin: 0;
+  font-family:'Playfair Display', serif;
+  font-size:1.8rem;
+  color:#FFD700;
+  text-shadow:
+    0 0 6px #FFD700,
+    0 0 10px #E8B400;
+  margin:0;
 }
 
-.about-box {
-    padding: 22px;
-    font-size: 17px;
-    line-height: 1.6;
-    color: #e6e6e6;
+/* ABOUT CONTENT BOX */
+.gold-box, .about-box {
+  background:rgba(255,215,0,0.04);
+  border:1px solid rgba(255,215,0,0.18);
+  padding:22px;
+  margin:20px;
+  border-radius:12px;
+  color:#eaeaea;
+  box-shadow:
+      0 0 14px rgba(255,215,0,0.18),
+      0 0 28px rgba(255,215,0,0.12);
 }
 
-/* overlay to block / dim background when needed */
-.overlay {
-    position: absolute;
-    inset: 0;                  /* top:0; right:0; bottom:0; left:0 */
-    background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45));
-    z-index: 30;               /* sits under title/button containers (which are 50/60+) */
-    pointer-events: none;      /* let clicks pass to buttons unless you want to block */
-}
+/* Remove overlay entirely */
+.overlay { display:none !important; }
 
-/* hero overlay wrapper that holds titles (ensures it sits above background) */
-.hero {
-    position: relative;        /* required for absolute children */
-    z-index: 10;
-}
-.hero-overlay {
-    position: relative;
-    z-index: 40;               /* text sits above overlay */
-}
-/* ---------- BACK/HOME BUTTON ---------- */
+/* Back button */
 .back-button {
-    position: fixed;
-    top: 18px;
-    left: 18px;
-    padding: 10px 14px;
-    background: rgba(0,0,0,0.6);
-    border: 1px solid #FFD700;
-    border-radius: 8px;
-    color: #FFD700;
-    font-weight: 600;
-    text-decoration: none;
-    z-index: 220;
-    box-shadow: 0 0 10px rgba(255,215,0,0.28);
+  position:absolute;
+  top:20px;
+  left:20px;
+  color:#FFD700;
+  text-decoration:none;
+  font-size:1.2rem;
 }
