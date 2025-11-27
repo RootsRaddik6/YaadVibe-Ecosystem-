@@ -6,7 +6,7 @@ html, body { height:100%; }
 
 body {
   font-family:'Montserrat', sans-serif;
-  background:url('/IMG_1125.jpeg') center/cover no-repeat;
+  background:url('IMG_1125.jpeg') center/cover no-repeat;
   color:#fff;
   overflow-x:hidden;
   height:100vh;
@@ -15,7 +15,7 @@ body {
 /* Mobile BG override */
 @media (max-width:768px){
   body {
-    background:url('/bkimage2.jpeg') center/cover no-repeat;
+    background:url('bkimage2.jpeg') center/cover no-repeat;
     height:auto;
     overflow-y:auto;
   }
