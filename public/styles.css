@@ -8,17 +8,16 @@
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: url("IMG_1125.jpeg") center/cover no-repeat; /* Desktop default */
+  background: url("IMG_1125.jpeg") center/cover no-repeat;  /* desktop version */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* MOBILE FIX */
+/* ---- MOBILE BACKGROUND FIX ---- */
 @media (max-width: 768px) {
   .hero {
-    background: url("bkimage2.jpeg") center/cover no-repeat; 
-    /* or url("IMG_0039.jpeg") */
+    background: url("bkimage2.jpeg") center/cover no-repeat;  /* portrait mobile version */
   }
 }
 
@@ -115,48 +114,4 @@
   text-decoration: none;
   font-family: Montserrat;
   font-size: 1.2rem;
-}
-
-/* ---------------- ABOUT PAGE ---------------- */
-
-/* Back button under the flag */
-.back-btn {
-  position: absolute;
-  top: 9%;
-  left: 2%;
-  padding: 6px 14px;
-  font-family: Montserrat;
-  background: rgba(0,0,0,0.5);
-  border: 1px solid gold;
-  border-radius: 6px;
-  color: gold;
-}
-
-/* Title on About page sits lower so the flag + back button feel natural */
-.about-title {
-  top: 25%;
-}
-
-/* Golden glowing about box */
-.about-box {
-  position: absolute;
-  bottom: 4%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 88%;
-  max-width: 500px;
-  padding: 18px;
-  background: rgba(0, 0, 0, 0.45);
-  border: 1px solid gold;
-  border-radius: 14px;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 0 18px rgba(255, 215, 0, 0.4);
-  color: gold;
-}
-
-/* Inner scroll area */
-.about-scroll {
-  max-height: 46vh;
-  overflow-y: auto;
-  padding-right: 10px;
 }
