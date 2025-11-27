@@ -1,69 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>1Drop YaadVibe</title>
 
+  <!-- Google fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- main stylesheet (replace your styles.css with the CSS I provide below) -->
   <link rel="stylesheet" href="/styles.css" />
 </head>
-
 <body>
+  <main class="hero">
 
-  <div class="hero">
+    <!-- background is set by CSS (IMG_1125.jpeg) -->
 
-    <!-- FLAG + TITLE -->
-    <img src="IMG_0454.png" alt="Flag" class="flag" />
-    <h1 class="title">1DROP YAADVIBE</h1>
-
-    <!-- RIGHT STACKED LOGIN BUTTONS -->
-    <div class="button-container">
-      <a href="https://ton.org" class="btn">TON</a>
-      <a href="https://walletconnect.com" class="btn">WalletConnect</a>
+    <!-- FLAG (left, above title) -->
+    <div class="flag-container" aria-hidden="true">
+      <img src="IMG_0454.png" alt="Jamaica flag" class="flag" />
     </div>
 
-    <!-- ABOUT BUTTON -->
-    <div class="about-btn" onclick="toggleAbout()">ABOUT</div>
+    <!-- TITLE (center) -->
+    <h1 class="title">1DROP<br><span>YAADVIBE</span></h1>
 
-    <!-- BOTTOM-RIGHT APPS BUTTON -->
-    <div class="bottom-button-container">
-      <a href="/cards.html" class="btn">APPS</a>
+    <!-- RIGHT STACKED BUTTONS -->
+    <div class="button-container" aria-label="entry buttons">
+      <a class="btn" href="https://ton.org" target="_blank" rel="noopener">TON</a>
+      <a class="btn" href="https://walletconnect.com" target="_blank" rel="noopener">WalletConnect</a>
     </div>
 
-  </div>
+    <!-- ABOUT ORB (bottom-left) -->
+    <button class="about-orb" id="openAbout" aria-haspopup="dialog" aria-expanded="false">
+      <span class="orb-text">ABOUT</span>
+    </button>
 
-  <!-- FADE-IN FLOATING ABOUT PANEL -->
-  <div id="aboutPanel" class="about-panel">
-    <div class="about-content">
-      <h2>About IrieVibe</h2>
-      <p>
-        IrieVibe is a mobile-first ecosystem built for how Jamaica moves — fast,
-        cultural, and always connected. It blends real-world services with Web3
-        technology, giving you the power to book food, events, transportation,
-        local tours, accommodations, and more with ease.
-      </p>
+    <!-- APPS (center-bottom) -->
+    <a class="apps-btn" href="/cards.html">APPS</a>
 
-      <p>
-        Designed for Jamaicans at home and the diaspora abroad, IrieVibe brings
-        local expertise, authentic experiences, and digital innovation together —
-        creating a modern gateway to the island’s culture, businesses, and lifestyle.
-      </p>
+    <!-- About panel (modal) -->
+    <div id="aboutPanel" class="about-panel" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="about-content">
+        <h2>About YaadVibe</h2>
+        <div class="about-body">
+          <!-- Preserve your original about text here — editable -->
+          <p>YaadVibe is the flagship immersive Jamaican booking experience and the heart of the 1Drop Ecosystem. Designed to bring Jamaica's energy, culture, and authenticity into a fully interactive digital world, YaadVibe gives you curated experiences made for both locals and global explorers.</p>
 
-      <p>
-        This is Jamaica in motion — powered by blockchain, built for the people,
-        and crafted with pure vibes.
-      </p>
+          <p>Built with next-gen DApp technologies, YaadVibe connects users with real destinations, real service providers, bookings, cultural insights, and hyper-personalized experiences within the ecosystem.</p>
+        </div>
 
-      <div class="close-about" onclick="toggleAbout()">Close</div>
+        <button id="closeAbout" class="close-about">Close</button>
+      </div>
     </div>
-  </div>
 
+  </main>
+
+  <!-- small script to open/close about panel -->
   <script>
-    function toggleAbout() {
-      document.getElementById("aboutPanel").classList.toggle("show");
-    }
-  </script>
+    (function(){
+      const open = document.getElementById('openAbout');
+      const panel = document.getElementById('aboutPanel');
+      const close = document.getElementById('closeAbout');
 
+      function showAbout() {
+        panel.classList.add('show');
+        panel.setAttribute('aria-hidden','false');
+        open.setAttribute('aria-expanded','true');
+      }
+      function hideAbout() {
+        panel.classList.remove('show');
+        panel.setAttribute('aria-hidden','true');
+        open.setAttribute('aria-expanded','false');
+      }
+
+      open.addEventListener('click', showAbout);
+      close.addEventListener('click', hideAbout);
+      panel.addEventListener('click', (e) => { if (e.target === panel) hideAbout(); });
+
+      // keyboard: ESC closes
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideAbout(); });
+    })();
+  </script>
 </body>
 </html>
