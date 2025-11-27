@@ -23,7 +23,16 @@ body {
     overflow-y:auto;
   }
 }
+/* FIX: Hero overlay appearing behind image */
+.hero {
+  position: relative;
+  z-index: 1;
+}
 
+/* Ensures background image doesn't override z-index */
+.hero::before {
+  z-index: -1 !important;
+}
 /* 5. HERO SECTION */
 .hero {
   position:relative;
