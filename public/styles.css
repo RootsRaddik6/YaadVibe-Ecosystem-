@@ -1,47 +1,30 @@
-/* No scroll anywhere (except inner about box) */
-.no-scroll {
-  overflow: hidden;
-}
-/* ensure fonts load and render crisply */
-html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+/* No scroll anywhere */
+.no-scroll { overflow: hidden; }
 
-/* global font fallback */
+/* Render smooth fonts */
+html { 
+  -webkit-font-smoothing: antialiased; 
+  -moz-osx-font-smoothing: grayscale; 
+}
+
+/* Global font fallback */
 body {
   font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
 }
 
-/* Title uses Cinzel heavy weight with the glow you had */
-.title {
-  font-family: "Cinzel", serif;
-  font-weight: 900;              /* make sure we use the heavy weight loaded from Google */
-  color: #FFD700;
-  text-shadow:
-    0 0 18px rgba(255,215,0,0.95),
-    0 0 44px rgba(255,215,0,0.6),
-    0 0 88px rgba(255,215,0,0.35);
-  /* keep the same size / spacing you already have (do not change these unless needed) */
-}
-
-/* secondary UI text */
-.btn, .orb-text, .about-content, .apps-btn {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;  /* button bold */
-}
-/* Background for both pages */
+/* HERO BACKGROUND */
 .hero {
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: url("IMG_1125.jpeg") center/cover no-repeat;  /* desktop version */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: url("IMG_1125.jpeg") center/cover no-repeat;   /* desktop */
 }
 
-/* ---- MOBILE BACKGROUND FIX ---- */
+/* Mobile background */
 @media (max-width: 768px) {
   .hero {
-    background: url("bkimage2.jpeg") center/cover no-repeat;  /* portrait mobile version */
+    background: url("bkimage2.jpeg") center/cover no-repeat; /* mobile */
   }
 }
 
@@ -54,33 +37,33 @@ body {
 }
 
 .flag {
-  width: 140px; /* 40% larger */
+  width: 140px;
   max-width: 40vw;
   height: auto;
 }
 
 /* ---------------- TITLE ---------------- */
 .title {
-  font-family: 'Cinzel', serif;
-  color: white;
-  text-align: center;
-  font-size: 2.8rem;   /* slightly reduced for correct balance */
-  line-height: 1.1;
+  font-family: "Cinzel", serif;
+  font-weight: 900;
+  font-size: 2.8rem;
+  color: #FFD700;
+  text-shadow:
+    0 0 18px rgba(255,215,0,0.95),
+    0 0 44px rgba(255,215,0,0.6),
+    0 0 88px rgba(255,215,0,0.35);
   position: absolute;
-  top: 46%;            /* LOWER than before – matches your check mark */
+  top: 46%;                 /* Your chosen placement */
   width: 100%;
-}
-
-.title span {
-  font-size: 3.2rem;
-  letter-spacing: 4px;
+  text-align: center;
+  line-height: 1.1;
 }
 
 /* ---------------- RIGHT BUTTON STACK ---------------- */
 .button-container {
   position: absolute;
-  top: 65%;            /* moved UP to sit under the “E” in VIBE */
-  right: 3%;           /* moved INWARD (toward VIBE) */
+  top: 65%;                 /* Under the "E" in VIBE */
+  right: 3%;                /* Align with your image arrow */
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -88,39 +71,23 @@ body {
 
 .btn {
   background: rgba(0,0,0,0.45);
-  padding: 7px 15px;     /* SMALLER */
+  padding: 7px 15px;        /* Smaller */
   border: 1px solid gold;
   color: gold;
-  font-family: Montserrat, sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   border-radius: 8px;
   text-decoration: none;
+  font-size: 0.80rem;       /* Smaller button text */
   text-align: center;
-  font-size: 0.80rem;      /* SMALLER text */
 }
 
-/* ---------------- APPS BUTTON ---------------- */
-.apps-btn {
-  position: absolute;
-  bottom: 7%;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 12px 28px;   /* slightly smaller for harmony */
-  background: rgba(0,0,0,0.55);
-  border: 1px solid gold;
-  border-radius: 8px;
-  color: gold;
-  text-decoration: none;
-  font-family: Montserrat;
-  font-size: 1.1rem;
-}
-
-/* ---------------- ABOUT ORB (unchanged except perfect alignment) ---------------- */
+/* ---------------- ABOUT ORB ---------------- */
 .about-orb {
   position: absolute;
   bottom: 18%;
   left: 12%;
-  width: 72px;          /* slightly smaller circle to match reduced button scale */
+  width: 72px;
   height: 72px;
   border-radius: 50%;
   background: rgba(255,255,255,0.08);
@@ -129,6 +96,7 @@ body {
   opacity: 0.55;
   transition: opacity .3s, transform .3s;
 }
+
 /* ---------------- APPS BUTTON ---------------- */
 .apps-btn {
   position: absolute;
