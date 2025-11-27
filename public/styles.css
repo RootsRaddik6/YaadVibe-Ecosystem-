@@ -32,7 +32,7 @@ img{max-width:100%;display:block}
   height:100vh;           /* LOCKS viewport, no vertical scroll */
   display:block;
   overflow:hidden;
-  background-image: url('/IMG_1125.jpeg'); /* ensure file path matches */
+  background-image: url('IMG_1125.jpeg'); /* ensure file path matches */
   background-position:center;
   background-size:cover;
   background-repeat:no-repeat;
