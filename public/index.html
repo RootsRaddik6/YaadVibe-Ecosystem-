@@ -5,81 +5,39 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>1Drop YaadVibe</title>
 
-  <!-- Google fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
-
-  <!-- main stylesheet (replace your styles.css with the CSS I provide below) -->
   <link rel="stylesheet" href="/styles.css" />
 </head>
-<body>
+<body class="no-scroll">
+
   <main class="hero">
 
-    <!-- background is set by CSS (IMG_1125.jpeg) -->
-
-    <!-- FLAG (left, above title) -->
-    <div class="flag-container" aria-hidden="true">
+    <!-- FLAG -->
+    <div class="flag-container">
       <img src="IMG_0454.png" alt="Jamaica flag" class="flag" />
     </div>
 
-    <!-- TITLE (center) -->
-    <h1 class="title">1DROP<br><span>YAADVIBE</span></h1>
+    <!-- TITLE (slightly above center — Option C) -->
+    <h1 class="title">
+      1DROP<br>
+      <span>YAADVIBE</span>
+    </h1>
 
-    <!-- RIGHT STACKED BUTTONS -->
-    <div class="button-container" aria-label="entry buttons">
+    <!-- RIGHT BUTTON STACK -->
+    <div class="button-container">
       <a class="btn" href="https://ton.org" target="_blank" rel="noopener">TON</a>
       <a class="btn" href="https://walletconnect.com" target="_blank" rel="noopener">WalletConnect</a>
     </div>
 
-    <!-- ABOUT ORB (bottom-left) -->
-    <button class="about-orb" id="openAbout" aria-haspopup="dialog" aria-expanded="false">
+    <!-- ABOUT ORB -->
+    <button class="about-orb" onclick="location.href='about-yaadvibe.html'">
       <span class="orb-text">ABOUT</span>
     </button>
 
-    <!-- APPS (center-bottom) -->
+    <!-- APPS -->
     <a class="apps-btn" href="/cards.html">APPS</a>
-
-    <!-- About panel (modal) -->
-    <div id="aboutPanel" class="about-panel" role="dialog" aria-modal="true" aria-hidden="true">
-      <div class="about-content">
-        <h2>About YaadVibe</h2>
-        <div class="about-body">
-          <!-- Preserve your original about text here — editable -->
-          <p>YaadVibe is the flagship immersive Jamaican booking experience and the heart of the 1Drop Ecosystem. Designed to bring Jamaica's energy, culture, and authenticity into a fully interactive digital world, YaadVibe gives you curated experiences made for both locals and global explorers.</p>
-
-          <p>Built with next-gen DApp technologies, YaadVibe connects users with real destinations, real service providers, bookings, cultural insights, and hyper-personalized experiences within the ecosystem.</p>
-        </div>
-
-        <button id="closeAbout" class="close-about">Close</button>
-      </div>
-    </div>
 
   </main>
 
-  <!-- small script to open/close about panel -->
-  <script>
-    (function(){
-      const open = document.getElementById('openAbout');
-      const panel = document.getElementById('aboutPanel');
-      const close = document.getElementById('closeAbout');
-
-      function showAbout() {
-        panel.classList.add('show');
-        panel.setAttribute('aria-hidden','false');
-        open.setAttribute('aria-expanded','true');
-      }
-      function hideAbout() {
-        panel.classList.remove('show');
-        panel.setAttribute('aria-hidden','true');
-        open.setAttribute('aria-expanded','false');
-      }
-
-      open.addEventListener('click', showAbout);
-      close.addEventListener('click', hideAbout);
-      panel.addEventListener('click', (e) => { if (e.target === panel) hideAbout(); });
-
-      // keyboard: ESC closes
-      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideAbout(); });
-    })();
-  </script>
 </body>
 </html>
