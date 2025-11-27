@@ -126,3 +126,10 @@ body {
 
 /* 11. REMOVE overlay interference */
 .overlay { display:none !important; }
+/* Bottom-right APPS button */
+.bottom-button-container {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  z-index: 10;
+}
