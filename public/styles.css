@@ -1,46 +1,34 @@
-/* 1. GOOGLE FONTS IMPORT — goes at the absolute top */
+/* 1. GOOGLE FONTS IMPORT */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@500;700&display=swap');
 
-/* 2. UNIVERSAL RESET */
+/* 2. RESET */
 * { margin:0; padding:0; box-sizing:border-box; }
-
 html, body { height:100%; }
 
-/* 3. BODY BACKGROUND */
+/* 3. DESKTOP BACKGROUND */
 body {
   font-family:'Montserrat', sans-serif;
-  background:url('IMG_1125.jpeg') center/cover no-repeat;
+  background:url('/IMG_1125.jpeg') center/cover no-repeat fixed;
   color:#fff;
   overflow-x:hidden;
   height:100vh;
 }
 
-/* 4. MOBILE BG OVERRIDE */
+/* 4. MOBILE BACKGROUND */
 @media (max-width:768px){
   body {
-    background:url('bkimage2.jpeg') center/cover no-repeat;
-    height:auto;
-    overflow-y:auto;
+    background:url('/bkimage2.jpeg') center/cover no-repeat fixed;
+    height:100vh;
   }
 }
 
-/* FIX: Hero overlay appearing behind image */
+/* 5. HERO */
 .hero {
-  position: relative;
+  position:relative;
   width:100%;
   height:100vh;
   text-align:center;
-  z-index: 1;
-}
-.hero::before {
-  z-index: -1 !important;
-}
-
-/* MOBILE HERO HEIGHT FIX */
-@media (max-width: 768px) {
-  .hero {
-    height: 100vh;
-  }
+  z-index:1;
 }
 
 /* 6. FLAG */
@@ -53,7 +41,7 @@ body {
   filter:drop-shadow(0 6px 18px rgba(0,0,0,0.7));
 }
 
-/* 7. TITLE — GOLD E */
+/* 7. TITLE */
 .title {
   position:absolute;
   top:30%;
@@ -73,18 +61,18 @@ body {
   z-index:10;
 }
 
-/* RIGHT-ALIGNED STACKED BUTTONS — CHOOSE ONE POSITION */
+/* 8. RIGHT-ALIGNED STACKED BUTTONS */
 .button-container {
   position:absolute;
+  top:32%;
   right:40px;
-  top:40px;     /* ← YOU SAID YOU WANT THIS */
   display:flex;
   flex-direction:column;
   gap:14px;
   z-index:20;
 }
 
-/* BOTTOM-RIGHT APP BUTTON */
+/* 9. BOTTOM-RIGHT APP BUTTON */
 .bottom-button-container {
   position:absolute;
   bottom:40px;
@@ -92,7 +80,7 @@ body {
   z-index:20;
 }
 
-/* BUTTON STYLES */
+/* 10. BUTTON STYLE */
 .btn {
   padding:8px 26px;
   border:3px solid #FFD700;
@@ -110,5 +98,9 @@ body {
   transform:scale(1.08);
 }
 
-/* REMOVE overlay interference */
-.overlay { display:none !important; }
+/* 11. FULL REMOVAL OF OLD OVERLAYS */
+.overlay, .overlay-container, .hover-overlay {
+  display:none !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+}
