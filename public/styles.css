@@ -55,8 +55,8 @@
 /* ---------------- RIGHT BUTTON STACK ---------------- */
 .button-container {
   position: absolute;
-  top: 56%;            /* moved UP to sit under the “E” in VIBE */
-  right: 6%;           /* moved INWARD (toward VIBE) */
+  top: 65%;            /* moved UP to sit under the “E” in VIBE */
+  right: 3%;           /* moved INWARD (toward VIBE) */
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -64,7 +64,7 @@
 
 .btn {
   background: rgba(0,0,0,0.45);
-  padding: 9px 18px;     /* SMALLER */
+  padding: 7px 15px;     /* SMALLER */
   border: 1px solid gold;
   color: gold;
   font-family: Montserrat, sans-serif;
@@ -72,7 +72,7 @@
   border-radius: 8px;
   text-decoration: none;
   text-align: center;
-  font-size: 0.9rem;      /* SMALLER text */
+  font-size: 0.80rem;      /* SMALLER text */
 }
 
 /* ---------------- APPS BUTTON ---------------- */
