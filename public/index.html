@@ -1,42 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1DROP YAADVIBE</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>1Drop YaadVibe</title>
 
-    <!-- GOOGLE FONTS: Cinzel (900) + Montserrat -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@900&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css" />
+  <!-- stylesheet -->
+  <link rel="stylesheet" href="/styles.css" />
 </head>
+<body class="no-scroll">
 
-<body>
+  <main class="hero">
 
-    <div class="container">
-
-        <!-- FLAG -->
-        <img src="IMG_0454.png" class="flag" alt="Flag">
-
-        <!-- TITLE -->
-        <h1 class="title">1DROP YAADVIBE</h1>
-
-        <!-- RIGHT-ALIGNED BUTTONS -->
-        <div class="top-buttons">
-            <a href="#" class="btn small-btn">TON</a>
-            <a href="#" class="btn small-btn">WalletConnect</a>
-        </div>
-
-        <!-- ORB -->
-        <div class="orb"></div>
-
-        <!-- APPS BUTTON (center) -->
-        <a href="#" class="btn apps-btn">APPS</a>
-
-        <!-- SMALL WRITING AREA -->
-        <p class="small-text">Small writing goes here</p>
-
+    <!-- FLAG (use the file you have: IMG_0454.png) -->
+    <div class="flag-container" aria-hidden="true">
+      <img src="IMG_0454.png" alt="Jamaica flag" class="flag" />
     </div>
 
+    <!-- TITLE: one-line, single centered item as requested -->
+    <h1 class="title">1DROP YAADVIBE</h1>
+
+    <!-- RIGHT STACKED BUTTONS (small, lowered) -->
+    <div class="button-container" aria-label="entry buttons">
+      <a class="btn" href="https://ton.org" target="_blank" rel="noopener">TON</a>
+      <a class="btn" href="https://walletconnect.com" target="_blank" rel="noopener">WalletConnect</a>
+    </div>
+
+    <!-- ABOUT ORB (floating, faint until hovered/clicked) -->
+    <button class="about-orb" id="openAbout" aria-haspopup="dialog" aria-expanded="false">
+      <span class="orb-text">ABOUT</span>
+    </button>
+
+    <!-- APPS center-bottom -->
+    <a class="apps-btn" href="/cards.html">APPS</a>
+
+    <!-- About panel (modal) -->
+    <div id="aboutPanel" class="about-panel" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="about-content">
+        <h2>About YaadVibe</h2>
+        <div class="about-body">
+          <p>YaadVibe is the flagship immersive Jamaican booking experience and the heart of the 1Drop Ecosystem. Designed to bring Jamaica's energy, culture, and authenticity into a fully interactive digital world, YaadVibe gives you curated experiences made for both locals and global explorers.</p>
+          <p>Built with next-gen DApp technologies, YaadVibe connects users with destinations, service providers, bookings, and curated cultural experiences.</p>
+        </div>
+        <button id="closeAbout" class="close-about">Close</button>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    (function(){
+      const open = document.getElementById('openAbout');
+      const panel = document.getElementById('aboutPanel');
+      const close = document.getElementById('closeAbout');
+
+      function showAbout() {
+        panel.classList.add('show');
+        panel.setAttribute('aria-hidden','false');
+        open.setAttribute('aria-expanded','true');
+      }
+      function hideAbout() {
+        panel.classList.remove('show');
+        panel.setAttribute('aria-hidden','true');
+        open.setAttribute('aria-expanded','false');
+      }
+
+      open.addEventListener('click', showAbout);
+      close.addEventListener('click', hideAbout);
+      panel.addEventListener('click', (e) => { if (e.target === panel) hideAbout(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideAbout(); });
+    })();
+  </script>
 </body>
 </html>
