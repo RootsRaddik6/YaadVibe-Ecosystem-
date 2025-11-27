@@ -1,114 +1,142 @@
-/* No scroll anywhere */
+/* ========== Variables ========== */
+:root{
+  --gold: #FFD700;
+  --gold-strong: rgba(255,215,0,0.98);
+  --bg-dark: #000;
+  --cta-scale: 0.33;
+}
+
+/* reset & base */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg-dark);color:#fff;font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%;display:block}
+
+/* lock landing viewport - no page scroll */
 .no-scroll { overflow: hidden; }
 
-/* Render smooth fonts */
-html { 
-  -webkit-font-smoothing: antialiased; 
-  -moz-osx-font-smoothing: grayscale; 
+/* HERO (locked to viewport; desktop background IMG_1125.jpeg) */
+.hero{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+  background-image: url('IMG_1125.jpeg');
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  z-index:1;
 }
 
-/* Global font fallback */
-body {
-  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  margin: 0;
+/* mobile background override -> bkimage2.jpeg */
+@media (max-width:768px){
+  .hero { background-image: url('bkimage2.jpeg'); }
 }
 
-/* HERO BACKGROUND */
-.hero {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  background: url("IMG_1125.jpeg") center/cover no-repeat;   /* desktop */
+/* subtle overlay so the title reads well */
+.hero::after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.6) 75%);
+  z-index:2;
 }
 
-/* Mobile background */
-@media (max-width: 768px) {
-  .hero {
-    background: url("bkimage2.jpeg") center/cover no-repeat; /* mobile */
-  }
-}
+/* FLAG - top-left, larger but contained */
+.flag-container{ position:absolute; left:4%; top:2.2%; z-index:40; }
+.flag{ width: clamp(56px, 12vw, 140px); height:auto; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.6)); }
 
-/* ---------------- FLAG ---------------- */
-.flag-container {
-  position: absolute;
-  top: 2%;
-  left: 2%;
-  z-index: 50;
-}
-
-.flag {
-  width: 140px;
-  max-width: 40vw;
-  height: auto;
-}
-
-/* ---------------- TITLE ---------------- */
-.title {
-  font-family: "Cinzel", serif;
-  font-weight: 900;
-  font-size: 2.8rem;
-  color: #FFD700;
+/* TITLE - one-line centered (big Cinzel with gold glow) */
+.title{
+  position:absolute;
+  top:20%;
+  left:50%;
+  transform:translateX(-50%);
+  font-family:'Cinzel',serif;
+  font-weight:900;
+  color:var(--gold-strong);
+  text-align:center;
+  z-index:35;
   text-shadow:
     0 0 18px rgba(255,215,0,0.95),
-    0 0 44px rgba(255,215,0,0.6),
-    0 0 88px rgba(255,215,0,0.35);
-  position: absolute;
-  top: 46%;                 /* Your chosen placement */
-  width: 100%;
-  text-align: center;
-  line-height: 1.1;
+    0 0 44px rgba(255,215,0,0.6);
+  font-size:clamp(2.8rem, 8vw, 5.8rem);
+  white-space:nowrap;
 }
 
-/* ---------------- RIGHT BUTTON STACK ---------------- */
-.button-container {
-  position: absolute;
-  top: 65%;                 /* Under the "E" in VIBE */
-  right: 3%;                /* Align with your image arrow */
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+/* RIGHT STACKED BUTTONS (moved down & smaller) */
+.button-container{
+  position:absolute;
+  right:4%;
+  top:48%;      /* pushed well below the title */
+  z-index:45;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  align-items:flex-end;
 }
 
-.btn {
-  background: rgba(0,0,0,0.45);
-  padding: 7px 15px;        /* Smaller */
-  border: 1px solid gold;
-  color: gold;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 0.80rem;       /* Smaller button text */
-  text-align: center;
+.button-container .btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width: calc(220px * var(--cta-scale));
+  padding: calc(12px * var(--cta-scale)) calc(28px * var(--cta-scale));
+  border-radius: calc(40px * var(--cta-scale));
+  border:3px solid var(--gold);
+  background: rgba(0,0,0,0.28);
+  color:var(--gold);
+  font-weight:700;
+  text-decoration:none;
+  font-size:calc(18px * var(--cta-scale));
+  transition: transform .18s ease, background .18s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
 }
+.button-container .btn:hover{ transform:scale(1.04); background:var(--gold); color:#000; }
 
-/* ---------------- ABOUT ORB ---------------- */
-.about-orb {
-  position: absolute;
-  bottom: 18%;
-  left: 12%;
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid gold;
-  backdrop-filter: blur(3px);
-  opacity: 0.55;
-  transition: opacity .3s, transform .3s;
+/* ABOUT ORB (faint until hovered) */
+.about-orb{
+  position:absolute;
+  left:10%;
+  bottom:20%;
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  border:3px solid var(--gold);
+  background: radial-gradient(circle at 30% 30%, rgba(255,235,160,0.06), rgba(255,200,0,0.02));
+  box-shadow: 0 0 12px rgba(255,193,71,0.12);
+  opacity:0.45;
+  z-index:50;
+  cursor:pointer;
+  transition: transform .28s ease, opacity .28s ease;
 }
+.about-orb:hover{ transform:translateY(-6px) scale(1.04); opacity:0.95; box-shadow: 0 0 28px rgba(255,180,0,0.28); }
+.orb-text{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-weight:700; color:#111; pointer-events:none; }
 
-/* ---------------- APPS BUTTON ---------------- */
-.apps-btn {
-  position: absolute;
-  bottom: 6%;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 14px 32px;
-  background: rgba(0,0,0,0.6);
-  border: 1px solid gold;
-  border-radius: 8px;
-  color: gold;
-  text-decoration: none;
-  font-family: Montserrat;
-  font-size: 1.2rem;
+/* APPS center-bottom */
+.apps-btn{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:6%;
+  padding:12px 28px;
+  border-radius:40px;
+  border:3px solid var(--gold);
+  background: rgba(0,0,0,0.28);
+  color:var(--gold);
+  font-weight:700;
+  text-decoration:none;
+  z-index:50;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
 }
+.apps-btn:hover{ background:var(--gold); color:#000; transform:translateX(-50%) scale(1.03); }
+
+/* About panel */
+.about-panel{ position:fixed; inset:0; display:none; align-items:center; justify-content:center; z-index:999; background: rgba(0,0,0,0.55); padding:28px; }
+.about-panel.show{ display:flex; }
+.about-content{ width:92%; max-width:640px; background: rgba(0,0,0,0.86); border-radius:18px; padding:26px; border: 3px solid var(--gold); color:var(--gold); box-shadow: 0 0 40px rgba(255,215,0,0.28); font-family:'Montserrat',sans-serif; text-align:left; }
+.close-about{ margin-top:18px; padding:8px 16px; border-radius:22px; border:2px solid var(--gold); background:transparent; color:var(--gold); cursor:pointer; }
+
+/* Prevent accidental page elements showing (if you rely on this pattern) */
+/* If you have other top-level content you want visible, remove this rule */
+body > :not(.hero){ display:none }
