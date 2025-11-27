@@ -5,10 +5,15 @@
 .app-title {
     font-family: 'Playfair Display', serif;
     color: #FFD700;
-    font-size: 2.2rem;
+    font-size: 2.2rem;          /* adjust for desktop if needed */
     text-align: center;
-    margin-bottom: 20px;
-    text-shadow: 0 0 12px #FFD700;
+    margin: 20px 0 8px 0;
+    text-shadow:
+        0 0 6px #FFD700,
+        0 0 10px #E8B400,
+        0 0 14px rgba(255, 215, 0, 0.75);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* GLOBAL / DESKTOP */
