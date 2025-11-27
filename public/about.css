@@ -135,3 +135,38 @@ body {
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.55),
                 0 0 18px rgba(255, 200, 0, 0.35);
 }
+/* --- IRIEVIBE ABOUT PAGE REQUIRED STYLES --- */
+
+.top-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px;
+}
+
+.flag {
+    width: 70px;
+    height: auto;
+    border-radius: 6px;
+}
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #FFD700;
+    text-shadow:
+        0 0 6px #FFD700,
+        0 0 10px #E8B400;
+    margin: 0;
+}
+
+.about-box {
+    padding: 22px;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #e6e6e6;
+}
+
+.overlay {
+    display: none; /* this page does not use it */
+}
