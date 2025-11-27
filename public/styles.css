@@ -176,3 +176,68 @@ body {
   visibility:hidden !important;
   pointer-events:none !important;
 }
+/* HOME BUTTON — used on all About pages */
+.home-btn {
+    position: fixed;
+    top: 20px;
+    right: 22px;
+    padding: 10px 22px;
+    background: rgba(0, 0, 0, 0.45);
+    border: 2px solid gold;
+    border-radius: 20px;
+    color: gold;
+    font-weight: 700;
+    text-decoration: none;
+    z-index: 1000;
+    box-shadow: 0 0 12px gold;
+}
+
+.home-btn:hover {
+    background: rgba(255, 215, 0, 0.25);
+}
+.cta-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    margin-right: 20px;
+}
+
+.cta-btn {
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .hero {
+        background-position: center top;
+    }
+
+    .title-block {
+        margin-top: 40px;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+}
+.bottom-button-container {
+    position: fixed;
+    bottom: 28px;
+    right: 22px;
+    z-index: 1000;
+}
+
+.glow-button {
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 700;
+}
+.about-trigger {
+    padding: 10px 22px;
+    border: 2px solid gold;
+    border-radius: 20px;
+    display: inline-block;
+    background: rgba(0,0,0,0.45);
+    box-shadow: 0 0 12px gold;
+}
+
