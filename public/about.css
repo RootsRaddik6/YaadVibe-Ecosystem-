@@ -1,19 +1,23 @@
+/* ——————————————————
+   GOOGLE FONTS
+—————————————————— */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@500;700&display=swap');
 
+/* ——————————————————
+   BODY
+—————————————————— */
 body {
   margin:0;
   padding:0;
   background:#000;
-  color:#fff;
-  font-family:'Outfit', sans-serif;
-  overflow:hidden; /* desktop locked */
+  color:#FFD700;
+  font-family:'Montserrat', sans-serif;
+  overflow-y:auto; /* scrolling allowed for about pages */
 }
 
-@media(max-width:768px){
-  body { overflow-y:auto; }
-}
-
-/* Header */
+/* ——————————————————
+   HEADER + FLAG + TITLE
+—————————————————— */
 .top-header {
   display:flex;
   align-items:center;
@@ -22,48 +26,62 @@ body {
 }
 
 .flag {
-  width:70px;
+  width:90px;
+  max-width:140px;
   border-radius:6px;
+  display:block;
+  margin:0 auto;
 }
 
-.title {
-  font-family:'Playfair Display', serif;
-  font-size:1.8rem;
+.title, .page-title {
+  font-family:'Cinzel', serif;
+  font-size:2.3rem;
   color:#FFD700;
+  text-align:center;
+  margin-top:10px;
   text-shadow:
-    0 0 6px #FFD700,
-    0 0 10px #E8B400;
-  margin:0;
+    0 0 12px rgba(255,215,0,1),
+    0 0 40px rgba(255,215,0,0.8);
 }
 
-/* ABOUT CONTENT BOX */
-.gold-box, .about-box {
-  background:rgba(255,215,0,0.04);
-  border:1px solid rgba(255,215,0,0.18);
-  padding:22px;
-  margin:20px;
-  border-radius:12px;
-  color:#eaeaea;
+/* ——————————————————
+   GOLD GLOW CONTENT BOX (THICKER + STRONGER)
+—————————————————— */
+.gold-box, .about-box, .content-box {
+  background:rgba(0,0,0,0.75);
+  border:4px solid #FFD700;
+  padding:28px;
+  margin:26px;
+  border-radius:20px;
+  color:#FFD700;
+  font-size:1.15rem;
+  line-height:1.55;
   box-shadow:
-      0 0 14px rgba(255,215,0,0.18),
-      0 0 28px rgba(255,215,0,0.12);
+      0 0 25px rgba(255,215,0,0.8),
+      0 0 60px rgba(255,215,0,0.45);
 }
 
-/* Remove overlay entirely */
-.overlay { display:none !important; }
-
-/* Back button */
-.back-button {
+/* ——————————————————
+   BACK BUTTON (REPLACES 'HOME')
+—————————————————— */
+.back-button, .back-btn {
   position:absolute;
   top:20px;
   left:20px;
   color:#FFD700;
   text-decoration:none;
   font-size:1.2rem;
+  font-weight:700;
 }
-/* ———————————————
-   Hover Overlay
-——————————————— */
+
+.back-button:hover, .back-btn:hover {
+  opacity:0.7;
+}
+
+/* ——————————————————
+   HOVER OVERLAY (LEAVE AS YOU ALREADY HAVE)
+—————————————————— */
+.overlay { display:none !important; }
 
 .overlay-container {
     position: fixed;
@@ -112,10 +130,10 @@ body {
     font-family: Poppins, sans-serif;
     font-size: 14px;
 }
-/* ———————————————
-   Floating Golden Glow Orb
-——————————————— */
 
+/* ——————————————————
+   FLOATING GOLDEN ORB
+—————————————————— */
 .floating-orb {
     position: fixed;
     bottom: 28px;
