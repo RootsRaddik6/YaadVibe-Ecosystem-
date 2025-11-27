@@ -8,7 +8,7 @@ html, body { height:100%; }
 /* 3. DESKTOP BACKGROUND */
 body {
   font-family:'Montserrat', sans-serif;
-  background:url('/IMG_1125.jpeg') center/cover no-repeat fixed;
+  background:url('IMG_1125.jpeg') center/cover no-repeat fixed;
   color:#fff;
   overflow-x:hidden;
   height:100vh;
@@ -17,7 +17,7 @@ body {
 /* 4. MOBILE BACKGROUND */
 @media (max-width:768px){
   body {
-    background:url('/bkimage2.jpeg') center/cover no-repeat fixed;
+    background:url('bkimage2.jpeg') center/cover no-repeat fixed;
     height:100vh;
   }
 }
