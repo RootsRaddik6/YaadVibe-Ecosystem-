@@ -1,274 +1,154 @@
-/* styles.css — drop-in replacement for index.html layout you provided */
-
-/* --------------------------
-   Variables
-   -------------------------- */
-:root{
-  --gold: #FFD700;
-  --gold-opaque: rgba(255,215,0,0.12);
-  --gold-strong: rgba(255,215,0,0.98);
-  --bg-dark: #000000;
-  --btn-radius: 40px;
-  --orb-size: 64px;        /* orb diameter */
-  --cta-scale: 0.33;      /* visual scale factor for buttons (approx 1/3) */
+/* No scroll anywhere (except inner about box) */
+.no-scroll {
+  overflow: hidden;
 }
 
-/* ---------------
-   Reset & base
-   --------------- */
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;background:var(--bg-dark);color:#fff;font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-img{max-width:100%;display:block}
-
-/* ---------------
-   HERO (landing)
-   - locked to viewport, no scroll
-   --------------- */
-.hero{
-  position:fixed;
-  inset:0;
-  width:100%;
-  height:100vh;           /* LOCKS viewport, no vertical scroll */
-  display:block;
-  overflow:hidden;
-  background-image: url('IMG_1125.jpeg'); /* ensure file path matches */
-  background-position:center;
-  background-size:cover;
-  background-repeat:no-repeat;
-  -webkit-background-size:cover;
-  z-index:1;
+/* Background for both pages */
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: url("IMG_1125.jpeg") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* overlay gradient to keep title readable (subtle) */
-.hero::after{
-  content:"";
-  position:absolute;inset:0;
-  background:linear-gradient(180deg, rgba(0,0,0,0.20) 0%, rgba(0,0,0,0.55) 70%);
-  z-index:2;
+/* ---------------- FLAG ---------------- */
+.flag-container {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  z-index: 50;
 }
 
-/* top row container for flag + (title centered separate) */
-.flag-container{position:absolute;left:18px;top:14px;z-index:40;display:flex;align-items:center;gap:12px}
-
-/* FLAG */
-.flag{
-  width: clamp(48px, 12vw, 72px); /* responsive small flag */
-  height:auto;
-  display:block;
-  filter: drop-shadow(0 8px 22px rgba(0,0,0,0.6));
+.flag {
+  width: 140px; /* 40% larger */
+  max-width: 40vw;
+  height: auto;
 }
 
-/* TITLE - centered visually below flag row */
-.title{
-  position:absolute;
-  top:16%;
-  left:50%;
-  transform:translateX(-50%);
-  font-family:'Cinzel',serif;
-  font-weight:900;
-  color:var(--gold-strong);
-  text-align:center;
-  line-height:0.95;
-  z-index:35;
-  text-shadow:
-    0 0 18px rgba(255,215,0,0.95),
-    0 0 44px rgba(255,215,0,0.6);
-  font-size:clamp(2.8rem, 9.6vw, 6.5rem); /* responsive */
-  white-space:pre-line; /* allows <br> to work */
-}
-
-/* RIGHT STACKED BUTTONS (TON / WalletConnect) */
-.button-container{
-  position:absolute;
-  right:18px;
-  /* align roughly with title E — top value tuned for mobile/desktop below */
-  top:14%; 
-  z-index:45;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  align-items:flex-end;
-}
-
-/* compact CTA style (scaled-down) */
-.button-container .btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-width: calc(220px * var(--cta-scale)); /* reduced width */
-  padding: calc(12px * var(--cta-scale)) calc(28px * var(--cta-scale));
-  border-radius: calc(40px * var(--cta-scale));
-  border:3px solid var(--gold);
-  background: rgba(0,0,0,0.28);
-  color:var(--gold);
-  font-weight:700;
-  text-decoration:none;
-  font-size:calc(18px * var(--cta-scale));
-  transition: transform .18s ease, background .18s ease;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
-}
-.button-container .btn:hover{ transform:scale(1.04); background:var(--gold); color:#000; }
-
-/* ABOUT ORB (bottom-left) */
-.about-orb{
-  position:absolute;
-  left:22px;
-  bottom:34px;
-  width:var(--orb-size);
-  height:var(--orb-size);
-  border-radius:50%;
-  border:3px solid var(--gold);
-  background: radial-gradient(circle at 35% 30%, rgba(255,235,160,0.95), rgba(255,200,0,0.9));
-  box-shadow:
-    0 0 10px rgba(255,215,0,0.35),
-    0 0 30px rgba(255,180,0,0.25);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:50;
-  cursor:pointer;
-  transition: transform .28s ease, box-shadow .28s ease;
-}
-.about-orb:hover{
-  transform: translateY(-4px) scale(1.06);
-  box-shadow: 0 0 22px rgba(255,215,0,0.6), 0 0 46px rgba(255,180,0,0.35);
-}
-.orb-text{font-weight:700;color:#111;text-shadow:none;font-family:'Montserrat';font-size:0.82rem;}
-
-/* APPS center-bottom (per your final mock) */
-.apps-btn{
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  bottom:34px;
-  padding:12px 28px;
-  border-radius:40px;
-  border:3px solid var(--gold);
-  background: rgba(0,0,0,0.28);
-  color:var(--gold);
-  font-weight:700;
-  text-decoration:none;
-  z-index:50;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
-}
-.apps-btn:hover{ background:var(--gold); color:#000; transform:translateX(-50%) scale(1.03); }
-
-/* ---------------
-   ABOUT PANEL (modal)
-   --------------- */
-.about-panel{
-  position:fixed;
-  inset:0;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:999;
-  background: rgba(0,0,0,0.6);
-  padding:28px;
-}
-.about-panel.show{ display:flex; }
-
-.about-content{
-  width:92%;
-  max-width:640px;
-  background: rgba(0,0,0,0.86);
-  border-radius:18px;
-  padding:26px;
-  border: 3px solid var(--gold);
-  color:var(--gold);
-  box-shadow: 0 0 40px rgba(255,215,0,0.28);
-  font-family: 'Montserrat', sans-serif;
-  text-align:left;
-}
-.about-content h2{ color:var(--gold); font-family:'Cinzel',serif; margin-bottom:12px; text-shadow:0 0 10px rgba(255,215,0,0.7) }
-.about-content p{ color:#fff; color: rgba(255,230,170,0.95); line-height:1.6; font-size:1rem }
-
-/* close button */
-.close-about{
-  margin-top:18px;
-  padding:8px 16px;
-  border-radius:22px;
-  border:2px solid var(--gold);
-  background:transparent;
-  color:var(--gold);
-  cursor:pointer;
-}
-
-/* -------------
-   Desktop adjustments (wider layout)
-   ------------- */
-@media(min-width: 900px){
-  .hero::after{ background: linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.6) 75%); }
-  .flag{ width:clamp(72px,10vw,120px); left:36px; top:28px }
-  .title{ top:20%; font-size:clamp(4.2rem, 6vw, 9rem) }
-  .button-container{ top:18%; right:48px }
-  .button-container .btn{ min-width: calc(240px * var(--cta-scale)); font-size:calc(22px * var(--cta-scale)); padding:calc(14px * var(--cta-scale)) calc(32px * var(--cta-scale)) }
-  .about-orb{ left:36px; bottom:48px; width:88px; height:88px }
-  .apps-btn{ bottom:48px }
-}
-
-/* -------------
-   Ensure cards and about pages scroll normally (if they are separate pages)
-   If you reuse .hero for other pages, override as needed on those pages
-   ------------- */
-.cards-page .hero, .about-page .hero { position:relative; height:auto; min-height:100vh; overflow:visible }
-
-/* small utility: prevent touchscreen elastic scroll on landing container */
-.hero, .hero * { -webkit-tap-highlight-color: rgba(0,0,0,0); }
-
-/* final safety: ensure no accidental huge margins push content offscreen */
-body > :not(.hero){ display:none } /* NOTE: this keeps the landing isolated; remove if you need other global content visible */
-/* ================================
-   GOOGLE FONT SCHEME + COLOR FIXES
-   ================================ */
-
-/* Body uses Montserrat */
-body {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  color: #fff;
-}
-
-/* Title uses Cinzel with gold highlights */
+/* ---------------- TITLE ---------------- */
 .title {
   font-family: 'Cinzel', serif;
-  font-weight: 900;
-  color: var(--gold-strong);
+  color: white;
+  text-align: center;
+  font-size: 3rem;
+  line-height: 1.1;
+  position: absolute;
+  top: 38%;              /* OPTION C: slightly above center */
+  width: 100%;
 }
 
-/* About modal headers also Cinzel */
-.about-content h2 {
-  font-family: 'Cinzel', serif;
-  font-weight: 700;
+.title span {
+  font-size: 3.4rem;
+  letter-spacing: 4px;
 }
 
-/* About modal body text uses Montserrat */
-.about-content p {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  color: rgba(255, 230, 170, 0.95);
+/* ---------------- RIGHT BUTTON STACK ---------------- */
+.button-container {
+  position: absolute;
+  top: 52%; /* aligns to the “E” of VIBE visually */
+  right: 3%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-/* Buttons follow gold theme */
-.btn,
-.apps-btn,
-.close-about {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  color: var(--gold);
+.btn {
+  background: rgba(0,0,0,0.5);
+  padding: 12px 22px;
+  border: 1px solid gold;
+  color: gold;
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
 }
 
+/* ---------------- ABOUT ORB ---------------- */
+.about-orb {
+  position: absolute;
+  bottom: 20%;
+  left: 12%;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid gold;
+  backdrop-filter: blur(3px);
+  opacity: 0.55;
+  transition: opacity .3s, transform .3s;
+}
 
-/* ============================================
-   MOBILE BACKGROUND IMAGE OVERRIDE (IMPORTANT)
-   ============================================ */
+.about-orb:hover {
+  opacity: 0.9;
+  transform: scale(1.06);
+}
 
-/* Screens under 768px = use bkimage2.jpeg */
-@media (max-width: 768px) {
-  .hero {
-    background-image: url('bkimage2.jpeg') !important;
-    background-position: center;
-    background-size: cover;
-  }
+.orb-text {
+  color: gold;
+  font-family: Montserrat;
+  font-size: 0.9rem;
+}
+
+/* ---------------- APPS BUTTON ---------------- */
+.apps-btn {
+  position: absolute;
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 14px 32px;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid gold;
+  border-radius: 8px;
+  color: gold;
+  text-decoration: none;
+  font-family: Montserrat;
+  font-size: 1.2rem;
+}
+
+/* ---------------- ABOUT PAGE ---------------- */
+
+/* Back button under the flag */
+.back-btn {
+  position: absolute;
+  top: 9%;
+  left: 2%;
+  padding: 6px 14px;
+  font-family: Montserrat;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid gold;
+  border-radius: 6px;
+  color: gold;
+}
+
+/* Title on About page sits lower so the flag + back button feel natural */
+.about-title {
+  top: 25%;
+}
+
+/* Golden glowing about box */
+.about-box {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 88%;
+  max-width: 500px;
+  padding: 18px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid gold;
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 18px rgba(255, 215, 0, 0.4);
+  color: gold;
+}
+
+/* Inner scroll area */
+.about-scroll {
+  max-height: 46vh;
+  overflow-y: auto;
+  padding-right: 10px;
 }
