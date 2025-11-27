@@ -219,3 +219,56 @@ img{max-width:100%;display:block}
 
 /* final safety: ensure no accidental huge margins push content offscreen */
 body > :not(.hero){ display:none } /* NOTE: this keeps the landing isolated; remove if you need other global content visible */
+/* ================================
+   GOOGLE FONT SCHEME + COLOR FIXES
+   ================================ */
+
+/* Body uses Montserrat */
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* Title uses Cinzel with gold highlights */
+.title {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  color: var(--gold-strong);
+}
+
+/* About modal headers also Cinzel */
+.about-content h2 {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+}
+
+/* About modal body text uses Montserrat */
+.about-content p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: rgba(255, 230, 170, 0.95);
+}
+
+/* Buttons follow gold theme */
+.btn,
+.apps-btn,
+.close-about {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+
+/* ============================================
+   MOBILE BACKGROUND IMAGE OVERRIDE (IMPORTANT)
+   ============================================ */
+
+/* Screens under 768px = use bkimage2.jpeg */
+@media (max-width: 768px) {
+  .hero {
+    background-image: url('bkimage2.jpeg') !important;
+    background-position: center;
+    background-size: cover;
+  }
+}
