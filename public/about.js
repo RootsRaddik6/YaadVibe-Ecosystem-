@@ -1,13 +1,13 @@
-// about.js - central about loader
-// Usage: /about.html?app=yaadvibe  OR ?app=yaadlife ?app=purvibe ?app=irievibe ?app=ecosystem
-
+// about.js - robust loader (safe: does NOT rewrite your content strings, only populates)
 (() => {
   const params = new URLSearchParams(location.search);
-  const app = (params.get('app') || 'ecosystem').toLowerCase();
+  // support both ?app=... and ?page=... query param styles
+  const app = (params.get('app') || params.get('page') || 'ecosystem').toLowerCase();
 
-  // -----------------------------
-  // CONTENT — TEXT UNTOUCHED
-  // -----------------------------
+  // ---------------------------
+  // CONTENT (keep your text exactly here)
+  // Replace this content object with your exact copy if you store it elsewhere.
+  // ---------------------------
   const content = {
     ecosystem: {
       title: 'ABOUT - Ecosystems',
@@ -43,50 +43,57 @@ It’s designed to let users control scheduling content while it streams from yo
       bg: '/images/cards/irievibe.jpeg'
     }
   };
+  // ---------------------------
 
   const sel = content[app] || content.ecosystem;
 
-  const hero = document.getElementById('hero');
-  const titleEl = document.getElementById('aboutTitle');
-  const subtitleEl = document.getElementById('aboutSubtitle');
-  const textEl = document.getElementById('aboutText');
-  const appsBtn = document.getElementById('appsBtn');
-  const backBtn = document.getElementById('backBtn');
+  // Find a few possible elements (supports different HTML templates)
+  const hero = document.getElementById('hero') || document.querySelector('.hero') || null;
+  const titleEl = document.getElementById('aboutTitle') || document.querySelector('.title') || document.querySelector('.app-title') || null;
+  const subtitleEl = document.getElementById('aboutSubtitle') || document.querySelector('.subtitle') || null;
+  const textEl = document.getElementById('aboutText') || document.querySelector('.about-text') || document.querySelector('.about-box p') || null;
+  const appsBtn = document.getElementById('appsBtn') || document.querySelector('.about-btn') || null;
+  const backBtn = document.getElementById('backBtn') || document.querySelector('.back-btn') || document.querySelector('.about-btn[href*="index"]') || null;
 
-  /* HERO */
+  // HERO background + gold glow class (do not change image path)
   if (hero && sel.bg) {
-    hero.style.backgroundImage =
-      `linear-gradient(rgba(0,0,0,0.40), rgba(0,0,0,0.40)), url('${sel.bg}')`;
+    hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.40), rgba(0,0,0,0.40)), url('${sel.bg}')`;
     hero.style.backgroundSize = 'cover';
     hero.style.backgroundPosition = 'center top';
-
-    hero.classList.add('hero-gold-glow'); // FIX 1
+    hero.classList.add('hero-gold-glow'); // relies on .hero-gold-glow in CSS
   }
 
-  /* TEXT (UNCHANGED) */
-  if (titleEl) titleEl.textContent = sel.title;
-  if (subtitleEl) subtitleEl.textContent = sel.subtitle;
-  if (textEl) textEl.textContent = sel.text;
+  // Populate text fields (DO NOT modify the content strings)
+  if (titleEl && sel.title) titleEl.textContent = sel.title;
+  if (subtitleEl && sel.subtitle) subtitleEl.textContent = sel.subtitle;
+  if (textEl && sel.text) textEl.textContent = sel.text;
 
-  /* GOLD BUTTONS */
+  // Buttons: add gold glow class if present (CSS must contain .gold-glow)
   if (appsBtn) appsBtn.classList.add('gold-glow');
   if (backBtn) backBtn.classList.add('gold-glow');
 
-  /* BACK BUTTON LOGIC */
+  // Back button safe handler
   if (backBtn) {
     backBtn.addEventListener('click', (e) => {
       if (history.length > 1) {
         e.preventDefault();
         history.back();
       } else {
-        location.href = "/index.html";
+        // fall back to index
+        location.href = './index.html';
       }
     });
   }
 
-  /* SCROLL LOGIC */
+  // Scroll logic: desktop freeze, mobile allow
   const isMobile = /iPhone|Android|Mobile|iPad/i.test(navigator.userAgent);
-  document.body.style.overflow = isMobile ? 'auto' : 'hidden';
+  if (!isMobile) {
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.documentElement.style.overflowY = 'auto';
+    document.body.style.overflowY = 'auto';
+  }
 
-  console.log("About page loaded with all fixes applied.");
+  console.log('about.js: loaded for', app);
 })();
