@@ -8,10 +8,18 @@
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: url("IMG_1125.jpeg") center/cover no-repeat;
+  background: url("IMG_1125.jpeg") center/cover no-repeat; /* Desktop default */
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .hero {
+    background: url("bkimage2.jpeg") center/cover no-repeat; 
+    /* or url("IMG_0039.jpeg") */
+  }
 }
 
 /* ---------------- FLAG ---------------- */
