@@ -28,7 +28,12 @@ body {
   text-align:center;
   z-index:1;
 }
-
+@media (max-width: 768px) {
+  .hero {
+    height: 100vh;
+    position: relative;
+  }
+}
 .flag {
   position:absolute;
   top:24px;
