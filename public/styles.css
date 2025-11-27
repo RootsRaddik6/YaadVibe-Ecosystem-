@@ -1,271 +1,98 @@
-/* Fonts: your HTML already loads Google fonts; this is safe if duplicated */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@500;700&display=swap');
 
 * { margin:0; padding:0; box-sizing:border-box; }
 
-/* ---------- PAGE BASE & BACKGROUND ---------- */
-html, body {
-  height: 100%;
-}
+html, body { height:100%; }
 
 body {
-  font-family: 'Montserrat', sans-serif;
-  background: url('/IMG_1125.jpeg') center/cover no-repeat; /* desktop BG - left alone */
-  color: #fff;
-  overflow-x: hidden;
-
-  /* desktop hero locking (if you intentionally want no scroll on desktop)
-     Keep this if you want the hero fullscreen locked on desktop.
-     Remove if you prefer desktop scroll. */
-  overflow-y: auto;
-  height: 100vh;
+  font-family:'Montserrat', sans-serif;
+  background:url('/IMG_1125.jpeg') center/cover no-repeat;
+  color:#fff;
+  overflow-x:hidden;
+  height:100vh;
 }
 
-/* Mobile override for portrait background and scroll */
-@media (max-width: 768px) {
+/* Mobile BG override */
+@media (max-width:768px){
   body {
-    background: url('/bkimage2.jpeg') center/cover no-repeat;
-    background-size: cover;
-    overflow-y: auto;
-    height: auto;
+    background:url('/bkimage2.jpeg') center/cover no-repeat;
+    height:auto;
+    overflow-y:auto;
   }
 }
 
-/* ---------- HERO ---------- */
 .hero {
-  position: relative;
-  width: 90%;
-  height: 100vh;
-  text-align: center;
-  overflow: visible;
-  /* make sure hero content stacks above background */
-  z-index: 1;
+  position:relative;
+  width:100%;
+  height:100vh;
+  text-align:center;
+  z-index:1;
 }
 
-/* FLAG (upper-left) */
 .flag {
-  position: absolute;
-  top: 24px;
-  left: 24px;
-  width: clamp(80px, 14vw, 160px);
-  z-index: 6;
-  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.7));
+  position:absolute;
+  top:24px;
+  left:24px;
+  width:clamp(80px, 14vw, 160px);
+  z-index:10;
+  filter:drop-shadow(0 6px 18px rgba(0,0,0,0.7));
 }
 
-/* ---------- TITLE: 1DROP YAADVIBE (gold glow) ---------- */
+/* TITLE */
 .title {
-  position: absolute;
-  top: 25%;                        /* desktop baseline */
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0;
-  font-family: 'Cinzel', serif;    /* your title font */
-  font-weight: 900;
-  white-space: nowrap;
-  letter-spacing: 10px;
-  text-align: center;
-
-  /* adaptive sizing */
-  font-size: clamp(2.8rem, 9vw, 6.5rem);
-  line-height: 1;
-
-  /* gold color */
-  color: #FFD700;
-
-  /* multi-layer gold glow */
+  position:absolute;
+  top:30%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  font-family:'Cinzel', serif;
+  font-weight:900;
+  letter-spacing:10px;
+  font-size:clamp(2.8rem, 9vw, 6.5rem);
+  color:#FFD700;
   text-shadow:
     0 0 18px rgba(255,215,0,0.9),
     0 0 44px rgba(255,215,0,0.8),
     0 0 88px rgba(255,215,0,0.6),
     0 0 140px rgba(255,215,0,0.35);
-  z-index: 5;
+  white-space:nowrap;
+  z-index:10;
 }
-/* ---------- FIX: RIGHT-ALIGNED BUTTON CONTAINERS ---------- */
+
+/* RIGHT STACKED BUTTONS */
 .button-container {
-    position: absolute;
-    top: 40px;                 /* tweak if you want it higher/lower */
-    right: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    z-index: 60; /* ensure above hero overlay and images */
+  position:absolute;
+  top:40px;
+  right:40px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  z-index:20;
 }
 
+/* BOTTOM RIGHT APPS BUTTON */
 .bottom-button-container {
-    position: absolute;
-    bottom: 40px;
-    right: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    z-index: 60;
-}
-/* Desktop tweak: nudge up slightly on larger screens so the 'Y' doesn't cover the moon */
-@media (min-width: 1200px) {
-  .title { top: 32%; }
-}
-
-/* MOBILE: smaller, higher, less letter-spacing so it doesn't block the moon */
-@media (max-width: 768px) {
-  .title {
-    top: 28%;
-    font-size: clamp(1.8rem, 10vw, 3.6rem);
-    letter-spacing: 6px;
-    white-space: normal; /* allow wrapping if needed */
-    padding: 0 12px;
-  }
-}
-/* ---------- FIX: RIGHT-ALIGNED BUTTON CONTAINERS ---------- */
-
-.button-container {
-    position: absolute;
-    top: 40px;                 /* adjust if needed */
-    right: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    z-index: 50;               /* above overlay */
-}
-
-.bottom-button-container {
-    position: absolute;
-    bottom: 40px;
-    right: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    z-index: 50;
-}
-/* ---------- BUTTONS (right, stacked) ---------- */
-.btn-stack {
-  position: absolute;
-  right: clamp(20px, 5vw, 60px);   /* nudged to align with 'E' in VIBE */
-  top: 56%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  z-index: 6;
+  position:absolute;
+  bottom:40px;
+  right:40px;
+  z-index:20;
 }
 
 .btn {
-  padding: 8px 26px;               /* reduced size */
-  background: transparent;
-  color: #FFD700;
-  border: 3px solid #FFD700;
-  border-radius: 40px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 0.95rem;
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-  transition: transform 0.25s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 0 10px rgba(255,215,0,0.06);
+  padding:8px 26px;
+  border:3px solid #FFD700;
+  border-radius:40px;
+  color:#FFD700;
+  text-decoration:none;
+  font-weight:700;
+  background:rgba(0,0,0,0.35);
+  transition:0.25s ease;
 }
 
 .btn:hover {
-  background: #FFD700;
-  color: #000;
-  transform: scale(1.08);
-  box-shadow: 0 8px 40px rgba(255,215,0,0.45);
-}
-.button-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-right: 6vw; /* aligns with the E in VIBE */
-    gap: 18px;
+  background:#FFD700;
+  color:#000;
+  transform:scale(1.08);
 }
 
-.cta-btn, .apps-btn {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    padding: 12px 28px;
-    border: 2px solid #FFD700;
-    background: rgba(0,0,0,0.55);
-    color: #FFD700;
-    border-radius: 50px;
-    text-shadow: 0 0 8px #FFD700;
-    transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.cta-btn:hover, .apps-btn:hover {
-    transform: scale(1.06);
-    box-shadow: 0 0 15px #FFD700;
-}
-/* MOBILE buttons tweak */
-@media (max-width: 768px) {
-  .btn-stack {
-    right: 20px;
-    top: 52%;
-  }
-  .btn {
-    padding: 9px 28px;
-    font-size: 1rem;
-  }
-}
-
-/* ---------- APPS (about) BUTTON centered in hero ---------- */
-.about-btn {
-  position: absolute;
-  top: calc(50% + 28vh); /* places below title; fine-tune if needed */
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: 'Cinzel', serif;
-  font-size: 1.05rem;
-  color: #FFD700;
-  text-decoration: none;
-  padding: 10px 26px;
-  border: 2px solid #FFD700;
-  border-radius: 30px;
-  background: rgba(0,0,0,0.35);
-  backdrop-filter: blur(4px);
-  z-index: 6;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
-}
-
-.about-btn:hover {
-  background: #FFD700;
-  color: #000;
-  transform: translateX(-50%) scale(1.03);
-}
-
-/* mobile about button tweak */
-@media (max-width: 768px) {
-  .about-btn {
-    top: calc(50% + 22vh);
-    font-size: 0.95rem;
-    padding: 8px 20px;
-  }
-}
-
-/* ---------- OPTIONAL 4 APP CARDS (keeps them visible if present) ---------- */
-.app-cards {
-  position: absolute;
-  bottom: 36px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 18px;
-  z-index: 6;
-}
-
-.app-cards .card {
-  padding: 12px 18px;
-  border: 2px solid #FFD700;
-  border-radius: 12px;
-  background: rgba(0,0,0,0.45);
-  color: #FFD700;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.95rem;
-}
-
-/* mobile cards small */
-@media (max-width: 768px) {
-  .app-cards {
-    gap: 12px;
-    bottom: 22px;
-  }
-  .app-cards .card { padding: 10px 14px; font-size: 0.85rem; }
-}
+/* Remove any overlay from interfering */
+.overlay { display:none !important; }
