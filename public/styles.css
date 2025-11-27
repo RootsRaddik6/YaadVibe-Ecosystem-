@@ -2,84 +2,115 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@500;700&display=swap');
 
 /* 2. RESET */
-* { margin:0; padding:0; box-sizing:border-box; }
-html, body { height:100%; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; overflow: hidden; }
 
-/* 3. BACKGROUND */
+/* 3. DESKTOP BACKGROUND */
 body {
-  font-family:'Montserrat', sans-serif;
-  background:url('IMG_1125.jpeg') center/cover no-repeat fixed;
-  color:#fff;
-  overflow-x:hidden;
+  font-family: 'Montserrat', sans-serif;
+  background: url('IMG_1125.jpeg') center/cover no-repeat fixed;
+  color: #fff;
 }
 
-/* MOBILE BACKGROUND */
-@media (max-width:768px){
+/* 4. MOBILE BACKGROUND */
+@media (max-width: 768px) {
   body {
-    background:url('bkimage2.jpeg') center/cover no-repeat fixed;
+    background: url('bkimage2.jpeg') center/cover no-repeat fixed;
   }
 }
 
-/* 4. HERO */
+/* 5. HERO */
 .hero {
-  position:relative;
-  width:100%;
-  height:100vh;
-  text-align:center;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
-/* 5. FLAG – CENTERED ABOVE TITLE */
+/* 6. FLAG ABOVE TITLE */
 .flag {
-  position:absolute;
-  top:40px;
-  left:50%;
-  transform:translateX(-50%);
-  width:clamp(90px, 18vw, 170px);
-  filter:drop-shadow(0 6px 18px rgba(0,0,0,0.7));
-  z-index:50;
+  position: absolute;
+  top: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16vw;             /* consistent across devices */
+  max-width: 140px;
+  min-width: 80px;
+  z-index: 20;
 }
 
-/* 6. TITLE */
+/* 7. TITLE */
 .title {
-  position:absolute;
-  top:22%;
-  left:50%;
-  transform:translateX(-50%);
-  font-family:'Cinzel', serif;
-  font-weight:900;
-  letter-spacing:10px;
-  font-size:clamp(2.2rem, 9vw, 6.2rem);
-  white-space:nowrap;
-  color:#FFD700;
+  position: absolute;
+  top: 14%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: clamp(2.2rem, 7vw, 5rem);
+  letter-spacing: 8px;
+  color: #FFD700;
   text-shadow:
-      0 0 18px rgba(255,215,0,0.9),
-      0 0 44px rgba(255,215,0,0.8),
-      0 0 88px rgba(255,215,0,0.6);
-  z-index:40;
+    0 0 18px rgba(255,215,0,0.9),
+    0 0 44px rgba(255,215,0,0.85),
+    0 0 88px rgba(255,215,0,0.6);
+  z-index: 20;
 }
 
-/* 7. RIGHT-STACKED BUTTONS (1/3 SIZE) */
+/* 8. RIGHT-ALIGNED BUTTON STACK */
 .button-container {
-  position:absolute;
-  top:35%;
-  right:40px;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  z-index:30;
+  position: absolute;
+  top: 30%;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 30;
 }
 
+/* BUTTON STYLE — 16% SIZE REDUCTION */
 .btn {
-  padding:6px 18px; /* 1/3 size */
-  border:2px solid #FFD700;
-  border-radius:30px;
-  color:#FFD700;
-  background:rgba(0,0,0,0.35);
-  font-size:0.75rem;
-  text-decoration:none;
-  font-weight:700;
-  transition:0.25s ease;
+  padding: 6px 18px;
+  font-size: 0.85rem;
+  border: 3px solid #FFD700;
+  border-radius: 40px;
+  color: #FFD700;
+  background: rgba(0,0,0,0.35);
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.25s ease;
 }
 
 .btn:hover {
-  background:#FFD700
+  background: #FFD700;
+  color: #000;
+  transform: scale(1.05);
+}
+
+/* ABOUT + APPS BUTTONS BOTTOM */
+.bottom-options {
+  position: absolute;
+  bottom: 6%;
+  width: 100%;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 30;
+}
+
+.bottom-btn {
+  padding: 6px 20px;
+  font-size: 0.85rem;
+  border-radius: 40px;
+  border: 3px solid #FFD700;
+  color: #FFD700;
+  background: rgba(0,0,0,0.35);
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.25s ease;
+}
+
+.bottom-btn:hover {
+  background: #FFD700;
+  color: #000;
+}
