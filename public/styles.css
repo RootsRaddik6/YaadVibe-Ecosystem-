@@ -36,35 +36,36 @@
 }
 
 /* ---------------- TITLE ---------------- */
+/* ---------------- TITLE ---------------- */
 .title {
   font-family: 'Cinzel', serif;
   color: white;
   text-align: center;
-  font-size: 3rem;
+  font-size: 2.8rem;   /* slightly reduced for correct balance */
   line-height: 1.1;
   position: absolute;
-  top: 38%;              /* OPTION C: slightly above center */
+  top: 46%;            /* LOWER than before – matches your check mark */
   width: 100%;
 }
 
 .title span {
-  font-size: 3.4rem;
+  font-size: 3.2rem;
   letter-spacing: 4px;
 }
 
 /* ---------------- RIGHT BUTTON STACK ---------------- */
 .button-container {
   position: absolute;
-  top: 52%; /* aligns to the “E” of VIBE visually */
-  right: 3%;
+  top: 56%;            /* moved UP to sit under the “E” in VIBE */
+  right: 6%;           /* moved INWARD (toward VIBE) */
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .btn {
-  background: rgba(0,0,0,0.5);
-  padding: 12px 22px;
+  background: rgba(0,0,0,0.45);
+  padding: 9px 18px;     /* SMALLER */
   border: 1px solid gold;
   color: gold;
   font-family: Montserrat, sans-serif;
@@ -72,15 +73,32 @@
   border-radius: 8px;
   text-decoration: none;
   text-align: center;
+  font-size: 0.9rem;      /* SMALLER text */
 }
 
-/* ---------------- ABOUT ORB ---------------- */
+/* ---------------- APPS BUTTON ---------------- */
+.apps-btn {
+  position: absolute;
+  bottom: 7%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 28px;   /* slightly smaller for harmony */
+  background: rgba(0,0,0,0.55);
+  border: 1px solid gold;
+  border-radius: 8px;
+  color: gold;
+  text-decoration: none;
+  font-family: Montserrat;
+  font-size: 1.1rem;
+}
+
+/* ---------------- ABOUT ORB (unchanged except perfect alignment) ---------------- */
 .about-orb {
   position: absolute;
-  bottom: 20%;
+  bottom: 18%;
   left: 12%;
-  width: 80px;
-  height: 80px;
+  width: 72px;          /* slightly smaller circle to match reduced button scale */
+  height: 72px;
   border-radius: 50%;
   background: rgba(255,255,255,0.08);
   border: 1px solid gold;
@@ -88,18 +106,6 @@
   opacity: 0.55;
   transition: opacity .3s, transform .3s;
 }
-
-.about-orb:hover {
-  opacity: 0.9;
-  transform: scale(1.06);
-}
-
-.orb-text {
-  color: gold;
-  font-family: Montserrat;
-  font-size: 0.9rem;
-}
-
 /* ---------------- APPS BUTTON ---------------- */
 .apps-btn {
   position: absolute;
