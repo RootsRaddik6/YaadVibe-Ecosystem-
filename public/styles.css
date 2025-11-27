@@ -96,7 +96,27 @@ body {
     padding: 0 12px;
   }
 }
+/* ---------- FIX: RIGHT-ALIGNED BUTTON CONTAINERS ---------- */
 
+.button-container {
+    position: absolute;
+    top: 40px;                 /* adjust if needed */
+    right: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    z-index: 50;               /* above overlay */
+}
+
+.bottom-button-container {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    z-index: 50;
+}
 /* ---------- BUTTONS (right, stacked) ---------- */
 .btn-stack {
   position: absolute;
