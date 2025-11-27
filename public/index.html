@@ -10,30 +10,60 @@
 </head>
 
 <body>
+
   <div class="hero">
-    <div class="title-block">
-        <img src="IMG_0454.png" alt="flag" class="flag" />
-        <h1 class="title">YAADVIBE ECOSYSTEM</h1>
+
+    <!-- FLAG + TITLE -->
+    <img src="IMG_0454.png" alt="Flag" class="flag" />
+    <h1 class="title">1DROP YAADVIBE</h1>
+
+    <!-- RIGHT STACKED LOGIN BUTTONS -->
+    <div class="button-container">
+      <a href="https://ton.org" class="btn">TON</a>
+      <a href="https://walletconnect.com" class="btn">WalletConnect</a>
     </div>
 
-    <div class="cta-container">
-        <a href="https://ton.org" class="cta-btn">Enter with TON</a>
-        <a href="https://walletconnect.com" class="cta-btn">Enter with WalletConnect</a>
+    <!-- ABOUT BUTTON -->
+    <div class="about-btn" onclick="toggleAbout()">ABOUT</div>
+
+    <!-- BOTTOM-RIGHT APPS BUTTON -->
+    <div class="bottom-button-container">
+      <a href="/cards.html" class="btn">APPS</a>
     </div>
-
-    <div class="about-trigger">ABOUT</div>
-    <div class="about-panel">
-        <p>Your about content goes here — hidden by default.</p>
-    </div>
-
-    <a href="cards.html" class="bottom-btn">Explore Applications</a>
-</div>
-
-<!-- BOTTOM RIGHT APPS BUTTON -->
-<div class="bottom-button-container">
-  <a href="/cards.html" class="glow-button gold-glow btn">APPS</a>
-</div>
 
   </div>
+
+  <!-- FADE-IN FLOATING ABOUT PANEL -->
+  <div id="aboutPanel" class="about-panel">
+    <div class="about-content">
+      <h2>About IrieVibe</h2>
+      <p>
+        IrieVibe is a mobile-first ecosystem built for how Jamaica moves — fast,
+        cultural, and always connected. It blends real-world services with Web3
+        technology, giving you the power to book food, events, transportation,
+        local tours, accommodations, and more with ease.
+      </p>
+
+      <p>
+        Designed for Jamaicans at home and the diaspora abroad, IrieVibe brings
+        local expertise, authentic experiences, and digital innovation together —
+        creating a modern gateway to the island’s culture, businesses, and lifestyle.
+      </p>
+
+      <p>
+        This is Jamaica in motion — powered by blockchain, built for the people,
+        and crafted with pure vibes.
+      </p>
+
+      <div class="close-about" onclick="toggleAbout()">Close</div>
+    </div>
+  </div>
+
+  <script>
+    function toggleAbout() {
+      document.getElementById("aboutPanel").classList.toggle("show");
+    }
+  </script>
+
 </body>
 </html>
