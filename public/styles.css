@@ -224,3 +224,9 @@ body {
   background: #FFD700;
   color: #000;
 }
+.title-block {
+    margin-top: 40px;   /* raise title area */
+}
+.title {
+    margin-top: -20px;  /* optional fine-tune */
+}
