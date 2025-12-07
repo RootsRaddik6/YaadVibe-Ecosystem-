@@ -86,10 +86,9 @@ img{ max-width:100%; display:block; }
   z-index:35;
 }
 
-/* Desktop positioning (browser view fix — raised higher) */
 @media (min-width:769px){
   .title{
-    top:42vh;   /* Raised title higher above the moon */
+    top:42vh;
   }
 }
 /* Mobile positioning (leave as-is since it's already correct) */
