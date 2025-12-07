@@ -93,7 +93,7 @@ img{ max-width:100%; display:block; }
 }
 @media (max-width:768px){
   .title{
-    top:24vh; /* moved closer to flag (was 38vh) */
+    top:20vh; /* moved closer to flag (was 38vh) */
     left:50%;
     transform:translateX(-50%);
     font-size:clamp(2rem, 10vw, 5.2rem); /* restored larger scale */
