@@ -87,7 +87,7 @@ img{ max-width:100%; display:block; }
 }
 @media (min-width:769px){
   .title{
-    top:26vh;   /* FINAL desktop corrected vertical placement */
+    top:16vh;   /* lifted by title height */
   }
 }
 /* Mobile positioning (leave as-is since it's already correct) */
