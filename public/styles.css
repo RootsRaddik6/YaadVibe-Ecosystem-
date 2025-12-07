@@ -96,7 +96,7 @@ img{ max-width:100%; display:block; }
     top:28vh; /* moved closer to flag (was 38vh) */
     left:50%;
     transform:translateX(-50%);
-    font-size:clamp(3rem, 10vw, 5.2rem); /* restored larger scale */
+    font-size:clamp(2rem, 10vw, 5.2rem); /* restored larger scale */
     text-align:center;
     white-space:nowrap; /* restores single-line luxury look */
     width:auto;
