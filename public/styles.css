@@ -70,20 +70,35 @@ img{ max-width:100%; display:block; }
 /* ---------- TITLE ---------- */
 .title{
   position:absolute;
-  top:50%;
   left:50%;
-  transform:translate(-50%, -120%);
+  transform:translateX(-50%);
+  
   font-family:'Cinzel', serif;
   font-weight:900;
   color:var(--gold-strong);
+  
   text-shadow:
     0 0 18px rgba(255,215,0,1),
     0 0 44px rgba(255,215,0,0.6);
+    
   font-size:clamp(3rem, 9vw, 6rem);
   white-space:nowrap;
   z-index:35;
 }
 
+/* Desktop positioning (browser view fix) */
+@media (min-width:769px){
+  .title{
+    top:68vh;   /* Moves it below moon */
+  }
+}
+
+/* Mobile positioning (leave as-is since it's already correct) */
+@media (max-width:768px){
+  .title{
+    top:52vh;   /* No change, keeps perfect mobile placement */
+  }
+}
 
 /* ---------- BUTTON COLUMN ---------- */
 .button-container{
