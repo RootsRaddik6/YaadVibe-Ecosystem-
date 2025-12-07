@@ -85,10 +85,9 @@ img{ max-width:100%; display:block; }
   white-space:nowrap;
   z-index:35;
 }
-
 @media (min-width:769px){
   .title{
-    top:42vh;
+    top:26vh;   /* FINAL desktop corrected vertical placement */
   }
 }
 /* Mobile positioning (leave as-is since it's already correct) */
