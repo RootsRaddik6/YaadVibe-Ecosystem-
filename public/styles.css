@@ -1,3 +1,4 @@
+/* ========== Fonts ========== */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@400;600;700&display=swap');
 
 /* ========== Variables ========== */
@@ -8,51 +9,74 @@
   --cta-scale: 0.33;
 }
 
-/* reset & base */
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;background:var(--bg-dark);color:#fff;font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-img{max-width:100%;display:block}
+/* ========== Base Reset ========== */
+*{ box-sizing:border-box; margin:0; padding:0; }
+html,body{
+  height:100%;
+  background:var(--bg-dark);
+  color:#fff;
+  font-family:'Montserrat',sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+a{ color:inherit; text-decoration:none; }
+img{ max-width:100%; display:block; }
 
-/* lock landing viewport - no page scroll */
-.no-scroll { overflow: hidden; }
+/* Disable scrolling when overlay or landing mode active */
+.no-scroll { overflow:hidden; }
 
-/* HERO (locked to viewport; desktop background IMG_1125.jpeg) */
+/* ========== HERO SECTION (FULL VIEWPORT LOCKED) ========== */
 .hero{
   position:fixed;
   inset:0;
   width:100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  overflow-x: hidden;
-  background-image: url('IMG_1125.jpeg');
-  background-position:center;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:center;
+  overflow-x:hidden;
+  background-image:url('IMG_1125.jpeg');
   background-size:cover;
+  background-position:center;
   background-repeat:no-repeat;
   z-index:1;
 }
 
-/* mobile background override -> bkimage2.jpeg */
-@media (max-width:768px){
-  .hero { background-image: url('bkimage2.jpeg'); }
+/* Desktop parallax effect */
+@media (min-width:769px){
+  .hero{
+    background-attachment:fixed;
+  }
 }
 
-/* subtle overlay so the title reads well */
+/* Mobile background switch */
+@media (max-width:768px){
+  .hero{ background-image:url('bkimage2.jpeg'); }
+}
+
+/* Soft gradient overlay */
 .hero::after{
   content:"";
-  position:absolute;inset:0;
+  position:absolute;
+  inset:0;
   background:linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.6) 75%);
   z-index:2;
 }
 
-/* FLAG - top-left, larger but contained */
-.flag-container{ position:absolute; left:4%; top:2.2%; z-index:40; }
-.flag{ width: clamp(56px, 12vw, 140px); height:auto; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.6)); }
+/* ========== FLAG (TOP LEFT) ========== */
+.flag-container{
+  position:absolute;
+  left:4%;
+  top:2.2%;
+  z-index:40;
+}
+.flag{
+  width:clamp(56px,12vw,140px);
+  height:auto;
+  filter:drop-shadow(0 8px 24px rgba(0,0,0,0.6));
+}
 
-/* TITLE - one-line centered (big Cinzel with gold glow) */
+/* ========== MAIN TITLE ========== */
 .title{
   position:absolute;
   top:20%;
@@ -60,89 +84,150 @@ img{max-width:100%;display:block}
   transform:translateX(-50%);
   font-family:'Cinzel',serif;
   font-weight:900;
+  font-size:clamp(2.8rem, 8vw, 5.8rem);
+  white-space:nowrap;
   color:var(--gold-strong);
-  text-align:center;
   z-index:35;
   text-shadow:
     0 0 18px rgba(255,215,0,0.95),
     0 0 44px rgba(255,215,0,0.6);
-  font-size:clamp(2.8rem, 8vw, 5.8rem);
-  white-space:nowrap;
 }
 
-/* RIGHT STACKED BUTTONS (moved down & smaller) */
+/* ========== CTA BUTTON STACK (RIGHT SIDE) ========== */
 .button-container{
   position:absolute;
+  top:48%;
   right:4%;
-  top:48%;      /* pushed well below the title */
-  z-index:45;
   display:flex;
   flex-direction:column;
   gap:12px;
   align-items:flex-end;
+  z-index:45;
 }
 
 .button-container .btn{
-  display:inline-flex;
+  display:flex;
   align-items:center;
   justify-content:center;
-  min-width: calc(220px * var(--cta-scale));
-  padding: calc(12px * var(--cta-scale)) calc(28px * var(--cta-scale));
-  border-radius: calc(40px * var(--cta-scale));
+  min-width:calc(220px * var(--cta-scale));
+  padding:calc(12px * var(--cta-scale)) calc(28px * var(--cta-scale));
+  border-radius:calc(40px * var(--cta-scale));
   border:3px solid var(--gold);
-  background: rgba(0,0,0,0.28);
+  background:rgba(0,0,0,0.28);
   color:var(--gold);
   font-weight:700;
-  text-decoration:none;
   font-size:calc(18px * var(--cta-scale));
-  transition: transform .18s ease, background .18s ease;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  box-shadow:0 6px 18px rgba(0,0,0,0.45);
+  transition:transform .18s ease, background .18s ease;
 }
-.button-container .btn:hover{ transform:scale(1.04); background:var(--gold); color:#000; }
+.button-container .btn:hover{
+  transform:scale(1.04);
+  background:var(--gold);
+  color:#000;
+}
 
-/* ABOUT ORB (faint until hovered) */
+/* ========== ABOUT ORB ========== */
 .about-orb{
-  position:relative;
+  position:absolute;
   left:10%;
   bottom:20%;
   width:72px;
   height:72px;
   border-radius:50%;
   border:3px solid var(--gold);
-  background: radial-gradient(circle at 30% 30%, rgba(255,235,160,0.06), rgba(255,200,0,0.02));
-  box-shadow: 0 0 12px rgba(255,193,71,0.12);
+  background:radial-gradient(circle at 30% 30%, rgba(255,235,160,0.06), rgba(255,200,0,0.02));
+  box-shadow:0 0 12px rgba(255,193,71,0.12);
   opacity:0.45;
-  z-index:50;
   cursor:pointer;
-  transition: transform .28s ease, opacity .28s ease;
+  z-index:50;
+  transition:transform .28s ease, opacity .28s ease;
 }
-.about-orb:hover{ transform:translateY(-6px) scale(1.04); opacity:0.95; box-shadow: 0 0 28px rgba(255,180,0,0.28); }
-.orb-text{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-weight:700; color:#111; pointer-events:none; }
+.about-orb:hover{
+  transform:translateY(-6px) scale(1.04);
+  opacity:0.95;
+  box-shadow:0 0 28px rgba(255,180,0,0.28);
+}
+.orb-text{
+  position:absolute;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-weight:700;
+  pointer-events:none;
+  color:#111;
+}
 
-/* APPS center-bottom */
+/* Mobile orb resize */
+@media (max-width:768px){
+  .about-orb{
+    width:56px;
+    height:56px;
+    left:8%;
+    bottom:18%;
+  }
+}
+
+/* ========== APPS BUTTON ========== */
 .apps-btn{
-  position:relative;
+  position:absolute;
+  bottom:36px;
   left:50%;
   transform:translateX(-50%);
- margin-bottom:2rem;
   padding:12px 28px;
   border-radius:40px;
   border:3px solid var(--gold);
-  background: rgba(0,0,0,0.28);
+  background:rgba(0,0,0,0.28);
   color:var(--gold);
   font-weight:700;
-  text-decoration:none;
+  box-shadow:0 6px 18px rgba(0,0,0,0.45);
   z-index:50;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  transition:transform .18s ease, background .18s ease;
 }
-.apps-btn:hover{ background:var(--gold); color:#000; transform:translateX(-50%) scale(1.03); }
+.apps-btn:hover{
+  background:var(--gold);
+  color:#000;
+  transform:translateX(-50%) scale(1.03);
+}
 
-/* About panel */
-.about-panel{ position:fixed; inset:0; display:none; align-items:center; justify-content:center; z-index:999; background: rgba(0,0,0,0.55); padding:28px; }
+/* ========== ABOUT PANEL (MODAL) ========== */
+.about-panel{
+  position:fixed;
+  inset:0;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  background:rgba(0,0,0,0.55);
+  padding:28px;
+  z-index:999;
+}
 .about-panel.show{ display:flex; }
-.about-content{ width:92%; max-width:640px; background: rgba(0,0,0,0.86); border-radius:18px; padding:26px; border: 3px solid var(--gold); color:var(--gold); box-shadow: 0 0 40px rgba(255,215,0,0.28); font-family:'Montserrat',sans-serif; text-align:left; }
-.close-about{ margin-top:18px; padding:8px 16px; border-radius:22px; border:2px solid var(--gold); background:transparent; color:var(--gold); cursor:pointer; }
 
-/* Prevent accidental page elements showing (if you rely on this pattern) */
-/* If you have other top-level content you want visible, remove this rule */
-body > :not(.hero){ display:none }
+.about-content{
+  width:92%;
+  max-width:640px;
+  background:rgba(0,0,0,0.86);
+  border-radius:18px;
+  padding:26px;
+  border:3px solid var(--gold);
+  color:var(--gold);
+  text-align:left;
+  box-shadow:0 0 40px rgba(255,215,0,0.28);
+}
+
+.close-about{
+  margin-top:18px;
+  padding:8px 16px;
+  border:2px solid var(--gold);
+  background:transparent;
+  color:var(--gold);
+  border-radius:22px;
+  cursor:pointer;
+}
+
+/* ====================
+   FINAL RULE — keep last
+===================== */
+body > :not(.hero){
+  display:none;
+}
