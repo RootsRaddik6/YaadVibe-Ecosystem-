@@ -18,10 +18,9 @@ html, body{
   color:#fff;
   font-family:'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
-  overflow:hidden; /* Prevent scroll entirely */
+  overflow:auto; /* <-- changed from hidden to auto for mobile scrolling */
 }
 img{ max-width:100%; display:block; }
-
 
 /* ---------- HERO SECTION (FULLSCREEN LOCKED) ---------- */
 .hero{
@@ -32,7 +31,7 @@ img{ max-width:100%; display:block; }
   display:flex;
   align-items:center;
   justify-content:center;
-  overflow:hidden;
+  overflow:hidden; /* keep hero itself fixed */
   background-image:url('IMG_1125.jpeg');
   background-size:cover;
   background-position:center;
@@ -93,15 +92,16 @@ img{ max-width:100%; display:block; }
 }
 @media (max-width:768px){
   .title{
-    top:20vh; /* moved closer to flag (was 38vh) */
+    top:20vh;
     left:50%;
     transform:translateX(-50%);
-    font-size:clamp(2rem, 10vw, 5.2rem); /* restored larger scale */
+    font-size:clamp(2rem, 10vw, 5.2rem);
     text-align:center;
-    white-space:nowrap; /* restores single-line luxury look */
+    white-space:nowrap;
     width:auto;
   }
 }
+
 /* ---------- BUTTON COLUMN ---------- */
 .button-container{
   position:absolute;
@@ -135,7 +135,6 @@ img{ max-width:100%; display:block; }
   color:#000;
 }
 
-
 /* ---------- ABOUT ORB ---------- */
 .about-orb{
   position:absolute;
@@ -168,10 +167,9 @@ img{ max-width:100%; display:block; }
   pointer-events:none;
 }
 
-
-/* ---------- APPS BUTTON — FIXED FOR MOBILE ---------- */
+/* ---------- APPS BUTTON ---------- */
 .apps-btn {
-  position: fixed; /* changed from absolute */
+  position: fixed;
   left: 50%;
   bottom: max(6%, env(safe-area-inset-bottom, 20px) + 20px);
   transform: translateX(-50%);
@@ -193,13 +191,14 @@ img{ max-width:100%; display:block; }
   transform: translateX(-50%) scale(1.07);
 }
 
-/* Optional: specific mobile tweak */
+/* Optional mobile tweak */
 @media (max-width:768px){
   .apps-btn{
     padding: 14px 28px;
-    font-size: 1rem; /* adjust size for smaller screens */
+    font-size: 1rem;
   }
 }
+
 /* ---------- ABOUT PANEL ---------- */
 .about-panel{
   position:fixed;
@@ -207,9 +206,10 @@ img{ max-width:100%; display:block; }
   display:none;
   background:rgba(0,0,0,0.55);
   z-index:999;
-  align-items:center;
+  align-items:flex-start; /* <-- allow modal to start at top for scrolling */
   justify-content:center;
   padding:30px;
+  overflow-y:auto; /* <-- enable scroll */
 }
 .about-panel.show{ display:flex; }
 
@@ -223,6 +223,8 @@ img{ max-width:100%; display:block; }
   color:var(--gold);
   box-shadow:0 0 45px rgba(255,215,0,0.35);
   text-align:left;
+  max-height:90vh; /* <-- allow scrolling if content exceeds screen */
+  overflow-y:auto;     /* <-- scroll inside modal */
 }
 .close-about{
   margin-top:18px;
